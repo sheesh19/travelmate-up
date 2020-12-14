@@ -1,0 +1,5 @@
+<% @trips.each do |trip| %>
+    <% if policy(trip).show? %>
+        <%= link_to trip.title, trip_path(trip) %>
+    <% end %>
+<% end %>
