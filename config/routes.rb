@@ -1,6 +1,22 @@
 Rails.application.routes.draw do
   devise_for :users
-  get '/kitchensink', to: 'pages#kitchensink' if Rails.env.development?
+  
+  # MAIN
   root to: 'pages#home'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  get 'explore', to: 'pages#explore'
+
+  # TRIP 
+  resources :trips do
+    resources :events, except: :index
+  end
+
+  # EVENTS
+  resources :events, only: :index
+  
+  # LOCATIONS
+  resources :locations, only: [ :index, :show ]
+
+  if Rails.env.development?
+    get '/kitchensink', to: 'pages#kitchensink' if Rails.env.development?
+  end
 end
