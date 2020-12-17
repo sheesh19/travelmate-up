@@ -12,6 +12,10 @@ class TripPolicy < ApplicationPolicy
   def create?
     true
   end
+
+  def edit?
+    record.user == user
+  end
   
   def update?
     record.user == user
