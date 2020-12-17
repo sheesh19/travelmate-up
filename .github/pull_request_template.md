@@ -1,6 +1,6 @@
 # Pull Request
 
-## Description :speak_no_evil:
+## Description :dolphin:
 [PLEASE REPLACE]
 Describe the motivation and context for the pull request, explain your why! Please also include a summary of the change and which issue is fixed. List any dependencies that are required for this change.
 [PLEASE REPLACE]
@@ -32,6 +32,3 @@ Please describe the tests that you ran to verify your changes.  Please also list
 
 ## Photos :see_no_evil:
 Please provide photos of changes made as necessary
-
-_Built with love_ :heart: 
-_By Nico_:wolf: _and Sy_:turtle:
