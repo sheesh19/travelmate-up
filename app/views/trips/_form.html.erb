@@ -1,0 +1,21 @@
+<%= simple_form_for trip do |f| %>
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
+    <%= f.input :trip_type %>
+    <%= f.input :visibility %>
+    <%= f.input :status %>
+    <h4>Trip Events</h4>
+    <div id="events">
+        <%= f.simple_fields_for :events do |event| %>
+            <%= render 'event_fields', f: event %>
+        <% end %>
+
+        <%= link_to_add_association 'Add Event', f, :events %>
+    </div>
+    <br>
+    <br>
+    
+    <%= f.submit %>
+<% end %>

@@ -1,3 +1,5 @@
 <%= @trip.title %>
 
-<%= link_to "Edit #{@trip.title} Trip", edit_trip_path(@trip) %>
+<% if policy(trip).edit? %>
+    <%= link_to "Edit #{@trip.title} Trip", edit_trip_path(@trip) %>
+<% end %>
