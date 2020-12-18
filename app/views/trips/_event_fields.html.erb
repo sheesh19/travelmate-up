@@ -1,10 +1,12 @@
-<%= f.input :title %>
-<%= f.input :description %>
-<%= f.input :location %>
-<%= f.input :start_date %>
-<%= f.input :end_date %>
-<%= f.input :max_spots %>
-<%= f.input :tag_list %>
-<%= f.input :activity_list %>
-<%= link_to_remove_association "Delete Event", f %>
+<div class="js-trip-form">
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :location, input_html: { class: 'js-trip-location' } %>
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
+    <%= f.input :max_spots %>
+    <%= f.input :tag_list %>
+    <%= f.input :activity_list %>
+    <%= link_to_remove_association "Delete Event", f %>
+</div>
 
