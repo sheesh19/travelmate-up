@@ -7,8 +7,7 @@ export const initAutoCompleteField = (selector) => {
     if (eventBtn) {
         eventBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            console.log('yass');
-            document.addEventListener('DOMContentLoaded', (e) => {
+            document.addEventListener('cocoon:after-insert', (e) => {
                 var placesAutocomplete = places({
                     appId: process.env.ALGOLIA_APPLICATION_ID,
                     apiKey: process.env.ALGOLIA_APPlICATION_API_KEY,
