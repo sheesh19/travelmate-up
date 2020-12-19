@@ -6,8 +6,9 @@ const initGoogleAutocomplete = () => {
             e.preventDefault();
             document.addEventListener('cocoon:after-insert', (e) => {
 
-                function initializeAutocomplete(id) {
-                    var element = document.getElementById(id);
+                function initializeAutocomplete(selector) {
+                    var element = document.querySelector(selector);
+                    debugger
                     if (element) {
                         var autocomplete = new google.maps.places.Autocomplete(element, {
                             componentRestrictions: { country: "us" },
@@ -36,9 +37,8 @@ const initGoogleAutocomplete = () => {
                         }
                     }
                 }
-                google.maps.event.addDomListener(window, "load", function () {
-                    initializeAutocomplete("js-trip-location");
-                });
+
+                initializeAutocomplete(".js-trip-location");
             });
         });
     }
