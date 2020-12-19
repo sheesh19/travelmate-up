@@ -35,7 +35,8 @@ gem 'devise'
 gem 'pundit'
 gem 'cocoon'
 gem 'acts-as-taggable-on', '~> 6.0'
-
+gem 'reek'
+gem 'flog'
 
 
 group :development, :test do  gem 'pry-byebug'

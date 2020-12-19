@@ -28,6 +28,8 @@ class TripsController < ApplicationController
         @trip = Trip.new(trip_params)
         authorize @trip
         @trip.user = current_user
+        # @location = Location.event_geocoder(params[:event][:location])
+        raise
 
         if @trip.save
             redirect_to trip_path(@trip)

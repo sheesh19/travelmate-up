@@ -12,7 +12,7 @@
             <%= render 'event_fields', f: event %>
         <% end %>
 
-        <%= link_to_add_association 'Add Event', f, :events %>
+        <%= link_to_add_association 'Add Event', f, :events, class: 'js-event-btn' %>
     </div>
     <br>
     <br>
