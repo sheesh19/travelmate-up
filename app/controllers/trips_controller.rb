@@ -21,16 +21,9 @@ class TripsController < ApplicationController
         @trip = Trip.new(trip_params)
         authorize @trip
         @trip.user = current_user
-
-        events_params.each do |event_param|
-            event = Event.new(event_param[1].except(:location))
-            location = Location.event_geocoder(event_param[1][:location])
-            event.trip = @trip
-            event.location = location
-            event.save!
-        end
-
+        
         if @trip.save
+            Event.build_events(@trip, events_params)
             redirect_to trip_path(@trip)
         else
             render :new
