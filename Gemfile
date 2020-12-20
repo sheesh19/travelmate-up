@@ -33,10 +33,19 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'devise'
 gem 'pundit'
+
+# NESTED OBJECTS
 gem 'cocoon'
+
+# TAGS
 gem 'acts-as-taggable-on', '~> 6.0'
+
+# CODE REVIEW
 gem 'reek'
 gem 'flog'
+
+# LOCATION
+gem 'geocoder'
 
 
 group :development, :test do  gem 'pry-byebug'

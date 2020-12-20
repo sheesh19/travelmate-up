@@ -1,5 +1,16 @@
-<%= @trip.title %>
+<h4><%= @trip.title %></h4>
 
-<% if policy(trip).edit? %>
+<% @trip.events.each do |event| %>
+    <% if policy(event).show? %>
+        <%= link_to event.title, trip_event_path(@trip, event) %>
+    <% end %>
+<% end %>
+
+
+<br>
+<br>
+<br>
+
+<% if policy(@trip).edit? %>
     <%= link_to "Edit #{@trip.title} Trip", edit_trip_path(@trip) %>
 <% end %>

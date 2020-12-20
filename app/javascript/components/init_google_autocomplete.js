@@ -11,7 +11,7 @@ const initGoogleAutocomplete = () => {
                     debugger
                     if (element) {
                         var autocomplete = new google.maps.places.Autocomplete(element, {
-                            componentRestrictions: { country: "us" },
+                            // componentRestrictions: { country: "us" },
                         });
                         google.maps.event.addListener(
                             autocomplete,
