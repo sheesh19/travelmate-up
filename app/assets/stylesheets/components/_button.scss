@@ -1,0 +1,50 @@
+.btn-filled {
+    // Colour
+    background-color: $teal;
+    border-color: $teal;
+    color: $almost-white;
+    // Font
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    // Spacing
+    padding: 8px 24px 8px 24px;
+    margin: 0px;
+    display: inline-block;
+    // Border
+    border-radius: 4em;
+    // Animation
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    &:hover {
+        color: $almost-white;
+        box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+    }
+}
+
+.btn-outlined {
+    // Colour
+    background-color: none;
+    border-color: $teal;
+    color: $teal;
+    // Font
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    // Spacing
+    padding: 8px 24px 8px 24px;
+    margin: 0px;
+    display: inline-block;
+    // Border
+    border-radius: 4em;
+    border-width: 1.5px;
+    // Animation
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    &:hover {
+        color: $almost-white;
+        background-color: $teal;
+        box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.1),
+        0 4px 5px 0 rgba(0, 0, 0, 0.07),
+        0 1px 10px 0 rgba(0, 0, 0, 0.06);
+    }
+}
+

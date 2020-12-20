@@ -8,6 +8,15 @@ class Location < ApplicationRecord
         [street, city, state, country].compact.join(', ')
     end
 
+    def self.sort_by_events
+        # Top ten locations by number of events
+        self
+            .left_joins(:events)
+            .group(:id)
+            .order('COUNT(events.id) DESC')
+            .limit(10)
+    end
+
     def self.event_geocoder(location_name)
         if Location.find_by(city: location_name)
             Location.find_by(city: location_name)
