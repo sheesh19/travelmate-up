@@ -1,0 +1,138 @@
+// Main Page Container
+// #container-wrapper {
+//     display: grid;
+//     // grid-gap: 16px;
+//     grid-template-columns: 2fr 10fr;
+//     min-height: 100%;
+//     // flex-grow: 1;
+//     // width: 98%;
+// }
+
+.container__main {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    // margin-top: 32px;
+}
+
+.page-container {
+    margin-left: 80px;
+    margin-right: 80px;
+    padding-top: 56px;
+}
+
+.page-container-home {
+    margin-left: 80px;
+    margin-right: 80px;
+    padding-top: 32px;
+    padding-bottom: 64px;
+}
+
+.small-page-container {
+    margin-left: 144px;
+    margin-right: 144px;
+    padding-top: 56px;
+}
+
+// Featured Container
+
+.container__featured {
+    height: auto;
+    width: 100%;
+    padding-left: 72px;
+    padding-right: 72px;
+    padding-bottom: 24px;
+    // border-top: $light-gray solid 1px;
+    // border-bottom: $light-gray solid 1px;
+    background-color: $almost-white;
+}
+
+.container__featured-white {
+    height: auto;
+    width: 100%;
+    padding-left: 72px;
+    padding-right: 72px;
+    padding-bottom: 24px;
+    border-top: $light-gray solid 1px;
+    border-bottom: $light-gray solid 1px;
+}
+
+.container__body {
+    height: auto;
+    width: 100%;
+    padding-left: 72px;
+    padding-right: 72px;
+    padding-bottom: 24px;
+}
+
+
+// Dashboard Container
+
+.container__dashboard {
+    display: grid;
+    grid-template-columns: 7fr 3fr;
+    flex-grow: 1;
+    grid-gap: 16px;
+}
+
+.container__event {
+    display: grid;
+    grid-template-columns: 6fr 4fr;
+    flex-grow: 1;
+    grid-gap: 72px;
+}
+
+// Empty state container
+
+
+.empty-state-container {
+    height: 100%;
+    border: dashed 1px $gray-ccc;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    p {
+        margin: 0;
+        color: $medium-gray;
+    }
+    &:hover {
+        &:after {
+        border-radius: 8px;
+        content: '';
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        bottom: 8px;
+        left: 8px;
+        background-color: $almost-white;
+        z-index: -1;
+        }
+    }
+}
+
+.empty-state {
+    height: 100%;
+    border: dashed 1px $gray-ccc;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    p {
+        margin: 0;
+        color: $medium-gray;
+    }
+}
+
+// Profile Container
+
+.user-description {
+    width: 80%;
+    padding-top: 2rem;
+    text-align: center;
+}

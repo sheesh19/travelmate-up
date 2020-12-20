@@ -1,0 +1,50 @@
+.horizontal-divider {
+    height: 1px;
+    border: solid 0.5px $lightish-gray;
+    margin: 40px 0 40px 0;
+}
+
+.horizontal-page-divider {
+    height: 1px;
+    border: solid 0.5px $lightish-gray;
+}
+
+.page-top-margin {
+    margin-top: 64px;
+}
+
+.page-bottom-spacer {
+    height: 160px;
+}
+
+.teal-background {
+    background-color: $teal;
+}
+
+.lighten-opacity {
+    opacity: 50%;
+}
+
+.dark-teal-background {
+    background-color: $dark-teal;
+}
+
+.darkest-teal-background {
+    background-color: $darkest-teal;
+}
+
+.almost-white-background {
+    background-color: $almost-white;
+}
+
+.dark-background {
+    background-color: $dark-gray;
+}
+
+.gray-background {
+    background-color: $darkish-gray;
+}
+
+.border-radius {
+    border-radius: 8px;
+}

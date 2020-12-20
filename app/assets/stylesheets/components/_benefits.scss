@@ -1,0 +1,39 @@
+.home-featured-events {
+  margin: 32px 0 32px 0;
+}
+
+.benefits-icon {
+    font-size: 56px;
+    i {
+        color: $teal;
+    }
+}
+
+.benefits-text-header {
+    color: $almost-white;
+    line-height: 28px;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.benefits-text {
+    color: $form-border-gray;
+    font-size: 14px;
+    font-weight: 400;
+    padding-top: 8px;
+    padding-bottom: 32px;
+}
+
+.benefit-card {
+    text-align: center;
+    max-width: 180px;
+}
+
+.benefits-title {
+    padding-left: 80px;
+    padding-bottom: 32px;
+    color: $teal;
+    font-size: 24px;
+    font-weight: 600;
+    // text-align: center;
+}

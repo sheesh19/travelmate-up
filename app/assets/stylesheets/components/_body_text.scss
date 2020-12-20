@@ -1,0 +1,44 @@
+h3, h4, h6 {
+    #body {
+        padding-bottom:60px;   /* Height of the footer */
+    }
+}
+
+h3, h4, h6 {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    font-weight: 400;
+}
+
+h3, h4 {
+    color: $teal;
+}
+
+h5, h6 {
+    color: $travelmate-gray;
+}
+
+p {
+    color: $travelmate-gray;
+}
+
+// Icons
+
+.far {
+    color: $form-border-gray;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    &:hover {
+        color: $gray-ccc;
+    }
+}
+
+.fas {
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    color: $gray-ccc;
+}
+
+a {
+    &:hover {
+        cursor: pointer;
+    }
+}

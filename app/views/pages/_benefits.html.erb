@@ -1,0 +1,38 @@
+<div class="darkest-teal-background">
+  <div class="page-container-home">
+    <div class="benefits-title">
+    </div>
+    <div class="d-flex justify-content-around">
+      <div class="benefit-card">
+        <div class="benefits-icon">
+          <i class="fas fa-plane"></i>
+        </div>
+        <div class="benefits-text-header">Plan trips easily</div>
+        <div class="benefits-text">Trip planning has never been such a breeze</div>
+        <div>
+          <%= link_to "Create a trip", new_trip_path, class: "btn btn-outlined" %>
+        </div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefits-icon">
+          <i class="fas fa-users"></i>
+        </div>
+        <div class="benefits-text-header">Share experiences</div>
+        <div class="benefits-text">Grow and learn with other solo travellers</div>
+        <div>
+          <%= link_to "Find a mate", events_path, class: "btn btn-outlined" %>
+        </div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefits-icon">
+          <i class="far fa-grin-stars"></i>
+        </div>
+        <div class="benefits-text-header">Travel plan inspiration</div>
+        <div class="benefits-text">Use other traveller's travel plans for ideas</div>
+        <div>
+          <%= link_to "See travel plans", trips_path, class: "btn btn-outlined" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
