@@ -1,5 +1,12 @@
+<h4>All Trips</h4>
+
+<%= link_to 'Create A Trip', new_trip_path %>
+
+<br>
+<br>
 <% @trips.each do |trip| %>
     <% if policy(trip).show? %>
         <%= link_to trip.title, trip_path(trip) %>
     <% end %>
 <% end %>
+

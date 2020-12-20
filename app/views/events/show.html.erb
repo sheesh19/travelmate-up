@@ -1,0 +1,5 @@
+<h4><%= @event.title %></h4>
+
+<% if policy(@event).edit? %>
+    <%= link_to "Edit #{@event.title}", edit_trip_event_path(@event.trip, @event) %>
+<% end %>

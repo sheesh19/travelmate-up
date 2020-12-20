@@ -8,14 +8,7 @@ class TripsController < ApplicationController
     def show
         @user = @trip.user
 
-        # Markers for the itinerary map
-        @markers = @trip.events.map do |event|
-          {
-            lat: event.location.latitude,
-            lng: event.location.longitude,
-            # infoWindow: render_to_string(partial: "shared/infowindow", locals: { event: event.title })
-          }
-        end
+        trip_markers
     end
 
     def new
@@ -28,10 +21,9 @@ class TripsController < ApplicationController
         @trip = Trip.new(trip_params)
         authorize @trip
         @trip.user = current_user
-        # @location = Location.event_geocoder(params[:event][:location])
-        raise
-
+        
         if @trip.save
+            Event.build_events(@trip, events_params)
             redirect_to trip_path(@trip)
         else
             render :new
@@ -56,19 +48,24 @@ class TripsController < ApplicationController
 
     private
 
+    def trip_markers
+        # Markers for the itinerary map
+        @markers = @trip.events.map do |event|
+            {
+                lat: event.location.latitude,
+                lng: event.location.longitude,
+                # infoWindow: render_to_string(partial: "shared/infowindow", locals: { event: event.title })
+            }
+        end
+    end
+
     def set_trip
         @trip = Trip.find(params[:id])
         authorize @trip
     end
 
-    def trip_params
+    def events_params
         params.require(:trip).permit(
-            :user, 
-            :title, 
-            :start_date, 
-            :end_date, 
-            :status, 
-            :description, 
             events_attributes: [
                 :id, 
                 :location, 
@@ -80,7 +77,18 @@ class TripsController < ApplicationController
                 :photo,
                 tag_list: [],
                 activity_list: []
-             ]
-            )
+            ]
+        )[:events_attributes]
+    end
+
+    def trip_params
+        params.require(:trip).permit(
+            :user, 
+            :title, 
+            :start_date, 
+            :end_date, 
+            :status, 
+            :description
+        )
     end
 end
