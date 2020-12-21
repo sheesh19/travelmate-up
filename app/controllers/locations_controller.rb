@@ -1,4 +1,5 @@
 class LocationsController < ApplicationController
+    before_action :set_location, only: [ :show ]
 
     def index
         @locations = Location.all
@@ -10,5 +11,6 @@ class LocationsController < ApplicationController
 
     def set_location
         @location = Location.find(params[:id])
+        authorize @location
     end
 end

@@ -1,0 +1,53 @@
+<div class="search__box">
+  <div class="search-banner justify-content-center">
+    <!-- Search bar -->
+    <div class="search-banner-text">
+      <h1>
+        <strong>Discover destinations<strong>
+      </h1>
+    </div>
+      <div class="index-search">
+        <%= form_tag(locations_path, method: :get, placeholder: "Search locations") do %>
+        <%= text_field_tag :query %>
+          <%= link_to request.path do %>
+          <i class="far fa-times-circle"></i>
+          <% end %>
+        <% end %>
+      </div>
+  </div>
+</div>
+
+<!-- Displays search results dynamically -->
+<% if @query %>
+    <div>
+        <div class="page-container-home">
+            <div class="featured-title-home d-flex justify-content-between align-items-center">
+                <h4>Search results</h4>
+            </div>
+            <div class="card__grid">
+            <% if @locations.any? %>
+                <% @locations[0..@locations.count].each do |location| %>
+                    <div class="photo-card photo-card-location">
+                        <% if location.photo.present? %>
+                            <%= image_tag location.photo, class: "photo-card" %>
+                        <% else %>
+                            <%= image_tag ("https://images.unsplash.com/photo-1502920514313-52581002a659?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1647&q=80"), class: "photo-card" %>
+                        <% end %>
+                        <div class="card-title-location">
+                            <p>
+                                <i class="fas fa-map-marker-alt pr-1"></i>
+                                <%= location.city %>, <%= location.country %>
+                            </p>
+                        </div>
+                        <%= link_to "", location_path(location), class: "make-card-clickable" %>
+                    </div>
+                <% end %>
+            <% else %>
+            </div>
+        <div>
+      <span>No results found</span>
+    </div>
+  <% end %>
+  </div>
+<% end %>
+<div class="horizontal-page-divider"></div>
