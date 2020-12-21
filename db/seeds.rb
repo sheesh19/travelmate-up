@@ -1,3 +1,5 @@
+require "open-uri"
+
 puts "Clean database..."
 
 EventRegistration.destroy_all
@@ -218,6 +220,10 @@ puts "Created #{User.count} user(s)"
 
 # locations
 puts "Creating locations"
+file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
+location = Location.new(title: 'NES', body: "A great console")
+location.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+
 location_list = [
 {
   city: "Melbourne",

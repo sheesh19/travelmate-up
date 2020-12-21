@@ -5,6 +5,8 @@ class LocationsController < ApplicationController
         @locations = Location.all
     end
 
+    
+
     def show; end
 
     private
