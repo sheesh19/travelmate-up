@@ -1,0 +1,36 @@
+<div class="darkest-teal-background">
+  <div class="page-container-home darkest-teal-background">
+    <div class="justify-content-around card__grid">
+    
+        <%= render partial: 'pages/discover/benefit_card',
+            locals: {
+                icon: 'fa-plane',
+                text_header: 'Plan trips easily',
+                text_main: 'Trip planning has never been such a breeze',
+                text_button: 'Create a trip',
+                path: new_trip_path
+            }
+        %>
+
+        <%= render partial: 'pages/discover/benefit_card',
+            locals: {
+                icon: 'fa-users',
+                text_header: 'Share experiences',
+                text_main: 'Grow and learn with other solo travellers',
+                text_button: 'Find a mate',
+                path: events_path
+            }
+        %>
+
+        <%= render partial: 'pages/discover/benefit_card',
+            locals: {
+                icon: 'fa-grin-stars',
+                text_header: 'Travel plan inspiration',
+                text_main: "Use other traveller's travel plans for ideas",
+                text_button: 'See travel plans',
+                path: trips_path
+            }
+        %>
+    </div>
+  </div>
+</div>
