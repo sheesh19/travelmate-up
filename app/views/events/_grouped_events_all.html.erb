@@ -1,0 +1,10 @@
+<!-- Upcoming events grouped by dates -->
+
+<% @all_events.group_by_month { |e| e[:start_date] }.each do |eventgroup| %>
+  <% if eventgroup[0] >= Date.today %>
+    <h6><%= eventgroup[0].strftime("%b %Y") %></h6>
+    <% eventgroup[1].each do |event| %>
+      <%= render 'shared/cards/event_card', element: event %>
+    <% end %>
+  <% end %>
+<% end %>

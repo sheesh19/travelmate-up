@@ -1,0 +1,16 @@
+<!-- LOCATIONS -->
+<div class="almost-white-background">
+  <div class="page-container-home">
+    <div class="featured-title-home d-flex justify-content-between align-items-center">
+      <h2>DESTINATION DISCOVERY</h2>
+    </div>
+    <div class="">
+      <!-- Card Carousel -->
+      <div class="card__grid">
+        <% @locations.each do |location| %>
+          <%= render 'shared/cards/location_card', element: location %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

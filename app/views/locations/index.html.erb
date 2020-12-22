@@ -1,7 +1,12 @@
 <!-- Search bar -->
-<div>
-  <%= render 'shared/search/search_locations' %>
-</div>
+<%= render partial: 'shared/search/search_main', 
+    locals: {
+        search_title: 'Discover destinations',
+        path: locations_path,
+        search_placeholder: 'Search locations',
+        elements: @locations
+    }
+%>
 
 <!-- Featured locations -->
 <div class="almost-white-background pt-4">

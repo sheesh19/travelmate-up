@@ -1,0 +1,43 @@
+<div class="search__box">
+  <div class="search-banner justify-content-center">
+    <!-- Search bar -->
+    <div class="search-banner-text">
+      <h1>
+        <strong><%= search_title %><strong>
+      </h1>
+    </div>
+      <div class="index-search">
+        <%= form_tag(path, method: :get, placeholder: search_placeholder) do %>
+            <%= text_field_tag :query %>
+            <%= link_to request.path do %>
+                <i class="far fa-times-circle"></i>
+            <% end %>
+        <% end %>
+      </div>
+  </div>
+</div>
+
+<!-- Displays search results dynamically -->
+<% if @query %>
+    <div>
+        <div class="page-container-home">
+            <div class="featured-title-home d-flex justify-content-between align-items-center">
+                <h4>Search results</h4>
+            </div>
+            <div class="<%= 'card__grid' unless elements.first.class_string == 'event' %>">
+                <% if elements.any? %>
+                    <% elements[0..elements.count].each do |element| %>
+                        <%= render "shared/cards/#{element.class_string}_card", element: element %>
+                    <% end %>
+                <% else %>
+            </div>
+
+                <div>
+                    <span>No results found</span>
+                </div>
+            <% end %>
+        </div>
+    </div>
+<% end %>
+
+<div class="horizontal-page-divider"></div>

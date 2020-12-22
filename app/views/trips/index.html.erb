@@ -1,4 +1,12 @@
-<h4>All Trips</h4>
+<!-- Search bar -->
+<%= render partial: 'shared/search/search_main', 
+    locals: {
+        search_title: 'Find your trip inspiration',
+        path: trips_path,
+        search_placeholder: 'Search trips',
+        elements: @trips
+    }
+%>
 
 <%= link_to 'Create A Trip', new_trip_path %>
 

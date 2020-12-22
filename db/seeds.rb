@@ -1,3 +1,5 @@
+require "open-uri"
+
 puts "Clean database..."
 
 EventRegistration.destroy_all
@@ -218,138 +220,152 @@ puts "Created #{User.count} user(s)"
 
 # locations
 puts "Creating locations"
+
 location_list = [
 {
   city: "Melbourne",
   country: "Australia",
   state: "Victoria",
   latitude: -37.8238,
-  longitude: 144.9913,
-  # photo: "https://images.unsplash.com/photo-1514395462725-fb4566210144?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2851&q=80"
+  longitude: 144.9913
 },
 {
   city: "Sydney",
   country: "Australia",
   state: "NSW",
   latitude: -33.865143,
-  longitude: 151.209900,
-  # photo: "https://images.unsplash.com/photo-1524293581917-878a6d017c71?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
+  longitude: 151.209900
 },
 {
   city: "Singapore",
   country: "Singapore",
   state: "Singapore",
   latitude: 1.286025,
-  longitude: 103.860812,
-  # photo: "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1549&q=80"
+  longitude: 103.860812
 },
 {
   city: "London",
   country: "England",
   state: "England",
   latitude: 51.500923,
-  longitude: 0.124604,
-  # photo: "https://images.unsplash.com/photo-1508711046474-2f4c2d3d30ca?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
+  longitude: 0.124604
 },
 {
   city: "New York",
   country: "USA",
   state: "NY",
   latitude: 40.783076,
-  longitude: -73.965334,
-  # photo: "https://images.unsplash.com/photo-1477882244523-716124bf91a1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2849&q=80"
+  longitude: -73.965334
 },
 {
   city: "Koh Tao",
   country: "Thailand",
   state: "Thailand",
   latitude: 10.101695,
-  longitude: 99.827190,
-  # photo: "https://images.unsplash.com/photo-1537956965359-7573183d1f57?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1568&q=80"
+  longitude: 99.827190
 },
 {
   city: "Hong Kong",
   country: "China",
   state: "Hong Kong",
   latitude: 22.342605,
-  longitude: 114.193774,
-  # photo: "https://images.unsplash.com/photo-1517144447511-aebb25bbc5fa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
+  longitude: 114.193774
 },
 {
   city: "Matsuno",
   country: "Japan",
   state: "Shikoku",
   latitude: 33.205563,
-  longitude: 132.711406,
-  # photo: "https://images.unsplash.com/photo-1524413840807-0c3cb6fa808d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
+  longitude: 132.711406
 },
 {
   city: "San Francisco",
   country: "USA",
   state: "California",
   latitude: 37.820192,
-  longitude: -122.478213,
-  # photo: "https://images.unsplash.com/photo-1449034446853-66c86144b0ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
+  longitude: -122.478213
 },
 {
   city: "Florence",
   country: "Italy",
   state: "Italy",
   latitude: 43.776935,
-  longitude: 11.258739,
-  # photo: "https://images.unsplash.com/photo-1476362174823-3a23f4aa6d76?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
+  longitude: 11.258739
 },
 {
   city: "Paris",
   country: "France",
   state: "France",
   latitude: 48.864854,
-  longitude: 2.379853,
-  # photo: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1652&q=80"
+  longitude: 2.379853
 },
 {
   city: "Perth",
   country: "Australia",
   state: "Western Australia",
   latitude: -31.941764,
-  longitude: 115.861205,
-  # photo: "https://images.unsplash.com/photo-1539867462940-bc733134d96e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1568&q=80"
+  longitude: 115.861205
 },
 {
   city: "Auckland",
   country: "New Zealand",
   state: "North Island",
   latitude: -36.851782,
-  longitude: 174.763151,
-  # photo: "https://images.unsplash.com/photo-1507699622108-4be3abd695ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1651&q=80"
+  longitude: 174.763151
 },
 {
   city: "Bogota",
   country: "Colombia",
   state: "Capital District",
   latitude: 4.7110,
-  longitude: -74.0721,
-  # photo: "https://images.unsplash.com/photo-1536334906170-ffa95819c4d4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
+  longitude: -74.0721
 },
 {
   city: "Willemstad",
   country: "Netherlands",
   state: "Curacao",
   latitude: 12.098145,
-  longitude: -68.8824,
-  # photo: "https://images.unsplash.com/photo-1541748603027-cbfefa3a6c8f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1952&q=80"
+  longitude: -68.8824
 },
 {
   city: "Kralendijk",
   country: "Bonaire",
   state: "Netherlands",
   latitude: 12.1443,
-  longitude: -68.2655,
-  # photo: "https://images.unsplash.com/photo-1495127466322-72b03a266c4a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
+  longitude: -68.2655
 }
 ]
+
+location_photos = [
+  "https://images.unsplash.com/photo-1514395462725-fb4566210144?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2851&q=80",
+  "https://images.unsplash.com/photo-1524293581917-878a6d017c71?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80",
+  "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1549&q=80",
+  "https://images.unsplash.com/photo-1508711046474-2f4c2d3d30ca?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80",
+  "https://images.unsplash.com/photo-1477882244523-716124bf91a1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2849&q=80",
+  "https://images.unsplash.com/photo-1537956965359-7573183d1f57?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1568&q=80",
+  "https://images.unsplash.com/photo-1517144447511-aebb25bbc5fa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80",
+  "https://images.unsplash.com/photo-1524413840807-0c3cb6fa808d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80",
+  "https://images.unsplash.com/photo-1449034446853-66c86144b0ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80",
+  "https://images.unsplash.com/photo-1476362174823-3a23f4aa6d76?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80",
+  "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1652&q=80",
+  "https://images.unsplash.com/photo-1539867462940-bc733134d96e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1568&q=80",
+  "https://images.unsplash.com/photo-1507699622108-4be3abd695ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1651&q=80",
+  "https://images.unsplash.com/photo-1536334906170-ffa95819c4d4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
+  "https://images.unsplash.com/photo-1541748603027-cbfefa3a6c8f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1952&q=80",
+  "https://images.unsplash.com/photo-1495127466322-72b03a266c4a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
+]
+
 Location.create!(location_list)
 puts "Created #{Location.count} location(s)"
+
+counter = 0
+
+Location.all.each do |location|
+  file = URI.open(location_photos[counter])
+  location.photo.attach(io: file, filename: "#{location.city}.png", content_type: 'image/png')
+  location.save
+  counter += 1 
+end
 
 # activities
 # puts "Creating activities"
@@ -498,8 +514,8 @@ trip_list = [
 {
   user_id: User.find_by(username: "Paal").id,
   title: "Greatest Ozzie Adventure",
-  start_date: "2019-04-15",
-  end_date: "2019-06-23",
+  start_date: "2021-04-15",
+  end_date: "2021-06-23",
   description: "A trip across Australia",
   status: 1,
   visibility: 1,
@@ -508,8 +524,8 @@ trip_list = [
 {
   user_id: User.find_by(username: "gabby").id,
   title: "Asian Food Tour",
-  start_date: "2019-06-20",
-  end_date: "2019-06-25",
+  start_date: "2021-06-20",
+  end_date: "2021-06-25",
   description: "A culinary tour of asia",
   status: 0,
   visibility: 1,
@@ -518,8 +534,8 @@ trip_list = [
 {
   user_id: User.find_by(username: "gabby").id,
   title: "Thai Scuba Adventure",
-  start_date: "2019-06-26",
-  end_date: "2019-06-30",
+  start_date: "2021-06-26",
+  end_date: "2021-06-30",
   description: "Best scuba diving spots in Thailand",
   status: 1,
   visibility: 0,
@@ -528,8 +544,8 @@ trip_list = [
 {
   user_id: User.find_by(username: "sophisophi").id,
   title: "Best of Hong Kong",
-  start_date: "2019-07-01",
-  end_date: "2019-07-05",
+  start_date: "2021-07-01",
+  end_date: "2021-07-05",
   description: "Tasty Dim Sum and shopping fun!",
   status: 1,
   visibility: 1,
@@ -538,8 +554,8 @@ trip_list = [
 {
   user_id: User.find_by(username: "Paal").id,
   title: "Cherry Blossoms in Japan",
-  start_date: "2019-07-08",
-  end_date: "2019-07-12",
+  start_date: "2021-07-08",
+  end_date: "2021-07-12",
   description: "Beautiful view of many cherry blossoms and interesting historical shrines and temples.",
   status: 1,
   visibility: 0,
@@ -548,8 +564,8 @@ trip_list = [
 {
   user_id: User.find_by(username: "Paal").id,
   title: "California Dreaming",
-  start_date: "2019-07-15",
-  end_date: "2019-07-19",
+  start_date: "2021-07-15",
+  end_date: "2021-07-19",
   description: "Golden Gate Bridge, networking in Silicon Valley, and National Parks",
   status: 0,
   visibility: 0,
@@ -558,8 +574,8 @@ trip_list = [
 {
   user_id: User.find_by(username: "sophisophi").id,
   title: "New York New York",
-  start_date: "2019-07-22",
-  end_date: "2019-07-26",
+  start_date: "2021-07-22",
+  end_date: "2021-07-26",
   description: "Relaxing in the sun in Central Park",
   status: 1,
   visibility: 1,
@@ -568,8 +584,8 @@ trip_list = [
 {
   user_id: User.find_by(username: "gabby").id,
   title: "My Fair London",
-  start_date: "2019-07-29",
-  end_date: "2019-08-02",
+  start_date: "2021-07-29",
+  end_date: "2021-08-02",
   description: "Explore the London markets and tea in Mayfair",
   status: 0,
   visibility: 1,
@@ -578,8 +594,8 @@ trip_list = [
 {
   user_id: User.find_by(username: "Paal").id,
   title: "Euro Trip",
-  start_date: "2019-08-05",
-  end_date: "2019-08-09",
+  start_date: "2021-08-05",
+  end_date: "2021-08-09",
   description: "Food, Museums and Shopping",
   status: 0,
   visibility: 0,
@@ -588,8 +604,8 @@ trip_list = [
 {
   user_id: User.find_by(username: "sheilz").id,
   title: "NZ Visa Run",
-  start_date: "2019-06-17",
-  end_date: "2019-06-24",
+  start_date: "2021-06-17",
+  end_date: "2021-06-24",
   description: "A journey to get the precious visa.",
   status: 0,
   visibility: 1,
@@ -598,8 +614,8 @@ trip_list = [
 {
   user_id: User.find_by(username: "sheilz").id,
   title: "ABC Islands & Colombia Extravaganza",
-  start_date: "2019-03-20",
-  end_date: "2019-04-09",
+  start_date: "2021-03-20",
+  end_date: "2021-04-09",
   description: "Snorkeling, Hiking, and Exploring: the ABC's of Travel",
   status: 1,
   visibility: 1,
@@ -608,8 +624,8 @@ trip_list = [
 {
   user_id: User.find_by(username: "sophisophi").id,
   title: "New Zealand Exploration",
-  start_date: "2019-06-19",
-  end_date: "2019-06-24",
+  start_date: "2021-06-19",
+  end_date: "2021-06-24",
   description: "Explore the best NZ has to offer! #kiwilife",
   status: 1,
   visibility: 1,
@@ -618,8 +634,8 @@ trip_list = [
 {
   user_id: User.find_by(username: "gabby").id,
   title: "Kiwi Living",
-  start_date: "2019-07-20",
-  end_date: "2019-07-28",
+  start_date: "2021-07-20",
+  end_date: "2021-07-28",
   description: "Experience the life of a Kiwi and explore more.",
   status: 1,
   visibility: 1,
@@ -637,8 +653,8 @@ event_list = [
   trip_id: Trip.find_by(title: "Greatest Ozzie Adventure").id,
 #   activity_id: Activity.find_by(title: "Tech").id,
   title: "Le Wagon Demo Day",
-  start_date: "2019-06-14 18:00:00",
-  end_date: "2019-06-14 20:00:00",
+  start_date: "2021-06-14 18:00:00",
+  end_date: "2021-06-14 20:00:00",
   description: "Pushing boundaries in education through tech.",
   max_spots: 18
 },
@@ -647,8 +663,8 @@ event_list = [
   trip_id: Trip.find_by(title: "Greatest Ozzie Adventure").id,
 #   activity_id: Activity.find_by(title: "Festival").id,
   title: "Bottomless G&Tea Party",
-  start_date: "2019-06-18 14:00:00",
-  end_date: "2019-06-18 17:00:00",
+  start_date: "2021-06-18 14:00:00",
+  end_date: "2021-06-18 17:00:00",
   description: "Enjoy two hours of bottomless gin and tonics, matched with delicious sweet and savoury treats. Choose from house-infused gins served in quaint tea cups - find your favourite flavour!",
   max_spots: 4
 },
@@ -657,8 +673,8 @@ event_list = [
   trip_id: Trip.find_by(title: "Greatest Ozzie Adventure").id,
   # activity_id: Activity.find_by(title: "Food Markets").id,
   title: "QVM Winter Night Market",
-  start_date: "2019-06-19 17:00:00",
-  end_date: "2019-06-19 22:00:00",
+  start_date: "2021-06-19 17:00:00",
+  end_date: "2021-06-19 22:00:00",
   description: "A foodie feast",
   max_spots: 3
 },
@@ -667,8 +683,8 @@ event_list = [
   trip_id: Trip.find_by(title: "Greatest Ozzie Adventure").id,
 #   activity_id: Activity.find_by(title: "Cultural Events").id,
   title: "Sydney Opera House",
-  start_date: "2019-06-21 17:00:00",
-  end_date: "2019-06-21 22:00:00",
+  start_date: "2021-06-21 17:00:00",
+  end_date: "2021-06-21 22:00:00",
   description: "A night at the Opera",
   max_spots: 2
 },
@@ -677,8 +693,8 @@ event_list = [
   trip_id: Trip.find_by(title: "Greatest Ozzie Adventure").id,
 #   activity_id: Activity.find_by(title: "Snorkeling").id,
   title: "Snorkeling off the Perth coast",
-  start_date: "2019-06-23 09:00:00",
-  end_date: "2019-06-23 18:00:00",
+  start_date: "2021-06-23 09:00:00",
+  end_date: "2021-06-23 18:00:00",
   description: "snorkeling around Rottnest Island",
   max_spots: 2
 },
@@ -687,8 +703,8 @@ event_list = [
   trip_id: Trip.find_by(title: "Euro Trip").id,
 #   activity_id: Activity.find_by(title: "Nature Tours").id,
   title: "Visit a Stunning Winery",
-  start_date: "2019-08-05 09:00:00",
-  end_date: "2019-08-05 17:00:00",
+  start_date: "2021-08-05 09:00:00",
+  end_date: "2021-08-05 17:00:00",
   description: "Visit the most incredible wineries in Florence on a massive winery tour.",
   max_spots: 3
 },
@@ -697,8 +713,8 @@ event_list = [
   trip_id: Trip.find_by(title: "Euro Trip").id,
 #   activity_id: Activity.find_by(title: "Sightseeing").id,
   title: "David by Michelangelo",
-  start_date: "2019-08-06 09:00:00",
-  end_date: "2019-08-06 17:00:00",
+  start_date: "2021-08-06 09:00:00",
+  end_date: "2021-08-06 17:00:00",
   description: "Michelangelo’s defiant David statue has captivated the world for centuries. Considered one of art history’s major masterpieces, the marble sculpture showcases both the artist’s skill and the fine art focus that defines the Renaissance.",
   max_spots: 2
 },
@@ -707,8 +723,8 @@ event_list = [
   trip_id: Trip.find_by(title: "Euro Trip").id,
 #   activity_id: Activity.find_by(title: "Tech").id,
   title: "Le Wagon reunion",
-  start_date: "2019-08-07 15:30:00",
-  end_date: "2019-08-07 17:00:00",
+  start_date: "2021-08-07 15:30:00",
+  end_date: "2021-08-07 17:00:00",
   description: "A total geek fest!",
   max_spots: 3
 },
@@ -717,8 +733,8 @@ event_list = [
   trip_id: Trip.find_by(title: "Asian Food Tour").id,
 #   activity_id: Activity.find_by(title: "Food Markets").id,
   title: "Chinatown Complex Food Centre",
-  start_date: "2019-06-20 17:00:00",
-  end_date: "2019-06-20 22:00:00",
+  start_date: "2021-06-20 17:00:00",
+  end_date: "2021-06-20 22:00:00",
   description: "largest hawker centre in Singapore with over 260 food stalls.",
   max_spots: 4
 },
@@ -727,8 +743,8 @@ event_list = [
   trip_id: Trip.find_by(title: "Asian Food Tour").id,
 #   activity_id: Activity.find_by(title: "Night Markets").id,
   title: "Temple Street night market",
-  start_date: "2019-06-22 20:30:00",
-  end_date: "2019-06-22 22:00:00",
+  start_date: "2021-06-22 20:30:00",
+  end_date: "2021-06-22 22:00:00",
   description: "Temple Street is the largest and most popular night market in Hong Kong",
   max_spots: 3
 },
@@ -737,8 +753,8 @@ event_list = [
   trip_id: Trip.find_by(title: "Thai Scuba Adventure").id,
 #   activity_id: Activity.find_by(title: "Scuba Diving").id,
   title: "Diving with Big Blue",
-  start_date: "2019-06-26 08:30:00",
-  end_date: "2019-06-30 22:00:00",
+  start_date: "2021-06-26 08:30:00",
+  end_date: "2021-06-30 22:00:00",
   description: "Best diving round the island",
   max_spots: 3
 },
@@ -747,8 +763,8 @@ event_list = [
   trip_id: Trip.find_by(title: "Best of Hong Kong").id,
 #   activity_id: Activity.find_by(title: "Shopping").id,
   title: "Elements Shopping Mall",
-  start_date: "2019-07-01 09:30:00",
-  end_date: "2019-07-05 23:00:00",
+  start_date: "2021-07-01 09:30:00",
+  end_date: "2021-07-05 23:00:00",
   description: "Elements Hong Kong brings together a host of high-end brands with 123 stores selling accessories from the likes of Mulberry, shoes from Jimmy Choo, fashion from Max Mara, and watches from ROLEX.",
   max_spots: 3
 },
@@ -757,8 +773,8 @@ event_list = [
   trip_id: Trip.find_by(title: "Cherry Blossoms in Japan").id,
 #   activity_id: Activity.find_by(title: "Nature Tours").id,
   title: "Cherry Blossoms in Matsuno",
-  start_date: "2019-07-08 09:30:00",
-  end_date: "2019-07-12 23:00:00",
+  start_date: "2021-07-08 09:30:00",
+  end_date: "2021-07-12 23:00:00",
   description: "Cherry Blossoms bloom over Meguro River",
   max_spots: 2
 },
@@ -767,8 +783,8 @@ event_list = [
   trip_id: Trip.find_by(title: "California Dreaming").id,
 #   activity_id: Activity.find_by(title: "Sightseeing").id,
   title: "Checking out the Golden Gate Bridge",
-  start_date: "2019-07-15 09:30:00",
-  end_date: "2019-07-19 23:00:00",
+  start_date: "2021-07-15 09:30:00",
+  end_date: "2021-07-19 23:00:00",
   description: "Fantastic views of the GG Bridge",
   max_spots: 2
 },
@@ -777,8 +793,8 @@ event_list = [
   trip_id: Trip.find_by(title: "New York New York").id,
 #   activity_id: Activity.find_by(title: "Clubbing").id,
   title: "K-Pop Karaoke in Korea Town",
-  start_date: "2019-07-22 20:30:00",
-  end_date: "2019-07-22 23:00:00",
+  start_date: "2021-07-22 20:30:00",
+  end_date: "2021-07-22 23:00:00",
   description: "Getting it on, Gangnam Style!",
   max_spots: 2
 },
@@ -787,8 +803,8 @@ event_list = [
   trip_id: Trip.find_by(title: "My Fair London").id,
 #   activity_id: Activity.find_by(title: "Sightseeing").id,
   title: "Traditional Afternoon Tea at The Ritz, Mayfair",
-  start_date: "2019-07-29 15:30:00",
-  end_date: "2019-08-05 17:00:00",
+  start_date: "2021-07-29 15:30:00",
+  end_date: "2021-08-05 17:00:00",
   description: "This most charming traditional Afternoon Tea in Mayfair, is served in the spectacular Palm Court, with glittering chandeliers and elegant mirrors, which add a light and stylish flourish to the room.
   The Ritz London is the only hotel in the UK to have a certified Tea Sommelier, Giandomenico Scanu, who travels around the world to various tea plantations to source our wonderful teas.",
   max_spots: 3
@@ -798,8 +814,8 @@ event_list = [
   trip_id: Trip.find_by(title: "NZ Visa Run").id,
 #   activity_id: Activity.find_by(title: "Hiking").id,
   title: "Hiking the Lonely Mountain",
-  start_date: "2019-06-20 16:30:00",
-  end_date: "2019-06-20 20:00:00",
+  start_date: "2021-06-20 16:30:00",
+  end_date: "2021-06-20 20:00:00",
   description: "Hike a mountain and potentially find a dragon.",
   max_spots: 0
 },
@@ -808,8 +824,8 @@ event_list = [
   trip_id: Trip.find_by(title: "NZ Visa Run").id,
 #   activity_id: Activity.find_by(title: "Night Life").id,
   title: "Celebrate the Le Wagon End",
-  start_date: "2019-06-17 16:30:00",
-  end_date: "2019-06-17 20:00:00",
+  start_date: "2021-06-17 16:30:00",
+  end_date: "2021-06-17 20:00:00",
   description: "Have a blast in the Drunken Pony with the rest of the class before the beginning of the visa run.",
   max_spots: 6
 },
@@ -818,8 +834,8 @@ event_list = [
   trip_id: Trip.find_by(title: "ABC Islands & Colombia Extravaganza").id,
 #   activity_id: Activity.find_by(title: "Snorkeling").id,
   title: "Bonaire Nation Park - Snorkeling",
-  start_date: "2019-03-23 08:30:00",
-  end_date: "2019-03-23 17:00:00",
+  start_date: "2021-03-23 08:30:00",
+  end_date: "2021-03-23 17:00:00",
   description: "Have the most incredible experience snorkeling in the Bonaire National Park. See turtles, squid, tons of coral and fish!",
   max_spots: 7
 },
@@ -828,8 +844,8 @@ event_list = [
   trip_id: Trip.find_by(title: "ABC Islands & Colombia Extravaganza").id,
 #   activity_id: Activity.find_by(title: "Night Life").id,
   title: "Blue Curacao Experience",
-  start_date: "2019-03-25 14:30:00",
-  end_date: "2019-03-25 17:00:00",
+  start_date: "2021-03-25 14:30:00",
+  end_date: "2021-03-25 17:00:00",
   description: "Groupon for two to have a blue Curacao experience.",
   max_spots: 2
 },
@@ -838,8 +854,8 @@ event_list = [
   trip_id: Trip.find_by(title: "ABC Islands & Colombia Extravaganza").id,
 #   activity_id: Activity.find_by(title: "Hiking").id,
   title: "Hike in the Colombian Cloud Rainforest",
-  start_date: "2019-03-30 07:30:00",
-  end_date: "2019-03-30 20:00:00",
+  start_date: "2021-03-30 07:30:00",
+  end_date: "2021-03-30 20:00:00",
   description: "Hike in a cloud rainforest, round trip 14km. Waterfalls, alpacas, and clouds.",
   max_spots: 0
 },
@@ -848,8 +864,8 @@ event_list = [
   trip_id: Trip.find_by(title: "New Zealand Exploration").id,
 #   activity_id: Activity.find_by(title: "Nature Tours").id,
   title: "Glowing Cave Exploration",
-  start_date: "2019-06-21 08:30:00",
-  end_date: "2019-06-21 14:00:00",
+  start_date: "2021-06-21 08:30:00",
+  end_date: "2021-06-21 14:00:00",
   description: "Go into the glow worm cave and find something precious.",
   max_spots: 12
 },
@@ -858,8 +874,8 @@ event_list = [
   trip_id: Trip.find_by(title: "Kiwi Living").id,
 #   activity_id: Activity.find_by(title: "Kayaking").id,
   title: "Kayaking NZ Adventures",
-  start_date: "2019-07-21 08:30:00",
-  end_date: "2019-07-21 14:00:00",
+  start_date: "2021-07-21 08:30:00",
+  end_date: "2021-07-21 14:00:00",
   description: "Kayak in the stunning waters in NZ.",
   max_spots: 4
 }

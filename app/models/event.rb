@@ -4,6 +4,8 @@ class Event < ApplicationRecord
   has_many :event_registrations, dependent: :destroy
   has_many :event_reviews, dependent: :destroy
   acts_as_taggable_on :tags, :activities
+  has_many_attached :photos
+
 
   def self.build_events(trip, events_params)
     events_params.each do |event_param|

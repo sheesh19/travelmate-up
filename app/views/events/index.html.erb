@@ -1,0 +1,32 @@
+<!-- Search bar -->
+<%= render partial: 'shared/search/search_main', 
+    locals: {
+        search_title: 'Find events to join',
+        path: events_path,
+        search_placeholder: 'Search events',
+        elements: @all_events
+    }
+%>
+
+<br>
+<br>
+
+<div class="featured-title container__body">
+    <h2>CHECK OUT OTHER EVENTS</h2>
+</div>
+
+<div class="container__body d-flex justify-content-between">
+    <div>
+        <%= render 'events/grouped_events_all', events: @all_events %>
+    </div>
+    <div class="">
+        <%#= render 'shared/calendar_month', events: @events %>
+    </div>
+</div>
+
+<div class="page-bottom-spacer"></div>
+
+<div class="map">
+  <%#= render 'shared/map', events: @events %>
+</div>
+
