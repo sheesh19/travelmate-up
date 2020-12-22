@@ -4,43 +4,7 @@
   <% if eventgroup[0] >= Date.today %>
     <h6><%= eventgroup[0].strftime("%b %Y") %></h6>
     <% eventgroup[1].each do |event| %>
-      <div class="card reminder-card-with-location d-flex">
-        <div class="reminder-text d-flex">
-
-          <div class="reminder-time pt-4 pl-4 pb-4">
-            <%= event.start_date.strftime("%d %^b") %>
-            <div class="reminder-date">
-              <%= event.start_date.strftime("%l:%M %P") %>
-            </div>
-          </div>
-
-          <div class="reminder-details p-4">
-            <h5><%= event.title %></h5>
-            <div class="reminder-travel-plan"><p><%= event.trip.title %></p></div>
-            <div class="reminder-location d-flex">
-              <i class="fas fa-map-marker-alt pr-2 pt-1"></i>
-              <div class="reminder-address">
-                <p><%= event.location.city %>, <%= event.location.country %></p>
-              </div>
-            </div>
-          </div>
-
-          <div class="reminder-map">
-            <% if event.photos.present? %>
-              <%= cl_image_tag event.photos.sample, class: "photo-card"%>
-            <% else %>
-              <% if event.location.photo.present? %>
-                <%= image_tag event.location.photo, class: "photo-card" %>
-              <% else %>
-                <%= image_tag ("https://images.unsplash.com/photo-1502920514313-52581002a659?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1647&q=80"), class: "photo-card" %>
-               <% end %>
-            <% end %>
-          </div>
-
-        </div>
-        <%#= render 'shared/components/avatar_pill_expand', event: event %>
-        <%= link_to "", trip_event_path(event.trip, event), class: 'make-card-clickable'%>
-      </div>
+      <%= render 'shared/cards/event_card', element: event %>
     <% end %>
   <% end %>
 <% end %>
