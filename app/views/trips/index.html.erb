@@ -1,20 +1,13 @@
 <!-- Search bar -->
 <%= render partial: 'shared/search/search_main', 
     locals: {
-        search_title: 'Find your trip inspiration',
+        search_title: 'Find trip inspiration',
         path: trips_path,
         search_placeholder: 'Search trips',
         elements: @trips
     }
 %>
 
-<%= link_to 'Create A Trip', new_trip_path %>
+<%= render 'featured_trips', trips: @trips %>
 
-<br>
-<br>
-<% @trips.each do |trip| %>
-    <% if policy(trip).show? %>
-        <%= link_to trip.title, trip_path(trip) %>
-    <% end %>
-<% end %>
-
+<%= render 'latest_trips', trips: @trips %>

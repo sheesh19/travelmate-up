@@ -13,3 +13,77 @@
 .navbar-mt .navbar-brand img {
   width: 40px;
 }
+
+.navbar-travelmates {
+  justify-content: space-between;
+  background: white;
+  padding-left: 24px;
+  // padding-right: 32px;
+  // font-weight: bold;
+  color: $travelmate-gray;
+  border-bottom: solid 0.5px $light-gray;
+}
+
+.navbar-travelmates .navbar-collapse {
+  flex-grow: 0;
+}
+
+.navbar-brand {
+  display: flex;
+  font-weight: bold;
+  text-align: left;
+  padding-left: 24px;
+}
+
+.navbar-travelmates .navbar-brand img {
+  width: 40px;
+}
+
+#navbar__welcome {
+  margin-left: 8px;
+  font-size: 8px;
+}
+
+// Inner Pills in the Navbar Dashboard
+
+.nav-pills {
+  background-color: transparent;
+  margin-top: 2em;
+}
+
+.dash-inner-nav {
+  background-color: transparent;
+  // Font
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  // Spacing
+  padding: 8px 0 8px 0;
+  margin: 0 40px 0 0;
+  display: inline-block;
+  // border-radius: 4em;
+  text-decoration: none;
+  color: $medium-gray;
+  font-weight: 600;
+  &:hover {
+    text-decoration: none;
+    color: $teal;
+  }
+}
+
+.dash-inner-nav[aria-selected="true"] {
+  // Colour
+  color: $teal;
+  font-weight: 600;
+  // border-radius: 4em;
+  border-bottom-color: $teal;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  font-weight: 600;
+  &:hover {
+    text-decoration: none;
+    color: $teal;
+  }
+}
+
+

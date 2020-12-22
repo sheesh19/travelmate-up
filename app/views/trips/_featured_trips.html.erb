@@ -1,0 +1,15 @@
+<div class="container__featured">
+  <div class="featured-title">
+    <h2>MOST FAVOURITED</h2>
+  </div>
+  <div class="">
+    <!-- Card Carousel (?) -->
+    <div class="card__grid">
+      <% trips[0..2].each do |trip| %>
+        <%= render 'shared/cards/trip_card', element: trip %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+

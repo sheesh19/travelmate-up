@@ -48,8 +48,8 @@
 .container__featured {
     height: auto;
     width: 100%;
-    padding-left: 72px;
-    padding-right: 72px;
+    padding-left: 4rem;
+    padding-right: 4rem;
     padding-bottom: 24px;
     // border-top: $light-gray solid 1px;
     // border-bottom: $light-gray solid 1px;
@@ -59,8 +59,8 @@
 .container__featured-white {
     height: auto;
     width: 100%;
-    padding-left: 72px;
-    padding-right: 72px;
+    padding-left: 4rem;
+    padding-right: 4rem;
     padding-bottom: 24px;
     border-top: $light-gray solid 1px;
     border-bottom: $light-gray solid 1px;
@@ -69,9 +69,27 @@
 .container__body {
     height: auto;
     width: 100%;
-    padding-left: 72px;
-    padding-right: 72px;
+    padding-left: 4rem;
+    padding-right: 4rem;
     padding-bottom: 24px;
+}
+
+// Smallest device
+@media (max-width: 575px) {
+    .container__featured {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    .container__featured-white {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    .container__body {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
 }
 
 
