@@ -1,0 +1,13 @@
+<div class="container__body">
+  <div class="featured-title">
+    <h2>Latest</h2>
+  </div>
+  <div class="">
+    <!-- Card Carousel (?) -->
+    <div class="card__grid">
+      <% @trips.each do |trip| %>
+        <%= render 'shared/cards/trip_card', element: trip %>
+      <% end %>
+    </div>
+  </div>
+</div>

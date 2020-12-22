@@ -10,7 +10,7 @@
       <!-- Card Carousel -->
       <div class="card__grid">
         <% @locations.sort_by_events.first(3).each do |location| %>
-          <%= render 'shared/cards/location_card', location: location %>   
+          <%= render 'shared/cards/location_card', element: location %>   
         <% end %>
       </div>
       

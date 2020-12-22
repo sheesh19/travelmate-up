@@ -1,0 +1,9 @@
+<%# if current_user && current_user.favorited_itinerary?(itinerary) %>
+  <%#= link_to favorite_itinerary_path(current_user.find_favorite_itinerary(itinerary)), method: :delete, remote: true do %>
+    <i class="fas fa-heart"></i>
+  <%# end %>
+<%# else %>
+  <%#= link_to itinerary_favorite_itineraries_path(itinerary), method: :post, remote: true do %>
+    <%# <i class="far fa-heart"></i> %>
+  <%# end %>
+<%# end %>

@@ -4,16 +4,6 @@
     <h2>UPCOMING EVENTS</h2>
     <%= link_to "See all", events_path, class: "btn btn-outlined" %>
   </div>
-  <!-- Search bar -->
-  <!-- <div class="index-search-home justify-content-center">
-    <div class="index-search-home">
-      <%#= form_tag(events_path, method: :get, placeholder: "Search events") do %>
-        <%#= text_field_tag :query %>
-        <%#= link_to request.path do %>
-          <i class="far fa-times-circle"></i>
-        <%# end %>
-      <%# end %>
-    </div>
-  </div> -->
-  <%# <%= render 'events/featured_events' %> %>
+
+  <%= render 'events/featured_events' %>
 </div>

@@ -1,23 +1,146 @@
 .avatar {
   width: 40px;
+  height: 40px;
+  max-width: 40px;
+  max-height: 40px;
   border-radius: 50%;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .avatar-large {
   width: 56px;
+  height: 56px;
+  max-width: 56px;
+  max-height: 56px;
+  border-radius: 50%;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.avatar-large-itinerary {
+  width: 56px;
+  max-width: 56px;
+  max-height: 56px;
   border-radius: 50%;
 }
 
+.avatar-xlarge {
+  width: 152px;
+  height: 152px;
+  border-radius: 50%;
+}
 .avatar-bordered {
   width: 40px;
   border-radius: 50%;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   border: white 1px solid;
 }
-
 .avatar-square {
   width: 40px;
   border-radius: 0px;
-  box-shadow: 0 1px 2px $mango-black;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   border: white 1px solid;
+}
+
+.avatar-small {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.no-image-avatar {
+  border: solid 1px $darkest-teal;
+  background-color: $darkest-teal;
+  height: 56px;
+  width: 56px;
+  border-radius: 50%;
+  text-align: center;
+  p {
+    color: $almost-white;
+    font-size: 24px;
+    margin: 0;
+    padding: 0 0 0 8px;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.no-image-avatar-show {
+  border: solid 1px $darkest-teal;
+  background-color: $darkest-teal;
+  height: 56px;
+  width: 56px;
+  border-radius: 50%;
+  text-align: center;
+  p {
+    color: $almost-white;
+    font-size: 24px;
+    margin: 0;
+    padding: 0 0 0 20px;
+  }
+}
+
+.no-image-avatar-itinerary {
+  border: solid 1px $darkest-teal;
+  background-color: $darkest-teal;
+  height: 56px;
+  width: 56px;
+  border-radius: 50%;
+  text-align: center;
+  p {
+    color: $almost-white;
+    font-size: 24px;
+    margin: 0;
+  }
+}
+
+.no-image-avatar-small {
+  border: solid 1px $darkest-teal;
+  background-color: $darkest-teal;
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  text-align: center;
+}
+
+#no-image-avatar-small-p {
+  color: $almost-white;
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+}
+
+.no-image-avatar-med {
+  border: solid 1px $darkest-teal;
+  background-color: $darkest-teal;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  text-align: center;
+}
+
+#no-image-avatar-med-p {
+  color: $almost-white;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+.no-image-avatar-xlarge {
+  border: solid 1px $darkest-teal;
+  background-color: $darkest-teal;
+  width: 152px;
+  height: 152px;
+  border-radius: 50%;
+  text-align: center;
+  p {
+    color: $almost-white;
+    font-size: 80px;
+    margin: 0;
+    padding: 0;
+  }
 }

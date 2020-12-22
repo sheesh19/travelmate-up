@@ -1,0 +1,30 @@
+<div class="card event-card p-2">
+    <div class="card-body">
+        <div class= "card-date-heart d-flex justify-content-between">
+            <p class="card-text">
+                <%= event.start_date.strftime("%^a, %d %^b %Y") %>,
+                <%= event.start_date.strftime("%l:%M%p") %>
+            </p>
+            <div data-event-id="<%= event.id %>" class="event-heart-icon">
+                <% if current_page? root_path %>
+                    <%= render 'shared/components/avatar_pill_expand', event: event %>
+                <% else %>
+                    <%= render 'shared/components/heart', event: event %>
+                <% end %>
+            </div>
+        </div>
+        <div class="event-card-info">
+            <h2 class="card-title" style="display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis;"><%= event.title %></h2>
+            <p class="card-location">
+                <i class="fas fa-map-marker-alt pr-1"></i>
+                <%= event.location.city%>, <%= event.location.country %>
+            </p>
+            <h6 class="event-spot-left-text">
+                <%#= pluralize(event.spots_left, "spot") %> left
+            </h6>
+        </div>
+        <div class="d-flex flex-row-reverse bd-highlight">
+            <%= link_to "", trip_event_path(event.trip, event), class: "make-card-clickable" %>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+<div class="card map-card">
+    <div>
+        <%= render "shared/cards/static_map", trip: element  %>
+    </div>
+    <div class="card-body px-4 pb-4 pt-0">
+        <div id="travel-plan-card-title" class="card-title d-flex justify-content-between">
+            <div><%= element.total_time %> day plan</div>
+            <div data-itinerary-id="<%=element.id %>" class="itinerary-heart-icon">
+                400 <%= render 'shared/components/heart', element: element %>
+            </div>
+        </div>
+        <h6 class="card-title-itinerary"><%= element.title %></h6>
+    <!--               <span class="tag-filled">Scuba diving</span>
+        <span class="tag-filled">Shark</span>
+        <span class="tag-filled">Amazing</span> -->
+    </div>
+    <%= link_to "", trip_path(element), class: "make-card-clickable" %>
+</div>

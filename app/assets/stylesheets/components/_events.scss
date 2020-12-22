@@ -1,0 +1,170 @@
+.event-banner-image {
+    height: 320px;
+    width: 100%;
+    background-size: cover;
+    justify-content: center;
+    align-items: center;
+    background-position: center;
+    position: relative;
+    filter: brightness(60%);
+}
+
+.events__upcoming {
+    padding: 32px 32px 32px 32px;
+}
+
+.event-side-title {
+    border: solid 0.5px $form-border-gray;
+    padding: 24px 32px 24px 32px;
+    justify-content: space-between;
+    align-items: center;
+    border-top-right-radius: 16px;
+    border-top-left-radius: 16px;
+    p {
+        font-size: 10px;
+        color: $medium-gray;
+        font-weight: 500;
+    }
+}
+
+#event-join-name {
+    color: $teal;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.event-side-bottom {
+    border-right: solid 0.5px $form-border-gray;
+    border-bottom: solid 0.5px $form-border-gray;
+    border-left: solid 0.5px $form-border-gray;
+    padding: 24px 32px 24px 32px;
+}
+
+.spots-left-bottom-section {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+#event-date-card {
+    height: 80px;
+    width: 80px;
+    border: solid 0.5px $form-border-gray;
+    background-color: $almost-white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#event-day-text {
+    font-size: 32px;
+    margin-bottom: -8px;
+}
+
+#event-month-text {
+    font-size: 12px;
+}
+
+#event-location {
+    color: $medium-gray;
+    font-size: 14px;
+}
+
+.event-location-icon {
+    color: $medium-gray;
+    font-size: 14px;
+}
+
+#event-map {
+    margin-top: 16px;
+}
+
+#remaining-spots {
+    border-right: solid 0.5px $form-border-gray;
+    border-bottom: solid 0.5px $form-border-gray;
+    border-left: solid 0.5px $form-border-gray;
+    background-color: $almost-white;
+    padding: 8px 32px 8px 32px;
+    color: $medium-gray;
+    font-size: 14px;
+    font-weight: 500;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+}
+
+.organiser-rating-box {
+    height: 144px;
+    width: 144px;
+    border: solid 0.5px $form-border-gray;
+    text-align: center;
+    // display: flex;
+    direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.rating-section {
+    display: flex;
+    direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.organiser-rating {
+    font-size: 72px;
+}
+
+.review-star i {
+    color: $gold;
+    &:hover {
+        color: $gold;
+    }
+}
+
+.blank-star i {
+    color: $gray;
+}
+
+.total-rating-score {
+    font-size: 12px;
+}
+
+.organiser-info {
+    flex: 1;
+}
+
+.organiser-details {
+    p {
+        margin-bottom: 0;
+        padding: 4px;
+    }
+}
+
+.upcoming-event-title {
+    h2 {
+        color: $darkish-gray;
+        padding-bottom: 16px;
+    }
+}
+
+.registered-users {
+    background-color: $almost-white;
+    margin-top: 32px;
+    padding: 24px;
+    border-radius: 16px;
+    border: solid 0.5px $form-border-gray;
+    ul {
+        padding-left: 0;
+        margin-bottom: 0;
+    }
+    p {
+        margin: 0;
+        padding-left: 8px;
+    }
+    h1 {
+        font-size: 14px;
+        color: $dark-teal;
+        font-weight: 600;
+        padding-bottom: 8px;
+    }
+}
