@@ -86,4 +86,38 @@
   }
 }
 
+.nav-link {
+  text-decoration: none;
+  padding-left: 28px;
+  height: 56px;
+  color: $medium-gray;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  &:hover {
+    color: $teal;
+  }
+}
 
+// Sidebar Active Button
+
+.active-bar {
+  border-left-color: $teal;
+  border-left-style: solid;
+  border-left-width: 4px;
+  background-color: $lighest-teal;
+  a {
+    color: $teal;
+    font-weight: 600;
+  }
+}
+
+.nav-item-highlighht {
+  padding-right: 16px;
+  &:hover {
+    background-color: $almost-white;
+    a {
+      color: $teal;
+    }
+  }
+}

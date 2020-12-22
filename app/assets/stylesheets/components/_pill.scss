@@ -1,0 +1,72 @@
+$avatar_size: 32px;
+
+.event-pill {
+    display: inline-flex;
+    overflow: hidden;
+    background-color: $dark-teal;
+    // border-style: solid;
+    // border-width: 0.5px;
+    // border-color: $darkest-teal;
+    border-radius: 16px;
+    width: auto;
+    box-shadow: 0 0 4px rgba(0,0,0,0.1);
+    align-items: center;
+    h5 {
+        font-size: 14px;
+    }
+    p {
+        font-size: 10px;
+    }
+    img {
+        align-self: center;
+    }
+}
+
+.event-pill-expandable {
+    display: inline-flex;
+    overflow: hidden;
+    background-color: $dark-teal;
+    // border-style: solid;
+    // border-width: 0.5px;
+    // border-color: $darkest-teal;
+    border-radius: 16px;
+    width: auto;
+    box-shadow: 0 0 4px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: max-width 0.2s;
+    max-width: $avatar_size;
+    max-height: $avatar_size;
+    align-items: center;
+    h5 {
+        font-size: 14px;
+    }
+    p {
+        font-size: 10px;
+    }
+    img {
+        align-self: center;
+    }
+    .card:hover & {
+        max-width: 200px;
+    }
+}
+
+.event-pill-text {
+    display: inline-block;
+    align-items: center;
+    p {
+        padding-left: 8px;
+        padding-right: 16px;
+        font-size: 12px;
+        color: $almost-white;
+        font-weight: 500;
+        margin: 0;
+        align-items: center;
+    }
+}
+
+.event-pill-inner {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}

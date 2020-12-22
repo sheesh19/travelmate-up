@@ -1,0 +1,5 @@
+<div class="card__grid">
+    <% @events.upcoming[0..2].each do |event| %>
+        <%= render 'shared/cards/event_half_card', event: event %>
+    <% end %>
+</div>

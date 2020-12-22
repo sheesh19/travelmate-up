@@ -6,6 +6,9 @@ class Event < ApplicationRecord
   acts_as_taggable_on :tags, :activities
   has_many_attached :photos
 
+  def self.upcoming
+    Event.where("events.start_date > ?", Date.today)
+  end
 
   def self.build_events(trip, events_params)
     events_params.each do |event_param|
