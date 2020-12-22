@@ -50,6 +50,9 @@ gem 'geocoder'
 # PHOTO
 gem 'cloudinary', '~> 1.16.0'
 
+# GROUP DATE
+gem 'groupdate'
+
 
 
 group :development, :test do  gem 'pry-byebug'
