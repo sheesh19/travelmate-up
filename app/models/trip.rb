@@ -12,4 +12,17 @@ class Trip < ApplicationRecord
   def most_popular_trips
     #Itinerary.all.map{ |x| [FavoriteItinerary.where(itinerary_id: x.id).count, x] }.sort.reverse!
   end
+
+  def markers
+      # Markers for the itinerary map
+      events.map do |event|
+          {
+              lat: event.location.latitude,
+              lng: event.location.longitude,
+              # image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
+              # infoWindow: render_to_string(partial: "shared/infowindow", locals: { event: event.title })
+          }
+      end
+  end
+
 end

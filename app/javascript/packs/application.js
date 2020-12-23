@@ -36,10 +36,12 @@ import "@kollegorna/cocoon-vanilla-js";
 // import { initSelect2 } from '../components/init_select2';
 // import { initAutoCompleteField } from '../components/init_algolia';
 import { initGoogleAutocomplete } from '../components/init_google_autocomplete';
+import { initMapbox } from '../components/init_mapbox';
 
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initAutoCompleteField();
   initGoogleAutocomplete();
+  initMapbox();
 });

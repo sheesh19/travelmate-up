@@ -8,7 +8,7 @@ class TripsController < ApplicationController
     def show
         @user = @trip.user
 
-        trip_markers
+        @markers = @trip.markers
     end
 
     def new
@@ -47,17 +47,6 @@ class TripsController < ApplicationController
     end
 
     private
-
-    def trip_markers
-        # Markers for the itinerary map
-        @markers = @trip.events.map do |event|
-            {
-                lat: event.location.latitude,
-                lng: event.location.longitude,
-                # infoWindow: render_to_string(partial: "shared/infowindow", locals: { event: event.title })
-            }
-        end
-    end
 
     def set_trip
         @trip = Trip.find(params[:id])

@@ -1,0 +1,30 @@
+<div id="user_block">
+    <div class="user-info d-flex justify-space-around">
+        <div>
+        <% if @trip.user.avatar.present? %>
+            <%= cl_image_tag @trip.user.avatar, class: "avatar-large-itinerary" %>
+        <% else %>
+            <div class="no-image-avatar-itinerary d-flex align-items-center justify-content-center">
+            <p><%= @trip.user.first_name[0].upcase %></p>
+            </div>
+        <% end %>
+        </div>
+        <div class="ml-3 mb-3">
+        <p class="mb-0">
+            <strong>
+            <%= @trip.user.first_name %>
+            <%= @trip.user.last_name %>
+            </strong>
+        </p>
+        <p class="mb-0">
+            <% if @trip.user.date_of_birth.nil? %>
+            <% else %>
+            <p><%= @trip.user.age %> years old
+                <!-- future area to display gender -->
+                <%#= @itinerary.user.gender.capitalize unless @itinerary.user.gender.nil? %></p>
+            <% end %>
+        </p>
+        </div>
+    </div>
+    <p class="mb-0" style="display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis;"><%= @trip.user.description %></p>
+</div>
