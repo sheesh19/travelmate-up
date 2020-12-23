@@ -1,16 +1,10 @@
-<h4><%= @trip.title %></h4>
+<div class="map">
+    <%= render 'shared/components/map' %>
+</div>
 
-<% @trip.events.each do |event| %>
-    <% if policy(event).show? %>
-        <%= link_to event.title, trip_event_path(@trip, event) %>
-    <% end %>
-<% end %>
+<!-- TITLE & USER BLOCKS -->
+<%= render 'trip_banner', trip: @trip %>
 
+<%= render 'trip_events', trip: @trip %>
 
-<br>
-<br>
-<br>
-
-<% if policy(@trip).edit? %>
-    <%= link_to "Edit #{@trip.title} Trip", edit_trip_path(@trip) %>
-<% end %>
+<div class="page-bottom-spacer"></div>

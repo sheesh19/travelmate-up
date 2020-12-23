@@ -1,8 +1,8 @@
 <div class="map-card-dimension">
   <% if trip.events.count == 1 %>
-    <%= image_tag ("https://api.mapbox.com/styles/v1/sheesh19/cjwoecanw2ted1cqn4b9bkcpd/static/pin-s+005C71(#{trip.events.first.location.longitude},#{trip.events.first.location.latitude})/#{trip.events.first.location.longitude},#{trip.events.first.location.latitude},3/401x606?access_token=#{ENV['MAPBOX_API_KEY']}") %>
+    <%= image_tag ("https://api.mapbox.com/styles/v1/sheesh19/ckj0j64ts1lnx19nxdnxqycyq/static/pin-s+005C71(#{trip.events.first.location.longitude},#{trip.events.first.location.latitude})/#{trip.events.first.location.longitude},#{trip.events.first.location.latitude},3/401x606?access_token=#{ENV['MAPBOX_API_KEY']}") %>
   <% else %>
-    <%= image_tag ("https://api.mapbox.com/styles/v1/sheesh19/cjwoecanw2ted1cqn4b9bkcpd/static/#{trip.events.map {|event| "pin-s+005C71(#{event.location.longitude},#{event.location.latitude})"}.join(",")}/auto/401x606?access_token=#{ENV['MAPBOX_API_KEY']}") %>
+    <%= image_tag ("https://api.mapbox.com/styles/v1/sheesh19/ckj0j64ts1lnx19nxdnxqycyq/static/#{trip.events.map {|event| "pin-s+005C71(#{event.location.longitude},#{event.location.latitude})"}.join(",")}/auto/401x606?access_token=#{ENV['MAPBOX_API_KEY']}") %>
   <% end %>
 </div>
 

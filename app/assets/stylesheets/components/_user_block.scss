@@ -1,0 +1,29 @@
+.itinerary-info {
+    flex: 1;
+}
+
+#user_block {
+    padding: 32px;
+    border: solid 0.5px $form-border-gray;
+    border-radius: 8px;
+    // background-color: white;
+    max-width: 360px;
+}
+
+.user_banner {
+  display: flex;
+  justify-content: space-between;
+}
+
+// Smallest device
+@media (max-width: 575px) {
+  .user_banner {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 1rem;
+  }
+
+  .itinerary-info {
+    padding-left: 1rem;
+  }
+}

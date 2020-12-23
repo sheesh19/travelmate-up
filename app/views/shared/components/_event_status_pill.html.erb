@@ -1,0 +1,14 @@
+<% if event.solo? %>
+  <div class="data-content-cell-small badge badge-pill badge-dark badge-awaiting-solo d-flex align-items-center justify-content-center">
+    Solo
+  </div>
+<% elsif event.spots_left == 0 %>
+  <div class="data-content-cell-small badge badge-pill badge-mates-joining d-flex align-items-center justify-content-center">
+    Mates joining
+  </div>
+<% else %>
+  <div class="data-content-cell-small badge badge-pill badge-awaiting-mates d-flex align-items-center justify-content-center">
+    Awaiting mates
+  </div>
+<% end %>
+

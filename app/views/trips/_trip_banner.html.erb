@@ -1,0 +1,35 @@
+<div class="travel-plan-banner mb-5">
+    <div class="small-page-container travel-plan-banner-container ">
+        <div class="breadcrumb">
+        <%#= link_to user_itineraries_itineraries_path(@user) do %>
+            <i class="fas fa-angle-left"></i>
+            Back
+        <%# end %>
+        </div>
+        <div class="user_banner">
+            <div class="itinerary-info">
+                <div class="mb-3">
+                    <% if policy(trip).edit? %>
+                        <%= link_to "Edit travel plan", edit_trip_path(trip), class: "btn btn-outlined" %>
+                    <% end %>
+                </div>
+                <h1><%= trip.title %></h1>
+                <p><%= pluralize(trip.total_time, "day") %> plan </p>
+                <p><%= trip.description %></p>
+
+                <!-- Tags on Itineraries if present-->
+                <%# if @trip.user.tags.present? %>
+                <%# @trip.user.tags.each do |tag| %>
+                    <%# <span class="tag-outline"><%= tag.tag_name </span> %>
+                <%# end %>
+                <%# end %>
+
+            </div>
+            <div>
+                <div>
+                    <%= render "shared/components/user_info_block" %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
