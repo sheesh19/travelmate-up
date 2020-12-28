@@ -1,0 +1,27 @@
+<%= render partial: 'shared/components/background', 
+    locals: { 
+        element: @location,
+        title: @location.city
+    } 
+%>
+
+<%#= render 'activities_by_location', location: @location
+%>
+
+<div class="page-container">
+    <div class="upcoming-event-title">
+        <h2>Upcoming events in <%= @location.city %></h2>
+    </div>
+    <div class="container__dashboard">
+        <div class="display__itinerary">
+            <% @location.events.each do |event| %>
+                <% if event.start_date >= Date.today %>
+                    <%= render 'shared/cards/event_card', element: event %>
+                <% end %>
+            <% end %>
+        </div>
+        <div class="dash__calendar">
+            <%= render 'calendar_locations', location_events: @location.events %>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,7 @@
+<!-- Calendar of events per Location -->
+
+<%= month_calendar events: location_events, previous_link: events_ajax_previous_link, next_link: events_ajax_next_link do |date, events| %>
+    <div class="event-calendar__day">
+        <%= date.day %>
+    </div>
+<% end %>
