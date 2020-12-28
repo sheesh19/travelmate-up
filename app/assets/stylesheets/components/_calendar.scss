@@ -2,6 +2,13 @@
   width: 100%;
 }
 
+// Smallest device
+@media (max-width: 575px) {
+  .dash__calendar {
+    margin: auto 0;
+  }
+}
+
 .simple-calendar {
   table {
     border-style: none;
@@ -31,9 +38,9 @@
   }
 
   .day {
-    font-weight: 400;
-    font-size: 12px;
-    color: $dark-gray;
+        font-weight: 400;
+        font-size: 12px;
+        color: $dark-gray;
   }
 
   .wday-0 {}
@@ -62,40 +69,56 @@
     color: $medium-gray;
   }
 
-  .has-events, .today {
+  .today {
     padding: 0;
     border-top: 0;
 
     $circle_width: 32px;
 
     .event-calendar__day {
-      color: $almost-white;
-      border-radius: 50%;
-      width: $circle_width;
-      height: $circle_width;
-      position: relative;
-      background-color: $teal;
-      line-height: $circle_width;
-      text-align: center;
-      margin: 0 auto 5px;
+        color: $medium-gray;
+        border: 1px solid $teal;
+        border-radius: 50%;
+        width: $circle_width;
+        height: $circle_width;
+        position: relative;
+        background-color: transparent;
+        line-height: $circle_width;
+        text-align: center;
+        margin: 4px auto 5px;
+    }
+  }
+
+  .has-events {
+    padding: 0;
+    border-top: 0;
+
+    $circle_width: 32px;
+
+    .event-calendar__day {
+        color: $almost-white;
+        border-radius: 50%;
+        width: $circle_width;
+        height: $circle_width;
+        position: relative;
+        background-color: $teal;
+        line-height: $circle_width;
+        text-align: center;
+        margin: 4px auto 5px;
     }
   }
 }
 
 .calendar-heading {
-  font-size: 14px;
-  display: flex;
-  justify-content: space-between;
-  & a {
-    text-decoration: none;
-    color: $teal;
-  }
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    & a {
+        text-decoration: none;
+        color: $teal;
+    }
 }
 .calendar-title {
-  font-weight: bold;
-  color: $medium-gray;
-}
-
-.event-calendar__event-day {
-
+    font-weight: bold;
+    color: $medium-gray;
 }

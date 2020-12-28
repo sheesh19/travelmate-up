@@ -22,12 +22,7 @@ class LocationsController < ApplicationController
 
     
 
-    def show
-        respond_to do |format|
-            format.html
-            format.json { render json: { location: @location } }
-        end
-    end
+    def show; end
 
     private
 

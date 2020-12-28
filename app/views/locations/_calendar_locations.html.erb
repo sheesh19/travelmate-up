@@ -1,6 +1,6 @@
 <!-- Calendar of events per Location -->
 
-<%= month_calendar events: location_events, previous_link: events_ajax_previous_link, next_link: events_ajax_next_link do |date, events| %>
+<%= month_calendar events: location_events, start_date_param: date_today, previous_link: calendar_ajax_previous_link, next_link: calendar_ajax_next_link do |date, events| %>
     <div class="event-calendar__day">
         <%= date.day %>
     </div>

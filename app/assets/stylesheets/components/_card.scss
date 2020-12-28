@@ -325,7 +325,7 @@
 
 // Reminder card with location
 .reminder-card-with-location {
-    width: 640px;
+    width: 80%;
     height: auto;
     border-radius: 8px;
     overflow: hidden;
@@ -389,6 +389,38 @@
     top: 0;
     margin-right: 16px;
     margin-top: 16px;
+}
+
+// Smallest device
+@media (max-width: 575px) {
+    .reminder-card-with-location {
+        width: 92vw;
+        margin: 2rem auto;
+    }
+
+    .reminder-text {
+        height: 100%;
+    }
+
+    .reminder-time {
+        padding-left: 0.6rem !important;
+        margin-top: 0.5rem;
+    }
+
+    .reminder-time {
+        padding: 1.0rem !important;
+    }
+
+    .reminder-map {
+        width: 32%;
+        height: auto;
+
+        .photo-card {
+            object-fit: cover;
+            height: 100%;
+        }
+    }
+
 }
 
 // Card applied to location index (listing)
