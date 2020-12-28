@@ -52,6 +52,7 @@ gem 'cloudinary', '~> 1.16.0'
 
 # GROUP DATE
 gem 'groupdate'
+gem "simple_calendar", "~> 2.0"
 
 
 

@@ -10,6 +10,16 @@ class Event < ApplicationRecord
     Event.where("events.start_date > ?", Date.today)
   end
 
+  # SIMPLE CALENDAR
+
+  def start_time
+    start_date
+  end
+
+  def end_time
+    end_date
+  end
+
   def self.build_events(trip, events_params)
     events_params.each do |event_param|
         event = Event.new(event_param[1].except(:location))
