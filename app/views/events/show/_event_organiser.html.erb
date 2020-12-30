@@ -1,0 +1,47 @@
+<div class="horizontal-divider"></div>
+    <h4>About the organiser</h4>
+    <div>
+        <div class="organiser-info-header d-flex mb-3">
+
+        <!-- Organiser avatar -->
+        <%= render 'shared/avatars/avatar_xlarge', event: event%>
+        
+        <!-- Organiser info -->
+        <div class="organiser-info d-flex align-items-center justify-content-between">
+            <div class="organiser-details ml-5">
+                <!-- Organiser details -->
+                <p>
+                    <strong><%= event.trip.user.first_name %> <%= event.trip.user.last_name %></strong>
+                </p>
+                <p><%= pluralize(event.trip.user.age, "year") %> old</p>
+
+                <p><%= event.trip.user.gender %></p>
+            </div>
+
+            <!-- Organiser rating -->
+            <div class="organiser-rating-box">
+                <div class="rating-section d-flex">
+                    <div class="organiser-rating pr-2">4</div>
+                    <span class="total-rating-score">/5</span>
+                </div>
+                <div>
+                    <% 4.to_i.times do  %>
+                        <span class="review-star"><i class="fas fa-star solid"></i></span>
+                    <% end %>
+                    <% 1.to_i.times do  %>
+                        <span class="blank-star"><i class="far fa-star regular"></i></span>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+
+        </div>
+        <div class="organiser-about-me mb-5">
+            <%= event.trip.user.description  %>
+        </div>
+    </div>
+
+    <div>
+        <%#= render 'shared/components/event_reviews' %>
+    </div>
+</div>

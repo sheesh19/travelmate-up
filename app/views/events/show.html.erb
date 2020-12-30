@@ -1,5 +1,14 @@
-<h4><%= @event.title %></h4>
+<div class="page-container">
+    <%= render 'events/show/event_title', event: @event %>
 
-<% if policy(@event).edit? %>
-    <%= link_to "Edit #{@event.title}", edit_trip_event_path(@event.trip, @event) %>
-<% end %>
+    <div class="container__event">
+
+        
+        
+        <%= render 'events/show/event_description', event: @event %>
+
+        <%= render 'events/show/event_organiser', event: @event %>
+
+        <%= render 'events/show/event_details', event: @event %>
+    </div>
+</div>

@@ -18,6 +18,14 @@ class Location < ApplicationRecord
             .limit(10)
     end
 
+    def markers
+        [{
+            lat: latitude,
+            lng: longitude,
+            # image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
+        }]
+    end
+
     def self.event_geocoder(location_name)
         if Location.find_by(city: location_name)
             Location.find_by(city: location_name)

@@ -117,7 +117,7 @@
 
 // Smallest device
 @media (max-width: 575px) {
-    .container__dashboard {
+    .container__dashboard, .container__event {
         grid-template-columns: 1fr;
         width: 100%;
     }
@@ -175,4 +175,12 @@
     width: 80%;
     padding-top: 2rem;
     text-align: center;
+}
+
+// Sticky side container
+
+.container-sticky-side {
+    height: 100vh;
+    position: sticky;
+    top: 1rem;
 }

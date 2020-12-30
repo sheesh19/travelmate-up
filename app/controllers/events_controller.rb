@@ -25,6 +25,8 @@ class EventsController < ApplicationController
     def show
         @event = Event.find(params[:id])
         authorize @event
+
+        @markers = @event.markers
     end
 
     private

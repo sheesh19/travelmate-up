@@ -1,0 +1,27 @@
+<div class="event-description-side">
+    <!-- Event Description Placeholder -->
+    <div class="event-description-block">
+        <% if event.photos.attached? %>
+            <div class="event-banner-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path event.photos.sample.key %>')"></div>
+        <% else %>
+            <div class="event-banner-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path event.location.photo.key %>')"></div>
+        <% end %>
+    <!-- Placeholder! Carousel of Event Images -->
+    <h4>Event description</h4>
+    <p><%= event.description %></p>
+    <div class="">
+        <p>
+            <i class="far fa-calendar-alt pr-1"></i>
+            <%= event.start_date.strftime("%d %b %Y") %> -
+            <%= event.end_date.strftime("%d %b %Y") %>
+        </p>
+        <p>
+            <i class="fas fa-user-friends pr-1"></i>
+            <%#= pluralize(event.spots_left, "mate") %> needed
+        </p>
+        <p>
+            <i class="fas fa-map-marker-alt pr-1"></i>
+            <%= event.location.city %>, <%= event.location.country %>
+        </p>
+    </div>
+</div>

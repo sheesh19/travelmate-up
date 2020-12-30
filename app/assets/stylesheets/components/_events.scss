@@ -168,3 +168,15 @@
         padding-bottom: 8px;
     }
 }
+
+// Smallest device
+@media (max-width: 575px) {
+    .event-description-side {
+        width: 92vw;
+    }
+
+    .organiser-info-header {
+        justify-content: center;
+        align-items: center;
+    }
+}

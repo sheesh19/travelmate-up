@@ -1,0 +1,32 @@
+<div class="event-side-bottom">
+                    
+    <div id="event-date-time" class="d-flex">
+        <div id="event-date-card">
+            <div id="event-day-text">
+                <%= event.start_date.strftime("%d") %>
+            </div>
+            <div id="event-month-text">
+                <%= event.start_date.strftime("%b") %>
+            </div>
+        </div>
+
+        <div id="event-date-details" class="ml-5 align-items-center">
+            <div><%= event.start_date.strftime("%A, %d %b %Y") %></div>
+            <div>
+                <%= event.start_time.strftime("%I:%M %p") %> -
+                <%= event.end_time.strftime("%I:%M %p") %>
+            </div>
+            <div id="event-location">
+                <i class="fas fa-map-marker-alt event-location-icon"></i>
+                <%= event.location.city %>, <%= event.location.country %>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="event-map">
+        <div class="map">
+            <%= render 'shared/components/map' %>
+        </div>
+    </div>
+</div>

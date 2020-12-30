@@ -1,0 +1,32 @@
+<!-- Individual reviews -->
+<ul style="padding-left: 0">
+    <% event.event_reviews.each do |rev| %>
+        <div class="review-card">
+            <li>
+                <div id="review-header" class="d-flex justify-content-between">
+                    <div class="d-inline-flex align-items-center">
+                        <%= image_tag "captain_cat.jpg", class: "avatar", alt: "avatar-large" %>
+                        <div class="name-date-info">
+                        <div><h3><%= "#{@event.itinerary.user.first_name} #{@event.itinerary.user.last_name}" %></h3></div>
+                        <div>
+                            <p><%= "#{@event.created_at.strftime('%B')} #{@event.created_at.strftime('%Y')}" %></p>
+                        </div>
+                        </div>
+                    </div>
+                    <div>
+                        <% rev.rating.to_i.times do  %>
+                            <span class="review-star"><i class="fas fa-star solid"></i></span>
+                        <% end %>
+                        <% rev.blank_stars.to_i.times do  %>
+                            <span class="blank-star"><i class="far fa-star regular"></i></span>
+                        <% end %>
+                    </div>
+                </div>
+
+                <div id="review-content">
+                    <%= rev.comments %>
+                </div>
+            </li>
+        </div>
+    <% end %>
+</ul>
