@@ -20,6 +20,14 @@ class Event < ApplicationRecord
     end_date
   end
 
+  def markers
+    [{
+        lat: location.latitude,
+        lng: location.longitude,
+        # image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
+    }]
+  end
+
   def self.build_events(trip, events_params)
     events_params.each do |event_param|
         event = Event.new(event_param[1].except(:location))

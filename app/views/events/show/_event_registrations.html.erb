@@ -1,0 +1,16 @@
+<% if event.event_registrations.where(status: 1).present? %>
+    <div class="registered-users">
+    <h1>
+        Registered users ( <%= @event.event_registrations.where(status: 1).count %> )
+    </h1>
+
+    <% @event.event_registrations.where(status: 1).each do |regis| %>
+        <div class="event-pill">
+        <%= cl_image_tag regis.user.avatar, class: "avatar-small" %>
+        <div class="event-pill-text">
+            <p><%= regis.user.first_name %></p>
+        </div>
+        </div>
+    <% end %>
+    </div>
+<% end %>

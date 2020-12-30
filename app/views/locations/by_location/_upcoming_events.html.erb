@@ -1,0 +1,26 @@
+<div class="page-container">
+    <div class="upcoming-event-title">
+        <h2>Upcoming events in <%= location.city %></h2>
+    </div>
+    <div class="container__dashboard">
+
+        <div class="display__itinerary">
+            <% location.events.each do |event| %>
+                <% if event.start_date >= Date.today %>
+                    <%= render 'shared/cards/event_card', element: event %>
+                <% end %>
+            <% end %>
+        </div>
+    
+        <div class="container-sticky-side">
+            <div id="js-calendar" class="dash__calendar mb-5">
+                <%= render 'locations/by_location/calendar_locations', location_events: location.events %>
+            </div>
+
+            <div class="map">
+                <%= render 'shared/components/map' %>
+            </div>
+        </div>
+
+    </div>
+</div>

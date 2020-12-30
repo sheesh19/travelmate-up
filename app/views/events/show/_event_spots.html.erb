@@ -1,0 +1,12 @@
+<div id="remaining-spots" class="d-flex align-items-center justify-content-between">
+    <div class="mr-3 py-1">
+        <%# if event.spots_left == 0 %>
+            All spots taken
+        <%# else %>
+            <%#= pluralize(@event.spots_left, "spot") %> remaining
+        <%# end %>
+    </div>
+    <!--   <div>
+        <%#= image_tag @event.itinerary.user.avatar, class: "avatar" %>
+    </div> -->
+</div>

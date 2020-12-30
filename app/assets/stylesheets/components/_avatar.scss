@@ -144,3 +144,14 @@
     padding: 0;
   }
 }
+
+// Smallest device
+@media (max-width: 575px) {
+  .no-image-avatar-xlarge {
+    height: 4rem;
+    width: 4rem;
+    p {
+      font-size: 2rem;
+    }
+  }
+}

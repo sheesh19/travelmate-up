@@ -22,7 +22,9 @@ class LocationsController < ApplicationController
 
     
 
-    def show; end
+    def show
+        @markers = @location.markers
+    end
 
     private
 
