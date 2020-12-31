@@ -6,11 +6,20 @@ class User < ApplicationRecord
   
   has_many :trips
   has_many :events, through: :trips
+  has_many :registered_mates, through: :events, source: :event_registrations
+  has_many :mates, through: :registered_mates, source: :user
+  
+  has_many :event_registrations
+  has_many :registered_events, through: :event_registrations, source: :event
+  
   has_one_attached :avatar
 
   def num_listings
     events.count
-    # events.map {|event| event.event_registrations.count}.reduce(&:+)
+  end
+
+  def upcoming_events
+    events.where("events.start_date > ?", Date.today)
   end
 
   def age

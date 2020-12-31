@@ -7,13 +7,12 @@
     <% else %>
         <div class="container__dashboard">
             <div class="display__itinerary">
-                <%= render partial: 'events/grouped_events_all', 
+                <%= render partial: 'shared/events/grouped_events_all', 
                     locals: { 
                         events: @user.events,
                         user: @user
                     }
                 %>
-                <%#= render 'shared/events/grouped_events', user: @user %>
             </div>
         </div>
     <% end %>

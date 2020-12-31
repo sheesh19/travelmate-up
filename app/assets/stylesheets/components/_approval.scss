@@ -1,0 +1,58 @@
+.approval-row {
+    border-bottom: 0.5px solid $lightish-gray;
+    height: 4.8rem;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr 1fr 1fr;
+    grid-gap: 2rem;
+
+    p {
+        margin: 0;
+    }
+}
+
+.approval-row-form {
+    border-bottom: 0.5px solid $lightish-gray;
+}
+
+.expand-btn {
+    align-items: right;
+}
+
+.table-header {
+    p {
+        font-size: 16px;
+        font-weight: 600;
+        color: $gray;
+    }
+}
+
+.approval-header-sm  {
+    display: none;
+}
+
+// Smallest device
+@media (max-width: 1000px) {    
+    .approval-row {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        grid-template-columns: 1fr;
+        grid-gap: 1.4rem;
+        text-align: center;
+        height: 100%;
+        p {
+            font-size: 0.9rem;
+        }
+    }
+
+    .approval-user {
+        justify-content: center;
+    }
+
+    .approval-header  {
+        display: none;
+    }
+
+    .approval-header-sm {
+        display: block;
+    }
+}
