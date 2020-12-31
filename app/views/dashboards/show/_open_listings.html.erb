@@ -1,0 +1,16 @@
+<div class="pb-5">
+    <%= render 'shared/components/event_registration_header' %>
+
+    <% @user.registered_mates.each do |regis| %>
+        <% if regis.status.present? %>
+
+            <%= render 'shared/components/event_registration_row', element: regis %>
+        <!-- SHOW EMPTY STATE IF NO EVENTS -->
+        <% else %>
+            <div class="empty-state pt-5 pb-5 mt-5 mb-5">
+                <p><strong>You have no open events!</strong></p>
+            </div>
+        <% end %>
+
+    <% end %>
+</div>

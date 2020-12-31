@@ -36,7 +36,7 @@
 }
 
 // Smallest device
-@media (max-width: 575px) {
+@media (max-width: 1000px) {
     .page-container-home {
         margin-left: 1rem;
         margin-right: 1rem;
@@ -80,7 +80,7 @@
 }
 
 // Smallest device
-@media (max-width: 575px) {
+@media (max-width: 1000px) {
     .container__featured {
         padding-left: 2rem;
         padding-right: 2rem;
@@ -116,7 +116,7 @@
 }
 
 // Smallest device
-@media (max-width: 575px) {
+@media (max-width: 1000px) {
     .container__dashboard, .container__event {
         grid-template-columns: 1fr;
         width: 100%;
