@@ -10,12 +10,14 @@ Rails.application.routes.draw do
     resources :events, except: [ :index, :destroy ]
   end
 
-
   # EVENTS
   resources :events, only: [ :index, :destroy ]
   
   # LOCATIONS
   resources :locations, only: [ :index, :show ]
+
+  # DASHBOARD
+  resource :dashboards, only: :show
 
   if Rails.env.development?
     get '/kitchensink', to: 'pages#kitchensink' if Rails.env.development?
