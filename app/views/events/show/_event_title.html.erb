@@ -4,7 +4,7 @@
     <div class="breadcrumb">
         <%= link_to trip_path(event.trip) do %>
             <i class="fas fa-angle-left"></i>
-            Back
+            <%= "#{event.trip.title} / #{event.title}" %>
         <% end %>
     </div>
 </div>

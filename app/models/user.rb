@@ -4,7 +4,14 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   
+  has_many :trips
+  has_many :events, through: :trips
   has_one_attached :avatar
+
+  def num_listings
+    events.count
+    # events.map {|event| event.event_registrations.count}.reduce(&:+)
+  end
 
   def age
     today = Date.today

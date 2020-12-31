@@ -1,0 +1,21 @@
+<div class="itinerary">
+
+    <% if @user.events.where('Events.start_date >= ?', DateTime.now).count == 0 %>
+        <div class="empty-state pt-5 pb-5 mt-5 mb-5">
+            <p><strong>You have 0 travel plans</strong></p>
+        </div>
+    <% else %>
+        <div class="container__dashboard">
+            <div class="display__itinerary">
+                <%= render partial: 'events/grouped_events_all', 
+                    locals: { 
+                        events: @user.events,
+                        user: @user
+                    }
+                %>
+                <%#= render 'shared/events/grouped_events', user: @user %>
+            </div>
+        </div>
+    <% end %>
+
+</div>

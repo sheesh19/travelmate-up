@@ -3,7 +3,7 @@
   <div>
     <div class="add-event mb-5">
       <% if policy(trip).edit? %>
-        <%= render "shared/components/button", variant: "outlined", label: "Add new event", href: new_trip_event_path(trip) %>
+        <%= render "shared/components/button", variant: "outlined", label: "Add new event", path: new_trip_event_path(trip) %>
       <% end %>
     </div>
 

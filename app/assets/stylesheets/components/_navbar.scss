@@ -121,3 +121,18 @@
     }
   }
 }
+
+// Smallest device
+@media (max-width: 575px) {
+  .navbar-nav {
+    text-align: center;
+  }
+
+  .sidebar-primary-button {
+    padding-bottom: 1rem;
+  }
+
+  .dropdown {
+    padding-bottom: 1rem;
+  }
+}
