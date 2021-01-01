@@ -35,30 +35,19 @@
     <!-- STATUS -->
     <div class="table-header approval-header-sm"><p>Status</p></div>
     <div class="display__itinerary">
-        <p><%= element.status %></p>
+        <p class="js-approval-transition"><%= element.status.capitalize %></p>
     </div>
 
-<% if policy(element).update? %>
+    <% if policy(element).update? %>
     <!-- EXPANDABLE BUTTON -->
-    <div class="expand-btn">
-        <%= link_to event_event_registration_path(element), method: :patch %>
-        <a data-toggle="collapse" href="#collapseReview<%= element.id %>" role="button" aria-expanded="false" aria-controls="collapseReview<%= element.id %>"><span class="btn btn-outlined">Expand</span></a>
-    </div>
-</div>
-<!-- HIDDEN FORM -->
-<div id="collapseReview<%= element.id %>" class=" collapse">
-    <div class="text-center">
-        <%= simple_form_for [element.event, element] do |f|  %>
-            <%= f.input :status,
-                collection: EventRegistration.statuses.keys,
-                label_html: { class: "form-title mt-3 text-center custom-control custom-switch" },
-                valid_class: '',
-                label: "Approve the request"
-                %>
-            <div class="data-content-cell-small text-center">
-                <%= f.submit "Save", class: "btn btn-outlined", method: :patch %>
-            </div>
+    <div class="expand-btn d-flex justify-content-center">
+        <% if element.pending? %>
+            <%= link_to "DECLINE", event_registration_path(element, event_registration: { status: :cancelled}), class: "btn btn-outlined", method: :patch, remote: true %>
+            <%= link_to "APPROVE", event_registration_path(element, event_registration: { status: :approved}), class: "btn btn-filled ml-1", method: :patch, remote: true %>
+        <% else %>
+            <%= link_to element.btn_opp_status, event_registration_path(element, event_registration: { status: element.btn_opp_symbol }), class: "btn btn-outlined", method: :patch, remote: true %>
         <% end %>
     </div>
+    <% end %>
 </div>
-<% end %>
+

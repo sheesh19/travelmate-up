@@ -8,10 +8,9 @@ class EventRegistrationsController < ApplicationController
         @event_registration.update(event_registration_params)
         authorize @event_registration
 
-        respond_to do |format|
-            format.html
-            format.js
-        end
+        # respond_to do |format|
+        #     format.js { render action: :update }
+        # end
     end
 
   private
