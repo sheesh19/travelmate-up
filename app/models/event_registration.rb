@@ -10,6 +10,12 @@ class EventRegistration < ApplicationRecord
     update(status: :approved)
   end
 
+  def btn_opp_status
+    return "PENDING" if status == 'pending'
+    
+    status == 'approved' ? "CANCEL" : "APPROVE"
+  end
+
   private
 
   def cancel

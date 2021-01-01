@@ -1,10 +1,11 @@
 <div class="pb-5">
     <%= render 'shared/components/event_registration_header' %>
 
-    <% @user.registered_mates.each do |regis| %>
-        <% if regis.status.present? %>
-
-            <%= render 'shared/components/event_registration_row', element: regis %>
+    <% @user.registered_mates.each do |registration| %>
+        <% if registration.status.present? %>
+            <div class="js-registration" data-registration-id="<%= registration.id %>">
+                <%= render 'shared/components/event_registration_row', element: registration %>
+            </div>
         <!-- SHOW EMPTY STATE IF NO EVENTS -->
         <% else %>
             <div class="empty-state pt-5 pb-5 mt-5 mb-5">
