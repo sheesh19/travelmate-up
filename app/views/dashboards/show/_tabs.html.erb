@@ -10,6 +10,11 @@
           Open listings (<%= @user.num_listings %>)
         </a>
       </li>
+      <li class="nav-item">
+        <a class="dash-inner-nav" id="pills-mates-tab" data-toggle="pill" href="#pills-mates" role="tab" aria-controls="pills-mates" aria-selected="false">
+          Mate Up Requests (<%= @user.num_registered_events %>)
+        </a>
+      </li>
 <!--       <li class="nav-item">
         <a class="dash-inner-nav" id="pills-favourites-tab" data-toggle="pill" href="#pills-favourites" role="tab" aria-controls="pills-favourites" aria-selected="false">
           Favourites (<%#= @favorite_itineraries.count + @event_favorites.count %>)
@@ -30,6 +35,9 @@
       </div>
       <div class="tab-pane fade" id="pills-open" role="tabpanel" aria-labelledby="pills-open-tab">
         <%= render 'dashboards/show/open_listings' %>
+      </div>
+      <div class="tab-pane fade" id="pills-mates" role="tabpanel" aria-labelledby="pills-mates-tab">
+        <%= render 'dashboards/show/mateup_listings' %>
       </div>
       <div class="tab-pane fade" id="pills-favourites" role="tabpanel" aria-labelledby="pills-favourites-tab">
         <%#= render 'favorites' %>

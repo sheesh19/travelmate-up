@@ -1,0 +1,52 @@
+<div class="approval-row align-items-center space-between">
+
+    <!-- Owner -->
+    <div class="table-header approval-header-sm"><p>Owner</p></div>
+    <div class="d-flex align-items-center approval-user">
+        <% if element.owner.avatar.attached? %>
+            <%= cl_image_tag element.owner.avatar, class: "avatar" %>
+        <% else %>
+            <div class="no-image-avatar-small d-flex align-items-center justify-content-center">
+                <p id="no-image-avatar-small-p"><%= element.owner.first_name[0].upcase %></p>
+            </div>
+        <% end %>
+
+        <p class="mb-0 pl-2 display__itinerary"><%= element.owner.first_name %> <%= element.owner.last_name %></p>
+    </div>
+
+    <!-- EVENT NAME -->
+    <div class="table-header approval-header-sm"><p>Event</p></div>
+    <div class="">
+        <div>
+            <%= link_to trip_event_path(element.event.trip, element.event) do %>
+                <h5 class=""><%= element.event.title %></h5>
+                <p class="display__itinerary"><%= element.event.start_date.strftime("%d %b %Y") %></p>
+            <% end %>
+        </div>
+    </div>
+
+    <!-- EVENT REQUEST DATE -->
+    <div class="table-header approval-header-sm"><p>Requested Date</p></div>
+
+    <div class="display__itinerary">
+        <p><%= element.event.created_at.strftime("%d %b %Y") %></p>
+    </div>
+
+    <!-- STATUS -->
+    <div class="table-header approval-header-sm"><p>Status</p></div>
+    <div class="display__itinerary">
+        <p class="js-approval-transition"><%= element.status.capitalize %></p>
+    </div>
+
+    <% if policy(element).update? %>
+    <!-- EXPANDABLE BUTTON -->
+    <div class="expand-btn d-flex justify-content-center">
+        <% if element.pending? || element.approved? %>
+            <%= link_to "CANCEL", event_registration_path(element, event_registration: { status: :cancelled}), class: "btn btn-outlined", method: :patch, remote: true %>
+        <% else %>
+            <%= link_to "DELETE", event_registration_path(element), class: "btn btn-outlined", method: :delete, remote: true %>
+        <% end %>
+    </div>
+    <% end %>
+</div>
+

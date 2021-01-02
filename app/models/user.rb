@@ -22,6 +22,10 @@ class User < ApplicationRecord
     events.where("events.start_date > ?", Date.today)
   end
 
+  def num_registered_events
+    registered_events.count
+  end
+
   def age
     today = Date.today
     age = today.year - date_of_birth.year

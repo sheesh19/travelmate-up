@@ -18,6 +18,10 @@ class EventRegistration < ApplicationRecord
     approved? ? :cancelled : :approved
   end
 
+  def owner
+    event.trip.user
+  end
+
   private
 
   def cancel

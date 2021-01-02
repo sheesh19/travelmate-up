@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   end
 
   # EVENT REGISTRATIONS
-  resources :event_registrations, only: :update
+  resources :event_registrations, only: [ :update, :destroy ]
   
   # LOCATIONS
   resources :locations, only: [ :index, :show ]

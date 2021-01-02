@@ -12,7 +12,7 @@
 
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav">
       <% if user_signed_in? %>
         <li class="nav-item">
           <%= link_to "EXPLORE", root_path, class: "nav-link" %>
@@ -27,19 +27,18 @@
           <%#= link_to "PLAN YOUR TRIP", '#', class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%#= link_to "MANAGE TRIPS", '#', class: "nav-link" %>
+          <%= link_to "MANAGE TRIPS", dashboards_path, class: "nav-link" %>
         </li>
         
       <% else %>
         <li class="nav-item">
           <%= link_to "EXPLORE", root_path, class: "nav-link" %>
-          <%= link_to "LOGIN", new_user_session_path, class: "nav-link" %>
         </li>
       <% end %>
 
       <!-- DISPLAY BUTTON && AVATAR -->
       <% if user_signed_in? %>
-        <div class="sidebar-primary-button m-auto">
+        <div class="sidebar-primary-button">
           <%= render "shared/components/button", variant: "filled", label: "CREATE NEW TRIP", path: new_trip_path %>
         </div>
         <li class="nav-item dropdown px-2 m-auto">

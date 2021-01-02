@@ -907,7 +907,7 @@ er_list = [
   status: 1
 },
 {
-  event_id: Event.find_by(title: "Le Wagon Demo Day").id,
+  event_id: Event.find_by(title: "Diving with Big Blue").id,
   user_id: User.find_by(username: "sheilz").id,
   status: 1
 },
