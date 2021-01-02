@@ -11,11 +11,15 @@ class EventRegistration < ApplicationRecord
   end
 
   def btn_opp_status    
-    approved? ? "CANCEL" : "APPROVE"
+    approved? ? "DECLINE" : "APPROVE"
   end
 
   def btn_opp_symbol    
     approved? ? :cancelled : :approved
+  end
+
+  def owner
+    event.trip.user
   end
 
   private

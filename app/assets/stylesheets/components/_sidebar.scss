@@ -1,0 +1,12 @@
+.sidebar-primary-button {
+    margin: auto 0.8rem;
+}
+
+// Smallest device
+@media (max-width: 1000px) {
+    .sidebar-primary-button {
+        margin: 1rem 0.8rem;
+    }
+}
+
+

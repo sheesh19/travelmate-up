@@ -1,2 +1,7 @@
 var registrationUpdate = document.querySelector('.js-registration[data-registration-id="<%= @event_registration.id %>"]');
-registrationUpdate.innerHTML = '<%= j render 'shared/components/event_registration_row', element: @event_registration %>'
+if (registrationUpdate) {
+    registrationUpdate.innerHTML = '<%= j render 'shared/components/event_registration_row', element: @event_registration %>'
+} else {
+    var registrationMatesUpdate = document.querySelector('.js-registration-mates[data-registration-id="<%= @event_registration.id %>"]');
+    registrationMatesUpdate.innerHTML = '<%= j render 'shared/components/mateup_row', element: @event_registration %>'
+}

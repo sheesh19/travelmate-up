@@ -1,5 +1,5 @@
 class EventRegistrationsController < ApplicationController
-    before_action :set_event_registration, only: :update
+    before_action :set_event_registration, only: [ :update, :destroy ]
 
     def create
     end
@@ -9,7 +9,13 @@ class EventRegistrationsController < ApplicationController
         authorize @event_registration
     end
 
-  private
+    def destroy
+        @event_registration.destroy
+        authorize @event_registration
+    end
+
+
+    private
 
     def set_event_registration
         @event_registration = EventRegistration.find(params[:id])
