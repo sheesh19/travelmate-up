@@ -11,7 +11,7 @@ class EventRegistration < ApplicationRecord
   end
 
   def btn_opp_status    
-    approved? ? "CANCEL" : "APPROVE"
+    approved? ? "DECLINE" : "APPROVE"
   end
 
   def btn_opp_symbol    
