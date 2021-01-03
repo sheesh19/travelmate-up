@@ -1,0 +1,20 @@
+<!-- Renders if the user is the owner -->
+
+<div class="event-side-title d-flex justify-content-between">
+  <!-- Name title -->
+    <div class="d-flex">
+        <!-- Organiser avatar -->
+        <div class="mr-3">
+            <%= render 'shared/avatars/avatar_med', event: event %>
+        </div>
+        <div class="">
+            <!-- Organiser Name -->
+            <p id="event-join-organiser-label" class="mb-0">Organised by</p>
+            <p id="event-join-name" class="mb-0"><%= event.trip.user.username %></p>
+        </div>
+
+    </div>
+    <% if current_user == event&.trip&.user %>
+        <%= link_to "Edit event", edit_trip_path(event.trip), class: "btn btn-outlined" %>
+    <% end %>
+</div>

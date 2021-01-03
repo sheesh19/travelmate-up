@@ -32,6 +32,10 @@ class User < ApplicationRecord
     all_favorites.count
   end
 
+  def registered?(event)
+    event_registrations.find_by(event: event)
+  end
+
   def age
     today = Date.today
     age = today.year - date_of_birth.year

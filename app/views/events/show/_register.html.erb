@@ -1,0 +1,22 @@
+
+<!-- Renders if the user is not the owner of the event -->
+<div class="event-side-title d-flex">
+  <!-- Name title -->
+    <div class="d-flex">
+        <!-- Organiser avatar -->
+        <div class="mr-3">
+            <%= render 'shared/avatars/avatar_med', event: event %>
+        </div>
+        <div>
+            <!-- Organiser Name -->
+            <p id="event-join-organiser-label" class="mb-0">Organised by</p>
+            <p id="event-join-name" class="mb-0"><%= event.trip.user.username %></p>
+        </div>
+    </div>
+    <!-- Join button -->
+    <div id="event-join-button" class="js-mate-up">
+        <%= render 'shared/components/mateup_btn', event: event %>
+    </div>
+
+</div>
+

@@ -1,0 +1,10 @@
+<!-- Button logic for Mate Up from NON OWNER perspective -->
+<% if event.start_date >= Date.today %>
+    <% if current_user.registered?(event)%>
+        <div class="badge badge-secondary pending-info">
+        Request <%= event.event_registrations.where(user: current_user).last.status.downcase%>
+        </div>
+    <% else %>
+        <%= link_to "Mate up", event_event_registrations_path(event), method: :post, class: "btn btn-outlined", remote: true %>
+    <% end %>
+<% end %>
