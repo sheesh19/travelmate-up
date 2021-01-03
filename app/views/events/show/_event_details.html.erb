@@ -2,7 +2,7 @@
 
     <div class="d-flex flex-row-reverse bd-highlight">
     <!-- <div> -->
-        <%#= render "events/event_registration" %>
+        <%= render "events/show/event_registrations", event: @event %>
     <!-- </div> -->
     </div>
 
@@ -12,9 +12,9 @@
         <div class="">
             <!-- Side title section -->
             <% if event.trip.user == current_user %>
-                <%#= render 'event_registration_owner' %>
+                <%= render 'events/show/event_registration_owner', event: event %>
             <% else %>
-                <%#= render 'event_registration' %>
+                <%= render 'events/show/register', event: event %>
             <% end %>
             
             <!-- Side bottom section -->

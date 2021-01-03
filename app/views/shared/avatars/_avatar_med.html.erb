@@ -1,0 +1,7 @@
+<% if event.trip.user.avatar.present? %>
+    <%= cl_image_tag event.trip.user.avatar, class: "avatar" %>
+<% else %>
+    <div class="no-image-avatar-med d-flex align-items-center justify-content-center">
+        <p id="no-image-avatar-med-p"><%= event.trip.user.first_name[0].upcase%></p>
+    </div>
+<% end %>

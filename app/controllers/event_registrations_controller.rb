@@ -1,7 +1,19 @@
 class EventRegistrationsController < ApplicationController
     before_action :set_event_registration, only: [ :update, :destroy ]
+    before_action :set_event, only: :create
 
     def create
+        @event_registration = EventRegistration.new
+        @event_registration.user = current_user
+        @event_registration.event = @event
+        @event_registration.status = 0
+        
+        if @event_registration.save
+            # trigger email notification
+            # mail = UserMailer.with(user: current_user, event: @event).event_mate_up error with heroku
+            # mail.deliver_now error with heroku
+        end
+        authorize @event_registration
     end
     
     def update
