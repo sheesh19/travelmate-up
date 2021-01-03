@@ -1,7 +1,7 @@
 class FavoritesController < ApplicationController
 
     def update
-        @element = element_class.find_by(params[:favoritable_id])
+        @element = element_class.find(favorite_params[:favoritable_id])
         current_user.favorited?(@element) ? current_user.unfavorite(@element) : current_user.favorite(@element)
         @favorite = Favorite.last
 

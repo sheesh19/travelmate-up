@@ -16,11 +16,11 @@
                 </div>
                 <h1><%= trip.title %></h1>
                 <div class="d-flex">
-                    <div class="js-heart-trip">
+                    <div class="js-heart-trip heart-fit">
                         <%= render 'shared/components/heart', element: trip %>
                     </div>
-                    <p class="ml-3"><%= pluralize(trip.total_time, "day") %> plan </p>
                 </div>
+                <p class=""><%= pluralize(trip.total_time, "day") %> plan </p>
                 <p><%= trip.description %></p>
 
                 <!-- Tags on Itineraries if present-->
