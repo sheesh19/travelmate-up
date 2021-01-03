@@ -17,7 +17,7 @@
       </li>
       <li class="nav-item">
         <a class="dash-inner-nav" id="pills-favourites-tab" data-toggle="pill" href="#pills-favourites" role="tab" aria-controls="pills-favourites" aria-selected="false">
-          Favourites (<%#= @favorite_itineraries.count + @event_favorites.count %>)
+          Favourites (<%= @user.num_favs %> )
         </a>
       </li>
 <!--
