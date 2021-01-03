@@ -6,7 +6,7 @@
         <div id="travel-plan-card-title" class="card-title d-flex justify-content-between">
             <div><%= element.total_time %> day plan</div>
             <div data-itinerary-id="<%=element.id %>" class="itinerary-heart-icon">
-                400 <%= render 'shared/components/heart', element: element %>
+                <%= element.favoritors.count %> <i class="fas fa-heart"></i>
             </div>
         </div>
         <h6 class="card-title-itinerary"><%= element.title %></h6>

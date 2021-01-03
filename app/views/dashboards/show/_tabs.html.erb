@@ -15,12 +15,12 @@
           Mate up requests (<%= @user.num_registered_events %>)
         </a>
       </li>
-<!--       <li class="nav-item">
+      <li class="nav-item">
         <a class="dash-inner-nav" id="pills-favourites-tab" data-toggle="pill" href="#pills-favourites" role="tab" aria-controls="pills-favourites" aria-selected="false">
           Favourites (<%#= @favorite_itineraries.count + @event_favorites.count %>)
         </a>
-        count will need updating once favourite events and users are added
       </li>
+<!--
       <li class="nav-item">
         <a class="dash-inner-nav" id="pills-followers-tab" data-toggle="pill" href="#pills-followers" role="tab" aria-controls="pills-follower" aria-selected="false">
           Followers (<%#= @followers.count %>)
@@ -40,7 +40,7 @@
         <%= render 'dashboards/show/mateup_listings' %>
       </div>
       <div class="tab-pane fade" id="pills-favourites" role="tabpanel" aria-labelledby="pills-favourites-tab">
-        <%#= render 'favorites' %>
+        <%= render 'dashboards/show/favorites' %>
       </div>
       <div class="tab-pane fade" id="pills-followers" role="tabpanel" aria-labelledby="pills-followers-tab">
         <%#= render 'followers' %>

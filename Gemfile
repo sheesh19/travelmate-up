@@ -41,6 +41,9 @@ gem 'cocoon'
 # TAGS
 gem 'acts-as-taggable-on', '~> 6.0'
 
+# FAVORITES
+gem 'acts_as_favoritor'
+
 # CODE REVIEW
 gem 'reek'
 gem 'flog'
