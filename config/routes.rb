@@ -24,6 +24,9 @@ Rails.application.routes.draw do
   # DASHBOARD
   resource :dashboards, only: :show
 
+  # FAVORITE
+  resource :favorites, only: :update
+
   if Rails.env.development?
     get '/kitchensink', to: 'pages#kitchensink' if Rails.env.development?
   end

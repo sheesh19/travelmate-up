@@ -1,0 +1,8 @@
+var heartTrip = document.querySelector('.js-heart-trip');
+if (heartTrip) {
+    heartTrip.innerHTML = '<%= j render "shared/components/heart", element: @element %>'
+} else {
+    var heartEvent = document.querySelector('.js-heart-event');
+    heartEvent.innerHTML = '<%= j render "shared/components/heart", element: @element %>'
+}
+

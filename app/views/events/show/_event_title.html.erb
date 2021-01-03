@@ -1,6 +1,9 @@
 <!-- EVENT TITLE -->
 <div class="main-title">
     <h1><%= event.title %></h1>
+    <div class="js-heart-event heart-fit">
+        <%= render 'shared/components/heart', element: event %>
+    </div>
     <div class="breadcrumb">
         <%= link_to trip_path(event.trip) do %>
             <i class="fas fa-angle-left"></i>

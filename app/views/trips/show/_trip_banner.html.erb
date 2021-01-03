@@ -1,10 +1,10 @@
 <div class="travel-plan-banner mb-5">
     <div class="small-page-container travel-plan-banner-container ">
         <div class="breadcrumb">
-        <%#= link_to user_itineraries_itineraries_path(@user) do %>
+        <%= link_to trips_path do %>
             <i class="fas fa-angle-left"></i>
-            Back
-        <%# end %>
+            All Trips
+        <% end %>
         </div>
 
         <div class="user_banner">
@@ -15,7 +15,12 @@
                     <% end %>
                 </div>
                 <h1><%= trip.title %></h1>
-                <p><%= pluralize(trip.total_time, "day") %> plan </p>
+                <div class="d-flex">
+                    <div class="js-heart-trip heart-fit">
+                        <%= render 'shared/components/heart', element: trip %>
+                    </div>
+                </div>
+                <p class=""><%= pluralize(trip.total_time, "day") %> plan </p>
                 <p><%= trip.description %></p>
 
                 <!-- Tags on Itineraries if present-->

@@ -6,6 +6,8 @@ class Event < ApplicationRecord
   acts_as_taggable_on :tags, :activities
   has_many_attached :photos
 
+  acts_as_favoritable
+
   def self.upcoming
     Event.where("events.start_date > ?", Date.today)
   end

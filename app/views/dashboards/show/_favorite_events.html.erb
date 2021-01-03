@@ -1,0 +1,17 @@
+<div class="mb-5">
+    <div class="featured-title">
+        <h2>FAVOURITE EVENTS</h2>
+    </div>
+
+    <% if fav_events.empty? %>
+        <div class="empty-state pt-5 pb-5 mt-5 mb-5">
+            <p><strong>You have 0 favourite events!</strong></p>
+        </div>
+    <% else %>
+        <div class="card__grid">
+            <% fav_events.each do |event| %>
+                <%= render 'shared/cards/event_half_card', event: event %>
+            <% end %>
+        </div>
+    <% end %>
+</div>

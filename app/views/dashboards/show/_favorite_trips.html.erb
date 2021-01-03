@@ -1,0 +1,22 @@
+<div class="mb-5">
+    <div class="featured-title">
+        <h2>FAVOURITE TRIPS</h2>
+    </div>
+
+    <% if fav_trips.empty? %>
+        <div class="empty-state pt-5 pb-5 mt-5 mb-5">
+            <p><strong>You have 0 favourite trips!</strong></p>
+        </div>
+    <% else %>
+        <div class="">
+            <!-- Card Carousel (?) -->
+            <div class="card__grid">
+            <% fav_trips.each do |trip| %>
+                <%= render 'shared/cards/trip_card', element: trip %>
+            <% end %>
+            </div>
+        </div>
+    <% end %>
+
+</div>
+

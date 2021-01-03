@@ -14,6 +14,8 @@ class User < ApplicationRecord
   
   has_one_attached :avatar
 
+  acts_as_favoritor
+
   def num_listings
     events.count
   end
@@ -24,6 +26,10 @@ class User < ApplicationRecord
 
   def num_registered_events
     registered_events.count
+  end
+
+  def num_favs
+    all_favorites.count
   end
 
   def age

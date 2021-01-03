@@ -4,6 +4,8 @@ class Trip < ApplicationRecord
   has_many :events, inverse_of: :trip, dependent: :destroy
   accepts_nested_attributes_for :events, reject_if: :all_blank, allow_destroy: true
 
+  acts_as_favoritable
+  
   def total_time
     difference = self.end_date - self.start_date
     difference.to_i / 86400
