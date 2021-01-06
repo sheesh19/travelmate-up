@@ -1,5 +1,5 @@
-<% if event.trip.user.avatar.present? %>
-    <div><%= cl_image_tag event.trip.user.avatar, class: "avatar-xlarge" %></div>
+<% if event.trip.user.avatar.attached? %>
+    <div><%= cl_image_tag event.trip.user.avatar.key, height: 200, width: 200, crop: :fill, class: "avatar-xlarge" %></div>
 <% else %>
     <div class="no-image-avatar-xlarge d-flex align-items-center justify-content-center">
         <p><%= event.trip.user.first_name[0].upcase%></p>

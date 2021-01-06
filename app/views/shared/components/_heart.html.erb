@@ -1,13 +1,13 @@
 <% if current_user && current_user.favorited?(element) %>
   <%= link_to favorites_path(element, favorite: { favoritable_id: element.id, favoritable_type: element.class }), method: :patch, remote: true do %>
-    <div class="d-flex">
+    <div class="d-flex mt-3">
       <i class="fas fa-heart mt-1"></i>
       <p class="ml-3">Saved!</p>
     </div>
   <% end %>
 <% else %>
   <%= link_to favorites_path(element, favorite: { favoritable_id: element.id, favoritable_type: element.class }), method: :patch, remote: true do %>
-    <div class="d-flex">
+    <div class="d-flex mt-3">
       <i class="far fa-heart mt-1"></i>
       <p class="ml-3">Save</p>
     </div>

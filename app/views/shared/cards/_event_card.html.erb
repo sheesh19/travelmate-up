@@ -20,8 +20,8 @@
     </div>
 
     <div class="reminder-map">
-        <% if element.photos.present? %>
-            <%= cl_image_tag element.photos.sample, class: "photo-card"%>
+        <% if element.photos.attached? %>
+            <%= cl_image_tag element.photos.sample.key, class: "photo-card"%>
         <% else %>
             <% if element.location.photo.present? %>
                 <%= image_tag element.location.photo, class: "photo-card" %>

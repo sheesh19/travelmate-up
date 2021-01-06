@@ -6,10 +6,17 @@
 
     <% event.event_registrations.where(status: 1).each do |regis| %>
         <div class="event-pill">
-        <%= cl_image_tag regis.user.avatar, class: "avatar-small" %>
-        <div class="event-pill-text">
-            <p><%= regis.user.first_name %></p>
-        </div>
+        <% if regis.user.avatar.attached? %>
+            <%= cl_image_tag regis.user.avatar.key, height: 100, width: 100, crop: :fill, class: "avatar-small" %>
+            <%#= cl_image_tag event.user.avatar, class: "avatar-small" %>
+            <div class="event-pill-text">
+                <p><%= regis.user.first_name %></p>
+            </div>
+        <% else %>
+            <div class="no-image-avatar-small d-flex align-items-center justify-content-center">
+                <p id="no-image-avatar-small-p"><%= regis.user.first_name %></p>
+            </div>
+        <% end %>
         </div>
     <% end %>
     </div>

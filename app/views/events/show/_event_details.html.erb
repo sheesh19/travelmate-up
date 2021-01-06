@@ -1,9 +1,7 @@
 <div class="event-description-side">
 
     <div class="d-flex flex-row-reverse bd-highlight">
-    <!-- <div> -->
-        <%= render "events/show/event_registrations", event: @event %>
-    <!-- </div> -->
+
     </div>
 
 
@@ -22,6 +20,6 @@
             <%= render 'events/show/event_spots', event: event %>
         </div>
 
-        <%#= render 'events/show/event_registrations', event: event %>
+        <%= render 'events/show/event_registrations', event: event %>
     </div>
 </div>

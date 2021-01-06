@@ -21,19 +21,17 @@ user_list = [
   username: "sheilz",
   description: "Solo traveller starting an unexpected journey.",
   gender: "Female",
-  date_of_birth: "1994-04-09",
-  # avatar: "https://res.cloudinary.com/sh19cloud/image/upload/v1560922242/mygbfvn3zy1ou1uvyqe6.jpg"
+  date_of_birth: "1994-04-09"
 },
 {
-  email: "paal@gmail.com",
+  email: "sy@gmail.com",
   password: "password",
-  first_name: "Paal",
-  last_name: "Ringstad",
-  username: "Paal",
-  description: "Avid traveller, sailor, and cat enthusiast.",
+  first_name: "Sy",
+  last_name: "Rashid",
+  username: "shyradish",
+  description: "Avid traveller, sky diver, and dog enthusiast.",
   gender: "Male",
-  date_of_birth: "1989-04-15",
-  # avatar: "https://res.cloudinary.com/sh19cloud/image/upload/v1560922303/xl2yycfemge6qmppbxxb.png"
+  date_of_birth: "1991-11-26"
 },
 {
   email: "sophia.wu@gmail.com",
@@ -43,8 +41,7 @@ user_list = [
   username: "sophisophi",
   description: "I like cats, surfings, and cats that surf.",
   gender: "Female",
-  date_of_birth: "1994-04-20",
-  # avatar: "https://res.cloudinary.com/sh19cloud/image/upload/v1560922099/eomowthx1w6iqrqlxtcl.png"
+  date_of_birth: "1994-04-20"
 },
 {
   email: "gabby@gmail.com",
@@ -54,12 +51,30 @@ user_list = [
   username: "gabby",
   description: "Traveller from Argentina who loves penguins. St. Kilda's are so cute!",
   gender: "Male",
-  date_of_birth: "1991-04-09",
-  # avatar: "gabby.jpg"
+  date_of_birth: "1991-04-09"
 }]
+
+
+user_photos = [
+  "https://res.cloudinary.com/sh19cloud/image/upload/v1562737698/eldgmglquv6phyc5pf8s.jpg",
+  "https://res.cloudinary.com/sh19cloud/image/upload/v1605828971/5n5muyrb8b9syv80rf35bztexbrh.png",
+  "https://res.cloudinary.com/sh19cloud/image/upload/v1563681199/ytzl84kdhyfkqyn4duot.png",
+  "https://res.cloudinary.com/sh19cloud/image/upload/v1563681268/dhnrcrjqq2gsfuisxlz9.png"
+]
+
 
 User.create!(user_list)
 puts "Created #{User.count} user(s)"
+
+counter = 0
+
+User.all.each do |user|
+  file = URI.open(user_photos[counter])
+  user.avatar.attach(io: file, filename: "#{user.first_name}.png", content_type: 'image/png')
+  user.save
+  counter += 1 
+end
+
 
 # activities
 # puts "Creating tags"
@@ -512,7 +527,7 @@ end
 puts "Creating trips"
 trip_list = [
 {
-  user_id: User.find_by(username: "Paal").id,
+  user_id: User.find_by(username: "shyradish").id,
   title: "Greatest Ozzie Adventure",
   start_date: "2021-04-15",
   end_date: "2021-06-23",
@@ -552,7 +567,7 @@ trip_list = [
   trip_type: 0
 },
 {
-  user_id: User.find_by(username: "Paal").id,
+  user_id: User.find_by(username: "shyradish").id,
   title: "Cherry Blossoms in Japan",
   start_date: "2021-07-08",
   end_date: "2021-07-12",
@@ -562,7 +577,7 @@ trip_list = [
   trip_type: 1
 },
 {
-  user_id: User.find_by(username: "Paal").id,
+  user_id: User.find_by(username: "shyradish").id,
   title: "California Dreaming",
   start_date: "2021-07-15",
   end_date: "2021-07-19",
@@ -592,7 +607,7 @@ trip_list = [
   trip_type: 0
 },
 {
-  user_id: User.find_by(username: "Paal").id,
+  user_id: User.find_by(username: "shyradish").id,
   title: "Euro Trip",
   start_date: "2021-08-05",
   end_date: "2021-08-09",
@@ -888,7 +903,7 @@ puts "Creating EventRegistration"
 er_list = [
 {
   event_id: Event.find_by(title: "Celebrate the Le Wagon End").id,
-  user_id: User.find_by(username: "Paal").id,
+  user_id: User.find_by(username: "shyradish").id,
   status: 0
 },
 {
@@ -903,7 +918,7 @@ er_list = [
 },
 {
   event_id: Event.find_by(title: "Glowing Cave Exploration").id,
-  user_id: User.find_by(username: "gabby").id,
+  user_id: User.find_by(username: "shyradish").id,
   status: 1
 },
 {
