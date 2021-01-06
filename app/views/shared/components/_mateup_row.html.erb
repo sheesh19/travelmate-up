@@ -4,7 +4,7 @@
     <div class="table-header approval-header-sm"><p>Owner</p></div>
     <div class="d-flex align-items-center approval-user">
         <% if element.owner.avatar.attached? %>
-            <%= cl_image_tag element.owner.avatar, class: "avatar" %>
+            <%= cl_image_tag element.owner.avatar.key, height: 100, width: 100, crop: :fill, class: "avatar" %>
         <% else %>
             <div class="no-image-avatar-small d-flex align-items-center justify-content-center">
                 <p id="no-image-avatar-small-p"><%= element.owner.first_name[0].upcase %></p>
