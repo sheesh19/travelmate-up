@@ -3,6 +3,15 @@ class TripsController < ApplicationController
     
     def index
         @trips = policy_scope(Trip)
+
+        # required for search
+        unless params[:query].nil?
+            @query = true
+            @search_trips = Trip.search(params[:query])
+        else
+            @query = false
+            @trips = Trip.all
+        end
     end
 
     def show

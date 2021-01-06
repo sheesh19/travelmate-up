@@ -1,4 +1,5 @@
 class Event < ApplicationRecord
+  include Searchable
   belongs_to :location
   belongs_to :trip
   has_many :event_registrations, dependent: :destroy
@@ -7,6 +8,16 @@ class Event < ApplicationRecord
   has_many_attached :photos
 
   acts_as_favoritable
+
+  include PgSearch::Model
+  pg_search_scope :global_search,
+    against: [ :title, :description ],
+    associated_against: {
+      location: [ :city, :state, :country ]
+    },
+    using: {
+      tsearch: { prefix: true }
+    }
 
   def self.upcoming
     Event.where("events.start_date > ?", Date.today)

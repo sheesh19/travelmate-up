@@ -58,6 +58,9 @@ gem 'cloudinary', '~> 1.16.0'
 gem 'groupdate'
 gem "simple_calendar", "~> 2.0"
 
+# PG SEARCH
+gem 'pg_search'
+
 
 
 group :development, :test do  gem 'pry-byebug'
