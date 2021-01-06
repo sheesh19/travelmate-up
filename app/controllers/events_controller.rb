@@ -6,7 +6,7 @@ class EventsController < ApplicationController
         # required for search
         unless params[:query].nil?
             @query = true
-            @search_events = Event.event_search(params[:query])
+            @search_events = Event.search(params[:query])
         else
             @query = false
             @events = Event.all
@@ -23,7 +23,7 @@ class EventsController < ApplicationController
     private
 
     def event_markers_all
-        @markers = @all_events.map do |event|
+        @markers = @events.map do |event|
             {
                 lat: event.location.latitude,
                 lng: event.location.longitude,
