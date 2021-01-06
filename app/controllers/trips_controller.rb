@@ -2,7 +2,16 @@ class TripsController < ApplicationController
     before_action :set_trip, only: [ :show, :update, :edit, :destroy ]
     
     def index
-        @trips = policy_scope(Trip)
+        @all_trips = policy_scope(Trip)
+
+        # required for search
+        unless params[:query].nil?
+            @query = true
+            @search_trips = Trip.trip_search(params[:query])
+        else
+            @query = false
+            @trips = Trip.all
+        end
     end
 
     def show
