@@ -1,0 +1,12 @@
+<div>
+  <div class="container__featured">
+    <div class="featured-title">
+      <h2>TOP ACTIVITIES</h2>
+    </div>
+      <div class="card__grid">
+          <% activities.each do |activity| %>
+              <%= render 'shared/cards/activity_card', activity: activity %>
+          <% end %>
+      </div>
+  </div>
+</div>

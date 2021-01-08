@@ -1,0 +1,8 @@
+<div
+  class="photo-card"
+  style="background-image: linear-gradient(rgba(0,0,0,0.3),
+    rgba(0,0,0,0.3)),
+    url('<%= cl_image_path activity.photo.key %>')">
+  <%= activity.title %>
+  <%= link_to "", activity_path(activity), class: "make-card-clickable" %>
+</div>

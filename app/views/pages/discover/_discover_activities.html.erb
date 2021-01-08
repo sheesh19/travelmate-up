@@ -7,16 +7,9 @@
     </div>
 
     <div class="card__grid_x4">
-      <% @activities.each do |activity| %>
-        <div
-          class="photo-card-small"
-          style="background-image: linear-gradient(rgba(0,0,0,0.1),
-            rgba(0,0,0,0.1)),
-            url('<%= cl_image_path activity.photo.key %>')">
-          <%= activity.title %>
-          <%= link_to "", activity_path(activity), class: "make-card-clickable" %>
-        </div>
-      <% end %>
+        <% @activities.each do |activity| %>
+            <%= render 'shared/cards/activity_card, activity: activity' %>
+        <% end %>
     </div>
   </div>
 </div>

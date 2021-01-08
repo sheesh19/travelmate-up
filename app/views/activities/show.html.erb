@@ -1,0 +1,15 @@
+<%= render 'activities/show/banner', activity: @activity %>
+
+<%= render partial: 'activities/show/event_activities',
+    locals: {
+        activity: @activity,
+        events: @activity.events
+    }
+%>
+
+<%= render partial: 'activites/show/location_activities',
+    locals: {
+        activity: @activity,
+        location: @activity.activity_locations
+    }
+%>

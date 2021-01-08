@@ -1,0 +1,31 @@
+<div class="page-container">
+    <div class="upcoming-event-title">
+        <h2>Top Locations for <%= activity.title %></h2>
+    </div>
+    <div class="">
+        <!-- Card Carousel -->
+        <div class="card__grid">
+        <% @activity.top_act_by_location.each do |location| %>
+            <div class="photo-card photo-card-location">
+            <%#= render "shared/mapstatic" %>
+                <% if location[0].photo.present? %>
+                    <%= image_tag location[0].photo, class: "photo-card" %>
+                <% else %>
+                    <%= image_tag ("https://images.unsplash.com/photo-1502920514313-52581002a659?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1647&q=80"), class: "photo-card" %>
+                <% end %>
+
+                <div class="card-title-location">
+                    <p>
+                        <i class="fas fa-map-marker-alt pr-1"></i>
+                        <%= location[0].city %>, <%= location[0].country %>
+                    </p>
+                </div>
+
+                <%= link_to "", location_path(location), class: "make-card-clickable" %>
+            </div>
+        <% end %>
+        </div>
+    </div>
+</div>
+
+<div class="page-bottom-spacer"></div>
