@@ -2,7 +2,7 @@ class EventsController < ApplicationController
 
     def index
         @events = policy_scope(Event)
-        event_markers_all
+        Event.all_markers
         # required for search
         unless params[:query].nil?
             @query = true
@@ -17,18 +17,6 @@ class EventsController < ApplicationController
         @event = Event.find(params[:id])
         authorize @event
 
-        @markers = @event.markers
-    end
-
-    private
-
-    def event_markers_all
-        @markers = @events.map do |event|
-            {
-                lat: event.location.latitude,
-                lng: event.location.longitude,
-                #infoWindow: render_to_string(partial: "shared/infowindow", locals: { event: event.title })
-            }
-        end
+        @markers = @event.single_marker
     end
 end

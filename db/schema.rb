@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_03_174158) do
+ActiveRecord::Schema.define(version: 2021_01_07_233125) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,21 @@ ActiveRecord::Schema.define(version: 2021_01_03_174158) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "activities", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "activity_lists", force: :cascade do |t|
+    t.bigint "activity_id", null: false
+    t.bigint "event_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["activity_id"], name: "index_activity_lists_on_activity_id"
+    t.index ["event_id"], name: "index_activity_lists_on_event_id"
   end
 
   create_table "event_registrations", force: :cascade do |t|
@@ -156,6 +171,8 @@ ActiveRecord::Schema.define(version: 2021_01_03_174158) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "activity_lists", "activities"
+  add_foreign_key "activity_lists", "events"
   add_foreign_key "event_registrations", "events"
   add_foreign_key "event_registrations", "users"
   add_foreign_key "event_reviews", "events"

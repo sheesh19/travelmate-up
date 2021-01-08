@@ -1,0 +1,24 @@
+<!-- ACTIVITIES -->
+<div class="">
+  <div class="page-container-home">
+    <div class="featured-title-home d-flex justify-content-between align-items-center">
+      <h2>FIND THINGS TO DO</h2>
+      <%= link_to "See all", activities_path, class: "btn btn-outlined" %>
+    </div>
+
+    <div class="card__grid_x4">
+      <% @activities.each do |activity| %>
+        <div
+          class="photo-card-small"
+          style="background-image: linear-gradient(rgba(0,0,0,0.1),
+            rgba(0,0,0,0.1)),
+            url('<%= cl_image_path activity.photo.key %>')">
+          <%= activity.title %>
+          <%= link_to "", activity_path(activity), class: "make-card-clickable" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="horizontal-page-divider"></div>
