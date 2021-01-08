@@ -3,11 +3,11 @@
 <%= render partial: 'activities/show/event_activities',
     locals: {
         activity: @activity,
-        events: @activity.events
+        events: @activity.upcoming_events
     }
 %>
 
-<%= render partial: 'activites/show/location_activities',
+<%= render partial: 'activities/show/location_activities',
     locals: {
         activity: @activity,
         location: @activity.activity_locations
