@@ -4,7 +4,7 @@ class PagesController < ApplicationController
   def home
     @trips = policy_scope(Trip)
     @events = policy_scope(Event)
-    @activities = policy_scope(Activity).most_popular_activities
+    @activities = policy_scope(Activity).top_twelve_activities
     @locations = policy_scope(Location)
   end
 

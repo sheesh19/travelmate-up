@@ -1,0 +1,8 @@
+<%= render 'featured_activities', activities: @activities.most_popular_activities[0..2] %>
+
+
+<!-- <div>
+  <%#= render 'shared/search/search_activities' %>
+</div> -->
+
+<%= render 'all_activities', activities: @activities.most_popular_activities[3..@activities.count] %>
