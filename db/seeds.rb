@@ -6,9 +6,10 @@ EventRegistration.destroy_all
 Event.destroy_all
 Location.destroy_all
 
-# FavoriteItinerary.destroy_all
-Trip.destroy_all #child of user, user model updated to destroy dependent when user is destroyed.
-User.destroy_all #parent (normally child should be destroyed before parent unless specified in model)
+Activity.destroy_all
+
+Trip.destroy_all
+User.destroy_all
 
 # users
 puts "Creating users"
@@ -528,7 +529,6 @@ Activity.all.each do |activity|
   file = URI.open(activity_photos[counter])
   activity.photo.attach(io: file, filename: "#{activity.title}.png", content_type: 'image/png')
   activity.save
-  puts "Activity attached photo #{activity.title}"
   counter += 1 
 end
 
