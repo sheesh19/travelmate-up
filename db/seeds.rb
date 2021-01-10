@@ -3,6 +3,7 @@ require "open-uri"
 puts "Clean database..."
 
 EventRegistration.destroy_all
+ActivityList.destroy_all
 Event.destroy_all
 Location.destroy_all
 
@@ -951,3 +952,43 @@ er_list = [
 
 EventRegistration.create!(er_list)
 puts "Created #{EventRegistration.count} eventregistration(s)"
+
+
+puts "Creating ActivityList"
+act_list = [
+{
+  event: Event.find_by(title: "K-Pop Karaoke in Korea Town"),
+  activity: Activity.find_by(title: "Night Life")
+},
+{
+  event: Event.find_by(title: "Hiking the Lonely Mountain"),
+  activity: Activity.find_by(title: "Hiking")
+},
+{
+  event: Event.find_by(title: "Bonaire Nation Park - Snorkeling"),
+  activity: Activity.find_by(title: "Snorkeling")
+},
+{
+  event: Event.find_by(title: "Hike in the Colombian Cloud Rainforest"),
+  activity: Activity.find_by(title: "Hiking")
+},
+{
+  event: Event.find_by(title: "Temple Street night market"),
+  activity: Activity.find_by(title: "Night Markets")
+},
+{
+  event: Event.find_by(title: "Snorkeling off the Perth coast"),
+  activity: Activity.find_by(title: "Snorkeling")
+},
+{
+  event: Event.find_by(title: "Checking out the Golden Gate Bridge"),
+  activity: Activity.find_by(title: "Sightseeing")
+},
+{
+  event: Event.find_by(title: "Checking out the Golden Gate Bridge"),
+  activity: Activity.find_by(title: "Hiking")
+}
+]
+
+ActivityList.create!(act_list)
+puts "Created #{ActivityList.count} activitylist(s)"

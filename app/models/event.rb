@@ -6,7 +6,7 @@ class Event < ApplicationRecord
   belongs_to :trip
   has_many :event_registrations, dependent: :destroy
   has_many :event_reviews, dependent: :destroy
-  has_many :activity_lists
+  has_many :activity_lists, dependent: :destroy
   has_many :activities, through: :activity_lists
 
   acts_as_taggable_on :tags, :activities

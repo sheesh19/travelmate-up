@@ -1,7 +1,7 @@
 class Activity < ApplicationRecord
     default_scope { order('title ASC') }
     
-    has_many :activity_lists
+    has_many :activity_lists, dependent: :destroy
     has_many :events, through: :activity_lists
 
     has_one_attached :photo
