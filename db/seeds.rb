@@ -74,7 +74,7 @@ User.all.each do |user|
   file = URI.open(user_photos[counter])
   user.avatar.attach(io: file, filename: "#{user.first_name}.png", content_type: 'image/png')
   user.save
-  counter += 1 
+  counter += 1
 end
 
 
@@ -381,7 +381,7 @@ Location.all.each do |location|
   file = URI.open(location_photos[counter])
   location.photo.attach(io: file, filename: "#{location.city}.png", content_type: 'image/png')
   location.save
-  counter += 1 
+  counter += 1
 end
 
 # ACTIVITIES
@@ -530,7 +530,7 @@ Activity.all.each do |activity|
   file = URI.open(activity_photos[counter])
   activity.photo.attach(io: file, filename: "#{activity.title}.png", content_type: 'image/png')
   activity.save
-  counter += 1 
+  counter += 1
 end
 
 puts "Created #{Activity.count} activit(y/ies)"
@@ -982,6 +982,26 @@ act_list = [
 },
 {
   event: Event.find_by(title: "Checking out the Golden Gate Bridge"),
+  activity: Activity.find_by(title: "Sightseeing")
+},
+{
+  event: Event.find_by(title: "Glowing Cave Exploration"),
+  activity: Activity.find_by(title: "Nature Tours")
+},
+{
+  event: Event.find_by(title: "Glowing Cave Exploration"),
+  activity: Activity.find_by(title: "Hiking")
+},
+{
+  event: Event.find_by(title: "QVM Winter Night Market"),
+  activity: Activity.find_by(title: "Night Markets")
+},
+{
+  event: Event.find_by(title: "QVM Winter Night Market"),
+  activity: Activity.find_by(title: "Food Markets")
+},
+{
+  event: Event.find_by(title: "Sydney Opera House"),
   activity: Activity.find_by(title: "Sightseeing")
 },
 {
