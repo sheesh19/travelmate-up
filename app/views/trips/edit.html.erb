@@ -1,3 +1,12 @@
-<h2>Update Your Trip</h2>
+<div class="main-title-width-reduced">
+    <h1>Update your trip</h1>
+    <p>You're going on an adventure!</p>
+    <div class="breadcrumb">
+        <%= link_to trips_path(@trip) do %>
+            <i class="fas fa-angle-left"></i>
+            <%= @trip.title %>
+        <% end %>
+    </div>
+</div>
 
 <%= render 'form', trip: @trip %>

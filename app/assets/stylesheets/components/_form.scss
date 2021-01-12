@@ -1,0 +1,53 @@
+//////////////////////////////////////////////////
+// GLOBAL
+//////////////////////////////////////////////////
+
+::placeholder {
+  font-size: 14px;
+  font-weight: 400;
+  color: $form-border-gray;
+}
+
+//////////////////////////////////////////////////
+// UTILITY
+//////////////////////////////////////////////////
+
+.form-container {
+  width: 50%;
+  margin: 0 25% 0 25%;
+}
+
+.form-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: $medium-gray;
+}
+
+.form-border {
+  border: solid 1px $form-border-gray;
+}
+
+.form-date-range {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.form-date-range-item {
+  flex-grow: 1;
+}
+
+.title-header {
+  padding: 16px 0 16px 0;
+  font-size: 18px;
+}
+
+.form-flex-1 {
+  flex: 1;
+}
+
+//////////////////////////////////////////////////
+// ORGANISMS
+//////////////////////////////////////////////////
+.basic-details-form {
+  padding: 16px 32px 16px 32px;
+}

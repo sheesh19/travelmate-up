@@ -1,21 +1,81 @@
-<%= simple_form_for trip do |f| %>
-    <%= f.input :title %>
-    <%= f.input :description %>
-    <%= f.input :start_date %>
-    <%= f.input :end_date %>
-    <%= f.input :trip_type %>
-    <%= f.input :visibility %>
-    <%= f.input :status %>
-    <h4>Trip Events</h4>
-    <div id="events">
-        <%= f.simple_fields_for :events do |event| %>
-            <%= render 'event_fields', f: event %>
+<div class="form-container">
+    <div>
+
+        <h4>Trip details</h4>
+        <%= simple_form_for trip do |f|  %>
+            <%= f.input :title,
+                label: 'Name',
+                error: 'Enter a trip name',
+                placeholder: 'Give a name to your amazing trip',
+                label_html: { class: "form-title" },
+                input_html: { class: "form-border" }
+                %>
+            <div class="form-date-range">
+                <%= f.input :start_date,
+                as: :date,
+                html5: true,
+                required: true,
+                error: 'Start date can not be in the past',
+                input_html: { class: "form-border" },
+                wrapper_html: { class: "form-title form-date-range-item" }
+                %>
+                <%= f.input :end_date,
+                as: :date,
+                html5: true,
+                required: true,
+                error: 'End date can not be before start date',
+                input_html: { class: "form-border" },
+                wrapper_html: { class: "form-title form-date-range-item" }
+                %>
+            </div>
+            <%= f.input :description,
+                error: 'Enter trip description',
+                placeholder: 'Describe what you are planning to do',
+                label_html: { class: "form-title"},
+                input_html: {
+                class: "form-border",
+                rows: 3
+                }
+                %>
+            <%= f.input :trip_type,
+                as: :radio_buttons,
+                collection: [['0', 'No'], ['1', 'Yes']],
+                label_method: :second, value_method: :first,
+                label: "Will you be travelling alone?",
+                label_html: { class: "form-title" }
+                %>
+            <%= f.input :visibility,
+                as: :radio_buttons,
+                collection: [['0', 'No'], ['1', 'Yes']],
+                label_method: :second, value_method: :first,
+                label: "Do you wish to allow other users to view this travel plan?",
+                label_html: { class: "form-title" }
+                %>
+
+            <h4>Trip Events</h4>
+            <div id="events" class="mb-4">
+                <%= f.simple_fields_for :events do |event| %>
+                    <%= render 'event_fields', f: event %>
+                <% end %>
+
+                <%= link_to_add_association 'Add Event', f, :events, class: 'js-event-btn btn btn-outlined' %>
+            </div>
+
+            <%= f.submit "Save and create", class: 'btn btn-filled' %>
         <% end %>
 
-        <%= link_to_add_association 'Add Event', f, :events, class: 'js-event-btn' %>
     </div>
-    <br>
-    <br>
-    
-    <%= f.submit %>
-<% end %>
+</div>
+
+<div class="page-bottom-spacer"></div>
+
+<!-- <div class="toggle-cta">
+  <span class="form-title toggle-label">No</span>
+  <label class="switch">
+    <input type="checkbox">
+    <span class="slider round"></span>
+  </label>
+  <span class="form-title toggle-label">Yes</span>
+</div> -->
+
+
