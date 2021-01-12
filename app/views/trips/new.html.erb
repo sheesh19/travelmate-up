@@ -1,3 +1,12 @@
-<h2>Create Your Trip</h2>
+<div class="main-title-width-reduced">
+    <h1>Create a new travel plan</h1>
+    <p>You're going on an adventure!</p>
+    <div class="breadcrumb">
+        <%= link_to dashboards_path do %>
+            <i class="fas fa-angle-left"></i>
+            Manage Your Trips
+        <% end %>
+    </div>
+</div>
 
 <%= render 'form', trip: @trip %>

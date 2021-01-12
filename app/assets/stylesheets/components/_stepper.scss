@@ -1,0 +1,96 @@
+.stepper {
+  display: block;
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.step-number {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 40px;
+  width: 40px;
+  color: $almost-white;
+  background-color: $teal;
+  border-radius: 50%;
+  line-height: 40px;
+  font-weight: 600;
+  font-size: 14px;
+  text-align: center;
+}
+
+.step {
+  position: relative;
+}
+
+.step-title {
+  margin-left: 72px;
+  height: 40px;
+  margin-bottom: 32px;
+  color: $darkish-gray;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  h5 {
+    font-size: 20px;
+    font-weight: 500;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.step-content {
+  display: block;
+  margin-left: 72px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s;
+}
+
+.step-content-active {
+  max-height: 1000px;
+}
+
+.step-action {
+  padding-top: 24px;
+  padding-bottom: 32px;
+  margin-bottom: 32px;
+}
+
+.step-question {}
+
+
+.step-number:first-child {
+  margin-top: 0;
+}
+
+.step-connection-line:before {
+  position: absolute;
+  width: 2px;
+  background-color: $lightish-gray;
+  display: block;
+  content: '';
+  left: 20px;
+  z-index: 1;
+  top: 64px;
+  bottom: 32px;
+}
+
+.step-number:first-child:before {
+  display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
