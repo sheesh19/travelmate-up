@@ -36,7 +36,7 @@ import "@kollegorna/cocoon-vanilla-js";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 // import { initAutoCompleteField } from '../components/init_algolia';
-import { initGoogleAutocomplete } from '../plugins/init_google_autocomplete';
+import { initGoogleAutocomplete } from '../components/init_google_autocomplete';
 import { initMapbox } from '../plugins/init_mapbox';
 import { initFlatPickr } from "../plugins/init_date_picker";
 import "../components/init_stepper_form";

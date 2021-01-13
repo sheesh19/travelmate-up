@@ -52,16 +52,19 @@
                 label_html: { class: "form-title" }
                 %>
 
-            <h4>Trip Events</h4>
+            <h4 class="mt-5">Trip Events</h4>
             <div id="events" class="mb-4">
                 <%= f.simple_fields_for :events do |event| %>
                     <%= render 'event_fields', f: event %>
                 <% end %>
-
-                <%= link_to_add_association 'Add Event', f, :events, class: 'js-event-btn btn btn-outlined' %>
+                <div class="d-flex">
+                    <%= link_to_add_association 'Add Event', f, :events, class: 'js-event-btn btn btn-outlined mr-0' %>
+                </div>
             </div>
 
-            <%= f.submit "Save and create", class: 'btn btn-filled' %>
+            <div class="d-flex flex-row-reverse">
+                <%= f.submit "Save your trip!", class: 'btn btn-filled' %>
+            </div>
         <% end %>
 
     </div>

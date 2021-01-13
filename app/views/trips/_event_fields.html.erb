@@ -10,131 +10,126 @@
 <%# </div> %>
 
 <!-- TITLE -->
-<div class="">
-  <h5>Add a new event</h5>
-  <p>Draft the most amazing description to attract fellow travellers to join</p>
-</div>
+<div class='nested-fields mt-5'>
+  <div class="">
+    <h5>Add a new event</h5>
+    <p>Draft the most amazing description to attract fellow travellers to join</p>
+  </div>
 
-<!-- FORMS -->
-<div class="d-flex flex-column js-trip-form">
-  <div>
-    <ul class="stepper">
-      <!-- FORM SECTION 1: BASIC EVENT DETAILS -->
-      <li class="step step-connection-line">
-        <div class="step-title">
-          <h5>Basic details</h5>
-          <div class="step-number">
-            1
-          </div>
-        </div>
-        <div class="step-content step-content-active">
-          <!-- NAME -->
-          <%= f.input :title,
-            label: "Event name",
-            placeholder: 'Give a name to your amazing event',
-            error: 'Please provide an event name',
-            label_html: { class: "form-title" }
-            %>
-          <div class="form-date-range">
-            <%= f.input :start_date,
-              as: :datetime,
-              html5: true,
-              required: true, start_year: Date.today.year,
-              error: 'Start date can not be in the past',
-              label_html: { class: "form-title" },
-              wrapper_html: { class: "form-title form-date-range-item" }
-              %>
-            <%= f.input :end_date,
-              as: :datetime,
-              html5: true,
-              required: true, start_year: Date.today.year,
-              error: 'End date can not be earlier than start date',
-              label_html: { class: "form-title" },
-              wrapper_html: { class: "form-title form-date-range-item" }
-              %>
-          </div>
-          <div class="step-action">
-            <%= render "shared/components/button", variant: "outlined", label: "Continue", path: "#" %>
-          </div>
-        </div>
-      </li>
-      <!-- FORM SECTION 2: EXTRA INFO -->
-      <li class="step step-connection-line">
-        <div class="step-title">
-          <h5>Add some colour to your event</h5>
-          <div class="step-number">
-            2
-          </div>
-        </div>
-        <div class="step-content">
-          <div class="d-inline-flex w-100">
-            <!-- LOCATION -->
-              <!-- Adding location geocoder -->
-              <%= f.input :location,
-                input_html: { value: @event&.location&.city },
-                label_html: { class: "form-title js-trip-location" },
-                wrapper_html: { class: "form-flex-1 mr-2" }
-                %>
-              <%#= f.collection_select :location, Location.all, :id, :city %>
-            <!-- ACTIVITY -->
-            <%#= f.input :activity_id,
-              collection: Activity.all,
-              label_method: :title,
-              value_method: :id,
-              label: "Activity",
-              label_html: { class: "form-title" },
-              wrapper_html: { class: "form-flex-1" },
-              include_blank: false
-              %>
-            <%= f.input :max_spots,
-              error: 'Please provide number of mates required',
-              label: "Number of spots available",
-              label_html: { class: "form-title" },
-              wrapper_html: { class: "form-flex-1 ml-2" },
-              input_html: {
-                min: '0',
-                step: '1'
-              }
-              %>
-          </div>
-
-          <%= f.input :description, error: 'Please provide a description',
-            label_html: { class: "form-title" },
-            placeholder: 'Describe what you are planning to do',
-            input_html: {
-              class: "form-border",
-              rows: 3
-              } %>
-          <div class="step-action">
-            <%= render "shared/components/button", variant: "outlined", label: "Continue", path: "#" %>
-          </div>
-        </div>
-      </li>
-      <!-- FORM SECTION 3: PHOTOS -->
-        <li class="step step-connection-line">
+  <!-- FORMS -->
+  <div class="d-flex flex-column js-trip-form">
+    <div>
+      <ul class="stepper">
+        <!-- FORM SECTION 1: BASIC EVENT DETAILS -->
+        <li class="step">
           <div class="step-title">
-            <h5>Upload a photo (optional)</h5>
+            <h5>Basic details</h5>
             <div class="step-number">
-              3
+              1
             </div>
           </div>
-          <div class="step-content">
-            <%= f.input :photos,
-              label: "Select an image file to upload",
-              label_html: { class: "form-title empty-state-container" }
+          <div class="">
+            <!-- NAME -->
+            <%= f.input :title,
+              label: "Event name",
+              placeholder: 'Give a name to your amazing event',
+              error: 'Please provide an event name',
+              label_html: { class: "form-title" }
               %>
-            <%= f.input :photos_attachments, as: :hidden %>
-            <!-- Display Event Photo: <%#= cl_image_tag @event.photo, height: 300, width: 400, crop: :fill %> -->
-            <div class="step-action">
-              <%= render "shared/components/button", variant: "outlined", label: "Continue", path: "#" %>
+            <div class="form-date-range">
+              <%= f.input :start_date,
+                as: :datetime,
+                html5: true,
+                required: true, start_year: Date.today.year,
+                error: 'Start date can not be in the past',
+                label_html: { class: "form-title" },
+                wrapper_html: { class: "form-title form-date-range-item" }
+                %>
+              <%= f.input :end_date,
+                as: :datetime,
+                html5: true,
+                required: true, start_year: Date.today.year,
+                error: 'End date can not be earlier than start date',
+                label_html: { class: "form-title" },
+                wrapper_html: { class: "form-title form-date-range-item" }
+                %>
             </div>
+
           </div>
         </li>
-        <div class="d-flex flex-row-reverse">
-            <%= link_to_remove_association "Delete Event", f, class: 'btn btn-filled mr-0' %>
-        </div>
-      </ul>
+        <!-- FORM SECTION 2: EXTRA INFO -->
+        <li class="step">
+          <div class="step-title">
+            <h5>Add some colour to your event</h5>
+            <div class="step-number">
+              2
+            </div>
+          </div>
+          <div class="">
+            <div class="d-inline-flex w-100">
+              <!-- LOCATION -->
+                <!-- Adding location geocoder -->
+                <%= f.input :location,
+                  input_html: { value: @event&.location&.city, class: 'js-trip-location' },
+                  label_html: { class: "form-title" },
+                  wrapper_html: { class: "form-flex-1 mr-2" }
+                  %>
+                <%#= f.collection_select :location, Location.all, :id, :city %>
+              <!-- ACTIVITY -->
+              <%#= f.input :activity_id,
+                collection: Activity.all,
+                label_method: :title,
+                value_method: :id,
+                label: "Activity",
+                label_html: { class: "form-title" },
+                wrapper_html: { class: "form-flex-1" },
+                include_blank: false
+                %>
+              <%= f.input :max_spots,
+                error: 'Please provide number of mates required',
+                label: "Number of spots available",
+                label_html: { class: "form-title" },
+                wrapper_html: { class: "form-flex-1 ml-2" },
+                input_html: {
+                  min: '0',
+                  step: '1'
+                }
+                %>
+            </div>
+
+            <%= f.input :description, error: 'Please provide a description',
+              label_html: { class: "form-title" },
+              placeholder: 'Describe what you are planning to do',
+              input_html: {
+                class: "form-border",
+                rows: 3
+                } %>
+          </div>
+        </li>
+        <!-- FORM SECTION 3: PHOTOS -->
+          <li class="step">
+            <div class="step-title">
+              <h5>Upload a photo (optional)</h5>
+              <div class="step-number">
+                3
+              </div>
+            </div>
+            <div class="">
+              <%= f.input :photos,
+                as: :file,
+                input_html: { multiple: true },
+                label: "Select an image file to upload",
+                label_html: { class: "form-title empty-state-container" }
+                %>
+              <%= f.input :photos_attachments, as: :hidden %>
+              <!-- Display Event Photo: <%#= cl_image_tag @event.photo, height: 300, width: 400, crop: :fill %> -->
+
+            </div>
+          </li>
+          <div class="d-flex">
+              <%= link_to_remove_association "Delete Event", f, class: 'ml-3' %>
+          </div>
+        </ul>
+    </div>
   </div>
 </div>
-
-<div class="page-bottom-spacer"></div>
