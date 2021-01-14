@@ -38,6 +38,19 @@ class Event < ApplicationRecord
     end_date
   end
 
+  def solo?
+    max_spots == 0 || max_spots.nil?
+  end
+  
+  def spots_left
+    unless max_spots.nil?
+      approved = event_registrations.where(status: 1).count
+      # approved = EventRegistration.where(event_id: id) && EventRegistration.where(status: 1).count
+      total = max_spots - approved
+      total > 0 ? total || total : 0
+    end
+  end
+
   def self.build_events(trip, events_params)
     events_params.each do |event_param|
         event = Event.new(event_param[1].except(:location))

@@ -16,7 +16,7 @@
                 <%= event.location.city%>, <%= event.location.country %>
             </p>
             <h6 class="event-spot-left-text">
-                <%#= pluralize(event.spots_left, "spot") %> left
+                <%= pluralize(event.spots_left, "spot") %> left
             </h6>
         </div>
         <div class="d-flex flex-row-reverse bd-highlight">
