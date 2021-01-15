@@ -1,12 +1,12 @@
 // Main Page Container
-// #container-wrapper {
-//     display: grid;
-//     // grid-gap: 16px;
-//     grid-template-columns: 2fr 10fr;
-//     min-height: 100%;
-//     // flex-grow: 1;
-//     // width: 98%;
-// }
+#container-wrapper {
+    display: grid;
+    // grid-gap: 16px;
+    grid-template-columns: 2fr 10fr;
+    min-height: 100%;
+    // flex-grow: 1;
+    // width: 98%;
+}
 
 .container__main {
     overflow: hidden;
@@ -160,6 +160,12 @@
 
 // Smallest device
 @media (max-width: 1000px) {
+
+    #container-wrapper {
+        display: block;
+        min-height: 100%;
+    }
+
     .container__featured {
         padding-left: 2rem;
         padding-right: 2rem;

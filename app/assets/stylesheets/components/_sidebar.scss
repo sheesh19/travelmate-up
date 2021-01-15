@@ -1,29 +1,126 @@
-.sidebar-primary-button {
-    margin: auto 0.8rem;
+.sidebar {
+  text-align: left;
+  text-decoration: none;
+  border-right: $light-gray solid 1px;
+  // Font
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  &:hover {
+    text-decoration: none;
+  }
 }
 
-.sidebar {
-    display: none;
+.navbar-brand {
+  font-weight: bold;
+  text-align: center;
+}
+
+.sidebar-welcome {
+  // text-align: center;
+  padding-top: 24px;
+  padding-left: 24px;
+  // Font
+  font-size: 10px;
+  font-weight: 400;
+  color: $medium-gray;
+}
+
+#sidebar__name {
+  color: $dark-teal;
+  // height: 24px;
+  font-weight: 600;
+  margin: 0 0 0 8px;
+  font-size: 16px;
+  // padding-bottom: 2rem;
+}
+
+.bd-sidebar {
+  position: sticky;
+  top: 0;
+  padding-top: 1rem;
+  z-index: 1000;
+  height: 100vh;
+}
+
+#manage-your-trips-with-count {
+  display:flex;
+  align-items:center;
+}
+
+.nav-sidebar {
+    list-style: none;
+    padding-left: 0;
+}
+
+.nav-sidebar-w {
+    width: 100%;
+}
+
+.nav-link {
+  text-decoration: none;
+  padding-left: 28px;
+  height: 56px;
+  color: $medium-gray;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  &:hover {
+    color: $teal;
+  }
+}
+
+.sidebar-primary-button {
+    margin: auto 0.8rem;
 }
 
 .nav-link {
     padding: 2vh 2vw;
     transition: background-color 1s ease;
-}
-
-.nav-link:hover {
-    background-color: var(--teal-overlay);
-    color: white;
-}
-
-.nav-link.active {
-    background-color: var(--teal-overlay);
-    color: var(--grey);
+    text-align: left;
 }
 
 #nav-button {
     display: none;
 }
+
+// Sidebar Active Button
+
+.active-bar {
+  border-left-color: $teal;
+  border-left-style: solid;
+  border-left-width: 4px;
+  background-color: $lighest-teal;
+  a {
+    color: $teal;
+    font-weight: 600;
+  }
+}
+
+.nav-item-highlight {
+  padding-right: 16px;
+  &:hover {
+    background-color: $almost-white;
+    a {
+      color: $teal;
+    }
+  }
+}
+
+.sidebar-primary-button {
+  margin: 16px 24px 24px 24px;
+
+  .btn {
+    white-space: nowrap;
+  }
+}
+
+.side-bar-divider {
+  padding: 16px 0 8px 0;
+  margin: 0 48px 0 48px;
+  border-top: solid 0.5px $lightish-gray;
+}
+
 
 @media (max-width: 1000px) {
     .sidebar {
@@ -33,6 +130,7 @@
         position: fixed;
         top: 0;
         transition: width 500ms ease-in-out, opacity 500ms ease-in-out, z-index 500ms ease-in-out;
+        border-right: none;
     }
 
     .navbar-brand {
@@ -45,6 +143,10 @@
         color: white;
     }
 
+    .sidebar-welcome {
+        justify-content: center;
+    }
+
     .sidebar.active {
         width: 88%;
         opacity: 0.98;
@@ -55,6 +157,12 @@
         a {
             color: white;
         }
+    }
+
+    .nav-sidebar {
+        flex-direction: column;
+        align-items: center;
+        padding-left: 0;
     }
 
     #nav-button {
@@ -103,6 +211,7 @@
 
     .nav-link {
         padding: 4vh 0;
+        text-align: center;
     }
 
     .nav-link-anchor {
@@ -111,5 +220,38 @@
 
     .sidebar-primary-button {
         margin: 1rem 0.8rem;
+        text-align: center;
+    }
+
+    #navbar__welcome {
+        color: $light-teal;
+    }
+    
+    #sidebar__name {
+        color: white;
+    }
+
+    .nav-sidebar-w {
+        list-style: none;
+        text-align: center;
+    }
+
+    .active-bar {
+      border: none;
+      background-color: $darkest-teal;
+      a {
+        color: $white;
+        font-weight: 400;
+      }
+    }
+
+    .nav-item-highlight {
+        padding-right: 0;
+        &:hover {
+            background-color: $darkest-teal;
+            a {
+                color: $white;
+            }
+        }
     }
 }

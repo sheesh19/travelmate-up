@@ -1,0 +1,38 @@
+<% if user_signed_in? %>
+  <% if user_signed_in? && current_user.avatar.present? %>
+    <div>
+      <%= cl_image_tag current_user.avatar.key, height: 200, width: 200, crop: :fill, class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+         <%#= link_to "Profile", user_path(current_user.id), class: "dropdown-item" %>
+         <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+        </div>
+    </div>
+    <div>
+      <span id="navbar__welcome">WELCOME BACK</span>
+        <p id="sidebar__name"><%= current_user.first_name.downcase.capitalize %></p>
+    </div>
+    <% else user_signed_in? && current_user.avatar.nil? %>
+      <div>
+        <div class="no-image-avatar d-flex align-items-center justify-content-center dropdown-toggle" id="navbarDropdown" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown">
+          <% if current_user.first_name.present? %>
+            <p><%= current_user.first_name[0].upcase %></p>
+          <% else %>
+            <p>M</p>
+          <% end %>
+        </div>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <%= link_to "Profile", user_path(current_user.id), class: "dropdown-item" %>
+          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+        </div>
+      </div>
+      <div>
+        <span id="navbar__welcome">WELCOME BACK, </span>
+          <% if current_user.first_name.present? %>
+            <p id="sidebar__name"><%= current_user.first_name.downcase.capitalize %></p>
+          <% else %>
+            <p id="sidebar__name">Mate</p>
+          <% end %>
+      </div>
+  <% end %>
+<% else %>
+<% end %>

@@ -1,0 +1,7 @@
+<% if current_page? path %>
+    <li class='nav-item nav-sidebar-w active-bar'>
+<% else %>
+    <li class='nav-item nav-sidebar-w nav-item-highlight'>
+<% end %>
+    <%= link_to link_text, path, class: "nav-link" %>
+</li>

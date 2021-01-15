@@ -20,6 +20,10 @@ class User < ApplicationRecord
     events.count
   end
 
+  def notifications
+    upcoming_events.count + num_registered_events + registered_mates.count 
+  end
+
   def upcoming_events
     events.where("events.start_date > ?", Date.today)
   end
