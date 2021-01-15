@@ -2,11 +2,114 @@
     margin: auto 0.8rem;
 }
 
-// Smallest device
+.sidebar {
+    display: none;
+}
+
+.nav-link {
+    padding: 2vh 2vw;
+    transition: background-color 1s ease;
+}
+
+.nav-link:hover {
+    background-color: var(--teal-overlay);
+    color: white;
+}
+
+.nav-link.active {
+    background-color: var(--teal-overlay);
+    color: var(--grey);
+}
+
+#nav-button {
+    display: none;
+}
+
 @media (max-width: 1000px) {
+    .sidebar {
+        display: block;
+        opacity: 0;
+        width: 0;
+        position: fixed;
+        top: 0;
+        transition: width 500ms ease-in-out, opacity 500ms ease-in-out, z-index 500ms ease-in-out;
+    }
+
+    .navbar-brand {
+        justify-content: center;
+        margin-top: 4rem;
+        margin-bottom: 1rem;
+    }
+
+    .logo-start {
+        color: white;
+    }
+
+    .sidebar.active {
+        width: 88%;
+        opacity: 0.98;
+        z-index: 4;
+        background-color: $dark-teal;
+        height: 100vh;
+
+        a {
+            color: white;
+        }
+    }
+
+    #nav-button {
+        display: inline;
+        position: fixed;
+        z-index: 5;
+        top: 8px;
+        right: 8px;
+        cursor: pointer;
+        transition: right 500ms ease-in-out;
+        background-color: $overlay-gray;
+        padding: 0.8rem 0.5rem 0.3rem 0.5rem;
+        border-radius: 50%;
+    }
+    
+    #top, #middle, #bottom {
+        z-index: 10;
+        width: 32px;
+        height: 2px;
+        margin-bottom: 0.5rem;
+        background-color: $darkest-teal;
+        transition: transform 500ms ease-in-out, opacity 200ms, background-color 250ms;
+    }
+    
+    #nav-button.active {
+        right: 16%;
+        background-color: transparent;
+    }
+    
+    #nav-button.active .nav-slim-bar {
+        background-color: white;
+    }
+    
+    #nav-button.active #top {
+        transform: translateY(10px) rotate(-135deg);
+    }
+    
+    #nav-button.active #middle {
+        opacity: 0;
+        transform: rotate(135deg);
+    }
+    
+    #nav-button.active #bottom {
+        transform: translateY(-10px) rotate(-45deg);
+    }
+
+    .nav-link {
+        padding: 4vh 0;
+    }
+
+    .nav-link-anchor {
+        padding: 0 32vw;
+    }
+
     .sidebar-primary-button {
         margin: 1rem 0.8rem;
     }
 }
-
-
