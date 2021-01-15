@@ -36,15 +36,18 @@ import "@kollegorna/cocoon-vanilla-js";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 // import { initAutoCompleteField } from '../components/init_algolia';
+import { initFlatPickr } from '../plugins/init_date_picker';
+import { initFileInput } from '../components/init_file_input';
 import { initGoogleAutocomplete } from '../components/init_google_autocomplete';
 import { initMapbox } from '../plugins/init_mapbox';
-import { initFlatPickr } from "../plugins/init_date_picker";
-import "../components/init_stepper_form";
+import { initStepperForm } from '../components/init_stepper_form';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initAutoCompleteField();
+  initFlatPickr();
+  initFileInput();
   initGoogleAutocomplete();
   initMapbox();
-  initFlatPickr();
+  initStepperForm();
 });
