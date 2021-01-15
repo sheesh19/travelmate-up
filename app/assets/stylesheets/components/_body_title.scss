@@ -84,3 +84,12 @@
     }
 }
 
+
+// MEDIA QUERIES
+
+@media(max-width: 1000px) {
+    .main-title-width-reduced {
+        margin: 1rem auto;
+        width: 92%;
+    }
+}

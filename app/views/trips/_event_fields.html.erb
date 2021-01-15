@@ -66,13 +66,13 @@
             </div>
           </div>
           <div class="">
-            <div class="d-inline-flex w-100">
+            <div class="w-100 form-media-grid">
               <!-- LOCATION -->
                 <!-- Adding location geocoder -->
                 <%= f.input :location,
                   input_html: { value: @event&.location&.city, class: 'js-trip-location' },
                   label_html: { class: "form-title" },
-                  wrapper_html: { class: "form-flex-1 mr-2" }
+                  wrapper_html: { class: "form-flex-1 form-media-left" }
                   %>
                 <%#= f.collection_select :location, Location.all, :id, :city %>
               <!-- ACTIVITY -->
@@ -89,7 +89,7 @@
                 error: 'Please provide number of mates required',
                 label: "Number of spots available",
                 label_html: { class: "form-title" },
-                wrapper_html: { class: "form-flex-1 ml-2" },
+                wrapper_html: { class: "form-flex-1 form-media-right" },
                 input_html: {
                   min: '0',
                   step: '1'
