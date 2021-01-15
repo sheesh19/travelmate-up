@@ -1,24 +1,29 @@
-const stepContentEls = document.querySelectorAll('.step-content');
+const initStepperForm = () => {
 
-if (stepContentEls) {
-    let activeStep = 0;
-    const actionButtonEls = document.querySelectorAll('.step-action .btn');
+    const stepContentEls = document.querySelectorAll('.step-content');
 
-    const selectStep = (stepNumber) => {
-        const currentActiveEl = stepContentEls[activeStep];
-        currentActiveEl.classList.remove('step-content-active');
+    if (stepContentEls) {
+        let activeStep = 0;
+        const actionButtonEls = document.querySelectorAll('.step-action .btn');
 
-        const newActiveEl = stepContentEls[stepNumber];
-        newActiveEl.classList.add('step-content-active');
+        const selectStep = (stepNumber) => {
+            const currentActiveEl = stepContentEls[activeStep];
+            currentActiveEl.classList.remove('step-content-active');
 
-        activeStep = stepNumber;
-    }
+            const newActiveEl = stepContentEls[stepNumber];
+            newActiveEl.classList.add('step-content-active');
 
-    actionButtonEls.forEach((actionButtonEl) => {
-        actionButtonEl.addEventListener("click", (event) => {
-            event.preventDefault();
+            activeStep = stepNumber;
+        }
 
-            selectStep(activeStep + 1);
+        actionButtonEls.forEach((actionButtonEl) => {
+            actionButtonEl.addEventListener("click", (event) => {
+                event.preventDefault();
+
+                selectStep(activeStep + 1);
+            });
         });
-    });
+    }
 }
+
+export { initStepperForm };
