@@ -15,6 +15,9 @@
     margin: 0 auto;
     color: white;
     text-align: center;
+    .main-title {
+        margin-right: 12rem;
+    }
     p {
         color: $lightish-gray;
         font-size: 4rem;
@@ -38,9 +41,12 @@
 
 // MEDIA QUERIES
 
-@media(max-width: 992px) {
+@media(max-width: 1000px) {
     .banner-container {
         height: 60vh;
+        .main-title {
+            margin-right: 0;
+        }
         p {
             font-size: 3rem;
             padding: 0 
