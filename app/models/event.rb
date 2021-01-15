@@ -1,6 +1,7 @@
 class Event < ApplicationRecord
   include Searchable
   include Markerable
+  include Imageable
 
   belongs_to :location
   belongs_to :trip

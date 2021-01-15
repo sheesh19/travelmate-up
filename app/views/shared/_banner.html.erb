@@ -1,7 +1,7 @@
 <div class="banner__image"
   style="background-image: linear-gradient(rgba(0,0,0,0.5),
     rgba(0,0,0,0.5)),
-    url('<%= image_path 'california.jpg' %>')">
+    url('<%= cl_image_path Activity.background_image, crop: :fill %>')">
   <div class="banner-container">
     <div class="main-title d-flex">
       <p>The best of <strong>solo</strong> travelling<br>meets the best of <strong>group</strong> travel</p>
@@ -13,3 +13,4 @@
     <% end %>
   </div>
 </div>
+

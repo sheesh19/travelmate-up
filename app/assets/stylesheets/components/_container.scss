@@ -79,25 +79,6 @@
     padding-bottom: 24px;
 }
 
-// Smallest device
-@media (max-width: 1000px) {
-    .container__featured {
-        padding-left: 2rem;
-        padding-right: 2rem;
-    }
-
-    .container__featured-white {
-        padding-left: 2rem;
-        padding-right: 2rem;
-    }
-
-    .container__body {
-        padding-left: 2rem;
-        padding-right: 2rem;
-    }
-}
-
-
 // Dashboard Container
 
 .container__dashboard {
@@ -113,14 +94,6 @@
     grid-template-columns: 6fr 4fr;
     flex-grow: 1;
     grid-gap: 72px;
-}
-
-// Smallest device
-@media (max-width: 1000px) {
-    .container__dashboard, .container__event {
-        grid-template-columns: 1fr;
-        width: 100%;
-    }
 }
 
 // Empty state container
@@ -183,4 +156,27 @@
     height: 100vh;
     position: sticky;
     top: 1rem;
+}
+
+// Smallest device
+@media (max-width: 1000px) {
+    .container__featured {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    .container__featured-white {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    .container__body {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .container__dashboard, .container__event {
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
 }
