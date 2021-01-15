@@ -112,7 +112,7 @@
   }
 }
 
-.nav-item-highlighht {
+.nav-item-highlight {
   padding-right: 16px;
   &:hover {
     background-color: $almost-white;
@@ -123,7 +123,11 @@
 }
 
 // Smallest device
-@media (max-width: 575px) {
+@media (max-width: 1000px) {
+  .navbar, .navbar-mt {
+    display: none;
+  }
+
   .navbar-nav {
     text-align: center;
   }

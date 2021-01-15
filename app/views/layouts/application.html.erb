@@ -12,12 +12,15 @@
     <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_AUTOCOMPLETE_KEY']}" %>
   </head>
 
-  <body>      
-    <%= render 'shared/navbar' %>
-    <%= render 'shared/flashes' %>
-
-    <%= yield %>
-    
-    <%= render 'shared/footer' %>
+  <body>
+    <div id="container-wrapper">
+      <%#= render 'shared/navbar' %>
+      <%= render 'shared/sidebar' %>
+      <div class="container__main main-content">
+        <%= yield %>
+        <%= render 'shared/flashes' %>
+        <%= render 'shared/footer' %>
+      </div>
+    </div>
   </body>
 </html>

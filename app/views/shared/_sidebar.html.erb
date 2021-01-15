@@ -1,0 +1,51 @@
+<div id="sidebar">
+  <div id="nav-button">
+      <div id="top" class="nav-slim-bar"></div>
+      <div id="middle" class="nav-slim-bar"></div>
+      <div id="bottom" class="nav-slim-bar"></div>
+  </div>
+
+  <div class="sidebar bd-sidebar">
+
+      <!-- TravelMates Logo -->
+      <%= link_to root_path, class: "navbar-brand" do %>
+          <span class="logo-start">travel</span>
+          <span id="logo-end">mates</span>
+      <% end %>
+
+      <!-- Avatar & Welcome -->
+      <div class="sidebar-welcome d-flex align-items-center">
+        <%= render "shared/avatars/avatar_sidebar" %>
+      </div>
+
+      <!-- DISPLAY BUTTON -->
+      <% if user_signed_in? %>
+        <div class="sidebar-primary-button">
+          <%= render "shared/components/button", variant: "filled", label: "CREATE NEW TRIP", path: new_trip_path %>
+        </div>
+      <% else %>
+        <div class="sidebar-primary-button">
+          <%= render "shared/components/button", variant: "filled", label: "LOG IN", path:  new_user_session_path %>
+        </div>
+      <% end %>
+
+      <ul class="nav-sidebar">
+        <%= render partial: 'shared/components/sidebar_links',
+          locals: { link_text: 'EXPLORE', path: root_path }
+        %>
+        <%= render partial: 'shared/components/sidebar_links',
+          locals: { link_text: 'FIND TRIPS', path: trips_path }
+        %>
+        <%= render partial: 'shared/components/sidebar_links',
+          locals: { link_text: 'FIND MATES', path: events_path }
+        %>
+
+        <% if user_signed_in? %>
+          <%= render partial: 'shared/components/sidebar_links',
+            locals: { link_text: 'MANAGE TRIPS', path: dashboards_path }
+          %>
+        <% end %>
+
+      </ul>
+  </div>
+</div>

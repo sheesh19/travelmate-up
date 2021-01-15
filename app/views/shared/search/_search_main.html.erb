@@ -1,10 +1,13 @@
-<div class="search__box">
+<div class="search__box" style="background-image: linear-gradient(rgba(0,0,0,0.5),
+rgba(0,0,0,0.5)),
+url('<%= cl_image_path Activity.background_image, crop: :fill%>')">
+
   <div class="search-banner justify-content-center">
     <!-- Search bar -->
     <div class="search-banner-text">
-      <h1>
+      <h2>
         <strong><%= search_title %><strong>
-      </h1>
+      </h2>
     </div>
       <div class="index-search">
         <%= form_tag(path, method: :get, placeholder: search_placeholder) do %>
@@ -40,4 +43,4 @@
     </div>
 <% end %>
 
-<div class="horizontal-page-divider"></div>
+<%# <div class="horizontal-page-divider"></div> %>

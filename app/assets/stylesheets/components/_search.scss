@@ -3,10 +3,10 @@
     flex-direction: column;
     align-items: center;
     background-color: transparent;
-    height: 16em;
+    height: 20rem;
     align-content: center;
     vertical-align: baseline;
-    border-bottom: $light-gray solid 1px;
+    // border-bottom: $light-gray solid 1px;
 }
 
 
@@ -16,15 +16,21 @@
 }
 
 .search__box {
-    background-color: $darkest-teal;
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('california.jpg');
+    background-size: cover;
+    background-position: center;
+    border-bottom-left-radius: 32%;
+    border-bottom-right-radius: 32%;
 }
 
 .search-banner-text {
     color: $light-teal;
     padding-bottom: 8px;
-    h1 {
+    h2 {
         font-size: 40px;
         font-weight: 200;
+        text-shadow: 2px 8px 6px rgba(3, 32, 44, 0.4),
+        0px -5px 35px rgba(255,255,255,0.3);
     }
 }
 

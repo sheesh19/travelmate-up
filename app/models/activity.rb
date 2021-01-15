@@ -1,4 +1,6 @@
 class Activity < ApplicationRecord
+    include Imageable
+
     default_scope { order('title ASC') }
     
     has_many :activity_lists, dependent: :destroy
