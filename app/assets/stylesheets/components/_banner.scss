@@ -15,7 +15,7 @@
     margin: 0 auto;
     color: white;
     text-align: center;
-    .main-title {
+    .main-title, h1 {
         margin-right: 12rem;
     }
     p {
@@ -39,12 +39,16 @@
     position: relative;
 }
 
+.activity-banner {
+    height: 50vh;
+}
+
 // MEDIA QUERIES
 
 @media(max-width: 1000px) {
     .banner-container {
         height: 60vh;
-        .main-title {
+        .main-title, h1 {
             margin-right: 0;
         }
         p {

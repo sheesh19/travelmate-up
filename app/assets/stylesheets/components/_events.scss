@@ -144,6 +144,7 @@
     h2 {
         color: $darkish-gray;
         padding-bottom: 16px;
+        margin-left: -1rem;
     }
 }
 
@@ -170,7 +171,7 @@
 }
 
 // Smallest device
-@media (max-width: 575px) {
+@media (max-width: 1000px) {
     .event-description-side {
         width: 92vw;
     }
@@ -178,5 +179,11 @@
     .organiser-info-header {
         justify-content: center;
         align-items: center;
+    }
+
+    .upcoming-event-title {
+        h2 {
+            margin-left: 1rem;
+        }
     }
 }
