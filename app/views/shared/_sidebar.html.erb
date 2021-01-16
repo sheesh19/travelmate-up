@@ -39,6 +39,9 @@
         <%= render partial: 'shared/components/sidebar_links',
           locals: { link_text: 'FIND MATES', path: events_path }
         %>
+        <%= render partial: 'shared/components/sidebar_links',
+          locals: { link_text: 'FIND ACTIVITIES', path: activities_path }
+        %>
 
         <% if user_signed_in? %>
           <%= render partial: 'shared/components/sidebar_links',
