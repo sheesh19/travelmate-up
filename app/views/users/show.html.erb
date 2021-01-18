@@ -1,0 +1,57 @@
+<div class="container d-flex flex-column align-items-center">
+  <div class="user-description">
+    <div>
+      <div>
+        <div>
+        </div>
+        <div class="d-flex justify-content-center">
+          <% if @user.avatar.blank? %>
+ <!--          <%#= image_tag('avatarback.jpg' , class: "rounded-circle", style: "width: 150px") %> -->
+            <div class="no-image-avatar-show d-flex align-items-center">
+              <% if @user.first_name.present? %>
+                <p><%= @user.first_name[0].upcase %></p>
+              <% else %>
+                <p>M</p>
+              <% end %>
+            </div>
+          <% else %>
+            <%= cl_image_tag(current_user.avatar.key, class: "avatar-xlarge", height: 300, width: 300, crop: :fill) %>
+<!--         <%#= cl_image_tag(current_user.avatar.present? ? current_user.avatar : 'avatarback.jpg' , class: "rounded-circle", style: "width: 150px") %> -->
+          <% end %>
+        </div>
+
+        <div>
+          <h4>
+            <%= @user.first_name %>
+            <%= @user.last_name %>
+          </h4>
+          <%# @user.tags.each do |tag| %>
+            <span class="tag-outline"><%#= tag.tag_name %></span>
+          <%# end %>
+        </div>
+      </div>
+      <div class="d-flex flex-column">
+        <div class="p-2">
+          <p><strong>About me</strong></p>
+          <p><%= @user.description %></p>
+        </div>
+        <div class="p-2">
+          <p><strong>Date of birth</strong></p>
+          <p><%= @user.date_of_birth %></p>
+        </div>
+        <div class="p-2">
+          <p><strong>Email address</strong></p>
+          <p><%= @user.email %></p>
+        </div>
+<!--         <div class="p-2">
+          <p><strong>Password</strong></p>
+          <p>********</p>
+        </div> -->
+      </div>
+    </div>
+    <div>
+      <%#= link_to "Edit", edit_user_path(@user), class: "btn btn-outlined" %>
+    </div>
+  </div>
+</div>
+

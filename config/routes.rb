@@ -30,6 +30,9 @@ Rails.application.routes.draw do
   # ACTIVITIES
   resources :activities, only: [ :index, :show ]
 
+  # PROFILE
+  resources :users, only: :show
+
   if Rails.env.development?
     get '/kitchensink', to: 'pages#kitchensink' if Rails.env.development?
   end
