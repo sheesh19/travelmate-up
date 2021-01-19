@@ -4,12 +4,11 @@ class Location < ApplicationRecord
     has_one_attached :photo
     has_many :events
 
-
     geocoded_by :address
     # after_validation :geocode, if: :will_save_change_to_address?
 
     def address
-        [street, city, state, country].compact.join(', ')
+        [city, state, country].compact.join(', ')
     end
 
     def self.sort_by_events
@@ -22,6 +21,8 @@ class Location < ApplicationRecord
     end
 
     def markers
+        # marker for the location
+        
         [{
             lat: latitude,
             lng: longitude,

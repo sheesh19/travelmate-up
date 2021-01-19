@@ -540,10 +540,10 @@ puts "Creating trips"
 trip_list = [
 {
   user_id: User.find_by(username: "shyradish").id,
-  title: "Greatest Ozzie Adventure",
+  title: "Welcome to Oz",
   start_date: "2021-04-15",
   end_date: "2021-06-23",
-  description: "A trip across Australia",
+  description: "The fantastic Aussie adventure around Melbourne.",
   status: 1,
   visibility: 1,
   trip_type: 1
@@ -677,83 +677,80 @@ puts "Creating events"
 event_list = [
 {
   location_id: Location.find_by(city: "Melbourne").id,
-  trip_id: Trip.find_by(title: "Greatest Ozzie Adventure").id,
+  trip_id: Trip.find_by(title: "Welcome to Oz").id,
 #   activity_id: Activity.find_by(title: "Tech").id,
-  title: "Le Wagon Demo Day",
-  start_date: "2021-06-14 18:00:00",
-  end_date: "2021-06-14 20:00:00",
-  description: "Pushing boundaries in education through tech.",
-  max_spots: 18
+  title: "Wilson's Prom National Park",
+  start_date: "2021-06-14 10:00:00",
+  end_date: "2021-06-15 20:00:00",
+  description: "Head to Wilson's Prom for hiking, snorkeling, and hanging at the beach.",
+  max_spots: 4,
+  address: 'Wilsons Promontory VIC 3960, Australia'
 },
 {
   location_id: Location.find_by(city: "Melbourne").id,
-  trip_id: Trip.find_by(title: "Greatest Ozzie Adventure").id,
+  trip_id: Trip.find_by(title: "Welcome to Oz").id,
 #   activity_id: Activity.find_by(title: "Festival").id,
-  title: "Bottomless G&Tea Party",
+  title: "Lemon Lime Bitters & Tequila Party",
   start_date: "2021-06-18 14:00:00",
   end_date: "2021-06-18 17:00:00",
-  description: "Enjoy two hours of bottomless gin and tonics, matched with delicious sweet and savoury treats. Choose from house-infused gins served in quaint tea cups - find your favourite flavour!",
-  max_spots: 4
+  description: "Enjoy lemon lime bitters & tequila, matched with delicious sweet and savoury treats. Head to the famous Corner Bar in Richmond.",
+  max_spots: 4,
+  address: '57 Swan St, Richmond VIC 3121, Australia'
 },
 {
   location_id: Location.find_by(city: "Melbourne").id,
-  trip_id: Trip.find_by(title: "Greatest Ozzie Adventure").id,
+  trip_id: Trip.find_by(title: "Welcome to Oz").id,
   # activity_id: Activity.find_by(title: "Food Markets").id,
   title: "QVM Winter Night Market",
   start_date: "2021-06-19 17:00:00",
   end_date: "2021-06-19 22:00:00",
   description: "A foodie feast",
-  max_spots: 3
+  max_spots: 3,
+  address: 'Queen St, Melbourne VIC 3000, Australia'
 },
 {
   location_id: Location.find_by(city: "Sydney").id,
-  trip_id: Trip.find_by(title: "Greatest Ozzie Adventure").id,
+  trip_id: Trip.find_by(title: "Welcome to Oz").id,
 #   activity_id: Activity.find_by(title: "Cultural Events").id,
   title: "Sydney Opera House",
   start_date: "2021-06-21 17:00:00",
   end_date: "2021-06-21 22:00:00",
   description: "A night at the Opera",
-  max_spots: 2
+  max_spots: 2,
+  address: 'Bennelong Point, Sydney NSW 2000, Australia'
 },
 {
   location_id: Location.find_by(city: "Perth").id,
-  trip_id: Trip.find_by(title: "Greatest Ozzie Adventure").id,
+  trip_id: Trip.find_by(title: "Welcome to Oz").id,
 #   activity_id: Activity.find_by(title: "Snorkeling").id,
   title: "Snorkeling off the Perth coast",
   start_date: "2021-06-23 09:00:00",
   end_date: "2021-06-23 18:00:00",
-  description: "snorkeling around Rottnest Island",
-  max_spots: 2
+  description: "Snorkeling around Rottnest Island",
+  max_spots: 2,
+  address: '44 Socrates Parade, North Coogee WA 6163, Australia'
 },
 {
   location_id: Location.find_by(city: "Florence").id,
   trip_id: Trip.find_by(title: "Euro Trip").id,
 #   activity_id: Activity.find_by(title: "Nature Tours").id,
-  title: "Visit a Stunning Winery",
+  title: "Florence Winery",
   start_date: "2021-08-05 09:00:00",
   end_date: "2021-08-05 17:00:00",
   description: "Visit the most incredible wineries in Florence on a massive winery tour.",
-  max_spots: 3
+  max_spots: 3,
+  address: 'Via Ontignano, 64, 50014 Fiesole FI, Italy'
 },
 {
-  location_id: Location.find_by(city: "Florence").id,
-  trip_id: Trip.find_by(title: "Euro Trip").id,
-#   activity_id: Activity.find_by(title: "Sightseeing").id,
-  title: "David by Michelangelo",
-  start_date: "2021-08-06 09:00:00",
-  end_date: "2021-08-06 17:00:00",
-  description: "Michelangelo’s defiant David statue has captivated the world for centuries. Considered one of art history’s major masterpieces, the marble sculpture showcases both the artist’s skill and the fine art focus that defines the Renaissance.",
-  max_spots: 2
-},
-{
-  location_id: Location.find_by(city: "Paris").id,
+  location_id: Location.find_by(city: "London").id,
   trip_id: Trip.find_by(title: "Euro Trip").id,
 #   activity_id: Activity.find_by(title: "Tech").id,
-  title: "Le Wagon reunion",
+  title: "Magical Harry Potter Tour",
   start_date: "2021-08-07 15:30:00",
   end_date: "2021-08-07 17:00:00",
-  description: "A total geek fest!",
-  max_spots: 3
+  description: "Most magical experience of all. Please become a maurader with me.",
+  max_spots: 3,
+  address: 'Studio Tour Dr, Leavesden, Watford WD25 7LR, United Kingdom'
 },
 {
   location_id: Location.find_by(city: "Singapore").id,
@@ -762,18 +759,20 @@ event_list = [
   title: "Chinatown Complex Food Centre",
   start_date: "2021-06-20 17:00:00",
   end_date: "2021-06-20 22:00:00",
-  description: "largest hawker centre in Singapore with over 260 food stalls.",
-  max_spots: 4
+  description: "Largest hawker centre in Singapore with over 260 food stalls.",
+  max_spots: 4,
+  address: '335 Smith St, Singapore 050335'
 },
 {
   location_id: Location.find_by(city: "Hong Kong").id,
   trip_id: Trip.find_by(title: "Asian Food Tour").id,
 #   activity_id: Activity.find_by(title: "Night Markets").id,
-  title: "Temple Street night market",
+  title: "Temple Street Night Market",
   start_date: "2021-06-22 20:30:00",
   end_date: "2021-06-22 22:00:00",
   description: "Temple Street is the largest and most popular night market in Hong Kong",
-  max_spots: 3
+  max_spots: 3,
+  address: 'Temple St, Yau Ma Tei, Hong Kong'
 },
 {
   location_id: Location.find_by(city: "Koh Tao").id,
@@ -783,7 +782,8 @@ event_list = [
   start_date: "2021-06-26 08:30:00",
   end_date: "2021-06-30 22:00:00",
   description: "Best diving round the island",
-  max_spots: 3
+  max_spots: 3,
+  address: 'Mae Haad, Koh Tao, Surat Thani 84360, Thailand'
 },
 {
   location_id: Location.find_by(city: "Hong Kong").id,
@@ -793,7 +793,8 @@ event_list = [
   start_date: "2021-07-01 09:30:00",
   end_date: "2021-07-05 23:00:00",
   description: "Elements Hong Kong brings together a host of high-end brands with 123 stores selling accessories from the likes of Mulberry, shoes from Jimmy Choo, fashion from Max Mara, and watches from ROLEX.",
-  max_spots: 3
+  max_spots: 3,
+  address: '1 Austin Rd W, Tsim Sha Tsui, Hong Kong'
 },
 {
   location_id: Location.find_by(city: "Matsuno").id,
@@ -803,7 +804,8 @@ event_list = [
   start_date: "2021-07-08 09:30:00",
   end_date: "2021-07-12 23:00:00",
   description: "Cherry Blossoms bloom over Meguro River",
-  max_spots: 2
+  max_spots: 2,
+  address: 'Maruyamacho, Higashiyama Ward, Kyoto 605-0071, Japan'
 },
 {
   location_id: Location.find_by(city: "San Francisco").id,
@@ -813,7 +815,8 @@ event_list = [
   start_date: "2021-07-15 09:30:00",
   end_date: "2021-07-19 23:00:00",
   description: "Fantastic views of the GG Bridge",
-  max_spots: 2
+  max_spots: 2,
+  address: 'Golden Gate Bridge, San Francisco, CA'
 },
 {
   location_id: Location.find_by(city: "New York").id,
@@ -823,7 +826,8 @@ event_list = [
   start_date: "2021-07-22 20:30:00",
   end_date: "2021-07-22 23:00:00",
   description: "Getting it on, Gangnam Style!",
-  max_spots: 2
+  max_spots: 2,
+  address: 'Koreatown, New York, NY 10001'
 },
 {
   location_id: Location.find_by(city: "London").id,
@@ -834,7 +838,8 @@ event_list = [
   end_date: "2021-08-05 17:00:00",
   description: "This most charming traditional Afternoon Tea in Mayfair, is served in the spectacular Palm Court, with glittering chandeliers and elegant mirrors, which add a light and stylish flourish to the room.
   The Ritz London is the only hotel in the UK to have a certified Tea Sommelier, Giandomenico Scanu, who travels around the world to various tea plantations to source our wonderful teas.",
-  max_spots: 3
+  max_spots: 3,
+  address: "The Ritz London, 150 Piccadilly, St. James's, London W1J 9BR, United Kingdom"
 },
 {
   location_id: Location.find_by(city: "Auckland").id,
@@ -844,27 +849,19 @@ event_list = [
   start_date: "2021-06-20 16:30:00",
   end_date: "2021-06-20 20:00:00",
   description: "Hike a mountain and potentially find a dragon.",
-  max_spots: 0
-},
-{
-  location_id: Location.find_by(city: "Melbourne").id,
-  trip_id: Trip.find_by(title: "NZ Visa Run").id,
-#   activity_id: Activity.find_by(title: "Night Life").id,
-  title: "Celebrate the Le Wagon End",
-  start_date: "2021-06-17 16:30:00",
-  end_date: "2021-06-17 20:00:00",
-  description: "Have a blast in the Drunken Pony with the rest of the class before the beginning of the visa run.",
-  max_spots: 6
+  max_spots: 0,
+  address: 'Manawatu-Wanganui 4691, New Zealand'
 },
 {
   location_id: Location.find_by(city: "Kralendijk").id,
   trip_id: Trip.find_by(title: "ABC Islands & Colombia Extravaganza").id,
 #   activity_id: Activity.find_by(title: "Snorkeling").id,
-  title: "Bonaire Nation Park - Snorkeling",
+  title: "Bonaire National Park - Snorkeling",
   start_date: "2021-03-23 08:30:00",
   end_date: "2021-03-23 17:00:00",
   description: "Have the most incredible experience snorkeling in the Bonaire National Park. See turtles, squid, tons of coral and fish!",
-  max_spots: 7
+  max_spots: 7,
+  address: 'Washington-Slagbaai National Park, Caribbean Netherlands'
 },
 {
   location_id: Location.find_by(city: "Willemstad").id,
@@ -874,7 +871,8 @@ event_list = [
   start_date: "2021-03-25 14:30:00",
   end_date: "2021-03-25 17:00:00",
   description: "Groupon for two to have a blue Curacao experience.",
-  max_spots: 2
+  max_spots: 2,
+  address: 'Curaçao Liqueur Distillery, 129 Schottegatweg Oost, Willemstad, Curaçao'
 },
 {
   location_id: Location.find_by(city: "Bogota").id,
@@ -884,7 +882,8 @@ event_list = [
   start_date: "2021-03-30 07:30:00",
   end_date: "2021-03-30 20:00:00",
   description: "Hike in a cloud rainforest, round trip 14km. Waterfalls, alpacas, and clouds.",
-  max_spots: 0
+  max_spots: 0,
+  address: 'Vía Soacha, Km. 8, Soacha, Mosquera, Cundinamarca, Colombia'
 },
 {
   location_id: Location.find_by(city: "Auckland").id,
@@ -894,7 +893,8 @@ event_list = [
   start_date: "2021-06-21 08:30:00",
   end_date: "2021-06-21 14:00:00",
   description: "Go into the glow worm cave and find something precious.",
-  max_spots: 12
+  max_spots: 12,
+  address: '39 Waitomo Village Road, Waitomo 3977, New Zealand'
 },
 {
   location_id: Location.find_by(city: "Auckland").id,
@@ -904,7 +904,8 @@ event_list = [
   start_date: "2021-07-21 08:30:00",
   end_date: "2021-07-21 14:00:00",
   description: "Kayak in the stunning waters in NZ.",
-  max_spots: 4
+  max_spots: 4,
+  address: 'Lake Taupo, Waikato, New Zealand'
 }
 ]
 Event.create!(event_list)
@@ -914,17 +915,17 @@ puts "Created #{Event.count} event(s)"
 puts "Creating EventRegistration"
 er_list = [
 {
-  event_id: Event.find_by(title: "Celebrate the Le Wagon End").id,
+  event_id: Event.find_by(title: "Wilson's Prom National Park").id,
   user_id: User.find_by(username: "shyradish").id,
   status: 0
 },
 {
-  event_id: Event.find_by(title: "Celebrate the Le Wagon End").id,
+  event_id: Event.find_by(title: "Wilson's Prom National Park").id,
   user_id: User.find_by(username: "sophisophi").id,
   status: 0
 },
 {
-  event_id: Event.find_by(title: "Celebrate the Le Wagon End").id,
+  event_id: Event.find_by(title: "Wilson's Prom National Park").id,
   user_id: User.find_by(username: "gabby").id,
   status: 1
 },
@@ -939,12 +940,12 @@ er_list = [
   status: 1
 },
 {
-  event_id: Event.find_by(title: "Le Wagon Demo Day").id,
+  event_id: Event.find_by(title: "Kayaking NZ Adventures").id,
   user_id: User.find_by(username: "sophisophi").id,
   status: 1
 },
 {
-  event_id: Event.find_by(title: "Le Wagon Demo Day").id,
+  event_id: Event.find_by(title: "Magical Harry Potter Tour").id,
   user_id: User.find_by(username: "gabby").id,
   status: 1
 }
@@ -965,7 +966,7 @@ act_list = [
   activity: Activity.find_by(title: "Hiking")
 },
 {
-  event: Event.find_by(title: "Bonaire Nation Park - Snorkeling"),
+  event: Event.find_by(title: "Bonaire National Park - Snorkeling"),
   activity: Activity.find_by(title: "Snorkeling")
 },
 {
@@ -973,7 +974,7 @@ act_list = [
   activity: Activity.find_by(title: "Hiking")
 },
 {
-  event: Event.find_by(title: "Temple Street night market"),
+  event: Event.find_by(title: "Temple Street Night Market"),
   activity: Activity.find_by(title: "Night Markets")
 },
 {

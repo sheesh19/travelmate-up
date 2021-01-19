@@ -71,7 +71,8 @@ class TripsController < ApplicationController
                 :end_date, 
                 :max_spots, 
                 :description, 
-                :title, 
+                :title,
+                :address,
                 photos: [],
                 tag_list: [],
                 activity_list: []
