@@ -1,35 +1,114 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="container d-flex flex-column align-items-center">
+  <div class="user-description">
+    <div>
+    <div class="breadcrumb">
+      <%= link_to user_path(current_user) do %>
+          <i class="fas fa-angle-left"></i>
+          Back
+      <% end %>
+    </div>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        <%= f.error_notification %>
+        <div>
+          <div class="d-flex justify-content-center">
+            <% unless current_user.avatar.attached? %>
+              <div class="no-image-avatar-show d-flex align-items-center">
+                <% if current_user.first_name.present? %>
+                  <p><%= current_user.first_name[0].upcase %></p>
+                <% else %>
+                  <p>M</p>
+                <% end %>
+              </div>
+            <% else %>
+              <%= cl_image_tag(current_user.avatar.key, class: "avatar-xlarge", height: 300, width: 300, crop: :fill) %>
+            <% end %>
+          </div>
+            <%= f.input :avatar, label: "Click to upload a new profile image" %>
+          <div class="d-flex flex-column">
+            <div class="p-2">
+              <p><strong>First Name</strong></p>
+                <%= f.input :first_name, placeholder: current_user.first_name, label: false %>
+            </div>
+            <div class="d-flex flex-column">
+              <div class="p-2">
+                <p><strong>Last Name</strong></p>
+                  <%= f.input :last_name, placeholder: current_user.last_name, label: false %>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex flex-column">
+            <div class="p-2">
+              <p><strong>About me</strong></p>
+                <p><%= f.input :description, as: :text, placeholder: current_user.description, label: false %></p>
+            </div>
+          <div class="p-2">
+            <p><strong>Date of birth</strong></p>
+              <%= f.input :date_of_birth, as: :string, placeholder: current_user.date_of_birth, label: false, wrapper_html: { class: "date-picker" } %>
+          </div>
+          <div class="p-2">
+            <p><strong>Email address</strong></p>
+              <p><%= f.input :email, placeholder: current_user.email, label: false %></p>
+          </div>
 
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+          <% end %>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+          <div class="p-2">
+            <p><strong>New Password</strong></p>
+              <p><%= f.input :password,
+              hint: "leave it blank if you don't want to change it",
+              required: false,
+              input_html: { autocomplete: "new-password" }, 
+              label: false %></p>
+          </div>
+
+          <div class="p-2">
+            <p><strong>New Password Confirmation</strong></p>
+              <p><%= f.input :password_confirmation,
+              required: false,
+              input_html: { autocomplete: "current-password" }, 
+              label: false %></p>
+          </div>
+
+          <h5 class='m-5'>Enter your current password to save changes</h5>
+
+          <div class="p-2">
+            <p><strong>Current Password Confirmation</strong></p>
+              <p><%= f.input :current_password,
+              hint: "we need your current password to confirm your changes",
+              required: false,
+              input_html: { autocomplete: "current-password" }, 
+              label: false %></p>
+          </div>
+
+                <!-- Select Tags as checkboxes -->
+                <%#= f.association :interests,
+                                  collection: Tag.all.map { |tag| [tag.tag_name ] },
+                                  wrapper_html: { class: 'form-group' },
+                                  as: :check_boxes, label: false %>
+              <%#= f.association :interests, label_method: :interest, value_method: :id, include_blank: false %>
+<!--           <div class="p-2">
+            <p><strong>Password</strong></p>
+            <p><#%= f.input :password, placeholder: current_user.password, label: false %></p>
+          </div> -->
+        </div>
+
+    </div>
+    <div class='mb-5'>
+      <%= f.submit "Update Profile", class: "btn btn-filled" %>
+    </div>
     <% end %>
-
-    <%= f.input :password,
-                hint: "leave it blank if you don't want to change it",
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :current_password,
-                hint: "we need your current password to confirm your changes",
-                required: true,
-                input_html: { autocomplete: "current-password" } %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
+  <div class='mb-5'>
+    <p>Unhappy?</p> 
+    <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
   </div>
-<% end %>
+</div>
+</div>
 
-<h3>Cancel my account</h3>
 
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
-<%= link_to "Back", :back %>
+
