@@ -5,8 +5,8 @@ module Markerable
         # marker for the event
         
         [{
-            lat: location.latitude,
-            lng: location.longitude,
+            lat: latitude,
+            lng: longitude,
             # image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
         }]
     end
@@ -16,8 +16,8 @@ module Markerable
 
         events.map do |event|
             {
-                lat: event.location.latitude,
-                lng: event.location.longitude,
+                lat: event.latitude,
+                lng: event.longitude,
                 # image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
                 # infoWindow: render_to_string(partial: "shared/infowindow", locals: { event: event.title })
             }
@@ -30,8 +30,8 @@ module Markerable
 
             @markers = self.all.map do |event|
                 {
-                    lat: event.location.latitude,
-                    lng: event.location.longitude,
+                    lat: event.latitude,
+                    lng: event.longitude,
                     #infoWindow: render_to_string(partial: "shared/infowindow", locals: { event: event.title })
                 }
             end
