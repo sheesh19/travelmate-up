@@ -1,16 +1,15 @@
 .dropdown-menu {
-    left: -24px !important;
+    left: -1.5rem !important;
     top: 8px !important;
-    width: 15rem;
+    width: 100%;
     
 }
 
 @media (max-width: 1000px) {    
     .dropdown-menu {
         background-color: $darkest-teal;
-        left: -42px !important;
+        left: -2.8rem !important;
         top: 8px !important;
         text-align: center;
-        width: 88vw;
-    }
+     }
 }
