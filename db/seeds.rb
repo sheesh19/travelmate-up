@@ -539,7 +539,7 @@ puts "Created #{Activity.count} activit(y/ies)"
 puts "Creating trips"
 trip_list = [
 {
-  user_id: User.find_by(username: "shyradish").id,
+  user_id: User.find_by(username: "sheilz").id,
   title: "Welcome to Oz",
   start_date: "2021-04-15",
   end_date: "2021-06-23",

@@ -18,7 +18,12 @@
 
 <div class="container__body d-flex justify-content-between">
     <div>
-        <%= render 'shared/events/grouped_events_all', events: @events %>
+        <%= render partial: 'shared/events/grouped_events_all', 
+            locals: { 
+                events: @events,
+                class_type: "reminder-card-text-image-stack"
+            }
+        %>
     </div>
     <div class="">
         <%#= render 'shared/calendar_month', events: @events %>
