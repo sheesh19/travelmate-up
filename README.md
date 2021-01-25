@@ -10,7 +10,7 @@ Travelmates is an app to enable solo travelers; from finding mates and events to
 
 Travelmates is located at:
 
-* https://www.travel-mates.co
+* www.travel-mates.co/
 
 
 ## Table of Contents
@@ -73,7 +73,7 @@ rails db:seed
 
 ## Travelmates Features
 
-[Access the website here](https://www.travel-mates.co/)
+[Access the website here](www.travel-mates.co/)
 
 
 <p align="center">
