@@ -7,12 +7,17 @@
         <div class="display__itinerary">
             <% location.events.each do |event| %>
                 <% if event.start_date >= Date.today %>
-                    <%= render 'shared/cards/event_card', element: event %>
+                    <%= render partial: 'shared/cards/event_card', 
+                        locals: { 
+                            element: event,
+                            class_type: 'reminder-card-text-image-stack'
+                        } 
+                    %>
                 <% end %>
             <% end %>
         </div>
     
-        <div class="container-sticky-side">
+        <div class="">
             <div id="js-calendar" class="dash__calendar mb-5">
                 <%= render 'locations/by_location/calendar_locations', location_events: location.events %>
             </div>

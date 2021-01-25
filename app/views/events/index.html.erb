@@ -4,7 +4,8 @@
         search_title: 'Find events to join',
         path: events_path,
         search_placeholder: 'Search events',
-        elements: @search_events
+        elements: @search_events,
+        class_type: 'reminder-card-text-image-stack'
     }
 %>
 
@@ -17,7 +18,12 @@
 
 <div class="container__body d-flex justify-content-between">
     <div>
-        <%= render 'shared/events/grouped_events_all', events: @events %>
+        <%= render partial: 'shared/events/grouped_events_all', 
+            locals: { 
+                events: @events,
+                class_type: "reminder-card-text-image-stack"
+            }
+        %>
     </div>
     <div class="">
         <%#= render 'shared/calendar_month', events: @events %>

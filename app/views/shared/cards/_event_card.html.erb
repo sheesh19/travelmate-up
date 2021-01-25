@@ -1,35 +1,38 @@
 <div class="card reminder-card-with-location d-flex">
-    <div class="reminder-text d-flex">
+    <div class="reminder-text <%= class_type %>">
 
-    <div class="reminder-time pt-4 pl-4 pb-4">
-        <%= element.start_date.strftime("%d %^b") %>
-        <div class="reminder-date">
-            <%= element.start_date.strftime("%l:%M %P") %>
+        <div class="reminder-map">
+            <% if element.photos.attached? %>
+                <%= cl_image_tag element.photos.sample.key, class: "photo-card"%>
+            <% else %>
+                <% if element.location.photo.present? %>
+                    <%= image_tag element.location.photo, class: "photo-card" %>
+                <% else %>
+                    <%= image_tag ("https://images.unsplash.com/photo-1502920514313-52581002a659?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1647&q=80"), class: "photo-card" %>
+                <% end %>
+            <% end %>
         </div>
-    </div>
 
-    <div class="reminder-details p-4">
-        <h5><%= element.title %></h5>
-        <div class="reminder-travel-plan"><p><%= element.trip.title %></p></div>
-        <div class="reminder-location d-flex">
-            <i class="fas fa-map-marker-alt pr-2 pt-1"></i>
-            <div class="reminder-address">
-                <p><%= element.location.city %>, <%= element.location.country %></p>
+        <div class="reminder-date-details">
+
+            <div class="reminder-time pt-4 pl-4 pb-4">
+                <%= element.start_date.strftime("%d %^b") %>
+                <div class="reminder-date">
+                    <%= element.start_date.strftime("%l:%M %P") %>
+                </div>
+            </div>
+
+            <div class="reminder-details p-4">
+                <h5><%= element.title %></h5>
+                <div class="reminder-travel-plan"><p><%= element.trip.title %></p></div>
+                <div class="reminder-location d-flex">
+                    <i class="fas fa-map-marker-alt pr-2 pt-1"></i>
+                    <div class="reminder-address">
+                        <p><%= element.location.city %>, <%= element.location.country %></p>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-
-    <div class="reminder-map">
-        <% if element.photos.attached? %>
-            <%= cl_image_tag element.photos.sample.key, class: "photo-card"%>
-        <% else %>
-            <% if element.location.photo.present? %>
-                <%= image_tag element.location.photo, class: "photo-card" %>
-            <% else %>
-                <%= image_tag ("https://images.unsplash.com/photo-1502920514313-52581002a659?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1647&q=80"), class: "photo-card" %>
-            <% end %>
-        <% end %>
-    </div>
 
     </div>
     <%#= render 'shared/components/avatar_pill_expand', event: event %>

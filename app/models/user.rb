@@ -17,7 +17,7 @@ class User < ApplicationRecord
   acts_as_favoritor
 
   def num_listings
-    events.count
+    registered_mates.count
   end
 
   def notifications
@@ -25,7 +25,11 @@ class User < ApplicationRecord
   end
 
   def upcoming_events
-    events.where("events.start_date > ?", Date.today)
+    events.where("events.start_date >= ?", Date.today)
+  end
+
+  def past_events
+    events.where("events.start_date < ?", Date.today)
   end
 
   def num_registered_events
