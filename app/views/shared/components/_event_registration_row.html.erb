@@ -8,11 +8,11 @@
             <%= cl_image_tag element.user.avatar.key, height: 100, width: 100, crop: :fill, class: "avatar" %>
         <% else %>
             <div class="no-image-avatar-small d-flex align-items-center justify-content-center">
-                <p id="no-image-avatar-small-p"><%= element.user.first_name[0].upcase %></p>
+                <p id="no-image-avatar-small-p"><%= element.user.first_name ? element.user.first_name.capitalize : 'M' %></p>
             </div>
         <% end %>
 
-        <p class="mb-0 pl-2 display__itinerary"><%= element.user.first_name %> <%= element.user.last_name %></p>
+        <p class="mb-0 pl-2 display__itinerary"><%= element.user.full_name %></p>
     </div>
 
     <!-- EVENT NAME -->
