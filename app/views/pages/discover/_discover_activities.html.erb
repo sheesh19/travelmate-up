@@ -6,7 +6,7 @@
       <%= link_to "See all", activities_path, class: "btn btn-outlined" %>
     </div>
 
-    <div class="card__grid_x4">
+    <div class="card__grid">
         <% @activities.each do |activity| %>
             <%= render 'shared/cards/activity_card', activity: activity %>
         <% end %>

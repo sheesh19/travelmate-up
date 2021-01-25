@@ -3,8 +3,12 @@
     <div>
       <%= cl_image_tag current_user.avatar.key, height: 200, width: 200, crop: :fill, class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
         <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
-         <%= link_to "Profile", user_path(current_user), class: "dropdown-item" %>
-         <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+         <div class="nav-item">
+          <%= link_to "PROFILE", user_path(current_user), class: "nav-link" %>
+         </div>
+         <div class="nav-item">
+          <%= link_to "LOG OUT", destroy_user_session_path, method: :delete, class: "nav-link" %>
+         </div>
         </div>
     </div>
     <div>
@@ -21,8 +25,8 @@
           <% end %>
         </div>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <%= link_to "Profile", user_path(current_user.id), class: "dropdown-item" %>
-          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          <%= link_to "PROFILE", user_path(current_user.id), class: "dropdown-item" %>
+          <%= link_to "LOG OUT", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
         </div>
       </div>
       <div>

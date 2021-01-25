@@ -44,6 +44,16 @@ class User < ApplicationRecord
     event_registrations.find_by(event: event)
   end
 
+  def full_name
+    if first_name && last_name
+      "#{first_name.capitalize} #{last_name.capitalize}"
+    elsif username
+      username
+    else
+      'Mate'
+    end
+  end
+
   def age
     today = Date.today
     age = today.year - date_of_birth.year
