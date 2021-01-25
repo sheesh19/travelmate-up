@@ -189,16 +189,17 @@
 // Card applied to Activity index (listing)
 .photo-card {
     // Dimension
-    height: 10rem;
     width: 100%;
     background-size: cover;
     background-color: $teal;
+    height: 100%;
     // Position
     display: flex;
     justify-content: center;
     align-items: center;
     background-position: center;
     position: relative;
+    object-fit: cover;
     // Colour
     color: $almost-white;
     // Font
@@ -342,9 +343,13 @@
     }
 }
 
+.reminder-card-text-image {
+    display: flex;
+    justify-content: space-between;
+}
+
 .reminder-map {
-    height: 120px;
-    width: 280px;
+    width: 40%;
 }
 
 .reminder-location {
@@ -372,6 +377,11 @@
     }
 }
 
+.reminder-date-details {
+    display: flex;
+    width: 60%;
+}
+
 .reminder-time {
     color: $medium-gray;
     font-weight: 600;
@@ -391,36 +401,24 @@
     margin-top: 16px;
 }
 
-// Smallest device
-@media (max-width: 1000px) {
-    .reminder-card-with-location {
-        width: 92vw;
-        margin: 2rem auto;
-    }
-
-    .reminder-text {
-        height: 100%;
-    }
-
-    .reminder-time {
-        padding-left: 0.6rem !important;
-        margin-top: 0.5rem;
-    }
-
-    .reminder-time {
-        padding: 1.0rem !important;
-    }
+.reminder-card-text-image-stack {
+    display: grid;
+    grid-template-columns: 1fr;
 
     .reminder-map {
-        width: 32%;
-        height: auto;
-
-        .photo-card {
-            object-fit: cover;
-            height: 100%;
-        }
+        width: 100%;
+        height: 24vh;
     }
 
+    .reminder-date-details {
+        width: 100%;
+    }
+}
+
+.activity-card {
+    height: 20vh;
+    width: 22vw;
+    border-radius: 4%;
 }
 
 // Card applied to location index (listing)
@@ -468,4 +466,48 @@
 }
 
 
+// Smallest device
+@media (max-width: 1000px) {
+    .activity-card {
+        height: 24vh;
+        width: 80vw;
+    }
+    
+    .reminder-card-with-location {
+        width: 92vw;
+        margin: 2rem auto;
+    }
 
+    .reminder-card-text-image {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .reminder-date-details {
+        width: 100%;
+    }
+
+    .reminder-text {
+        height: 100%;
+    }
+
+    .reminder-time {
+        padding-left: 0.6rem !important;
+        margin-top: 0.5rem;
+    }
+
+    .reminder-time {
+        padding: 1.0rem !important;
+    }
+
+    .reminder-map {
+        width: 100%;
+        height: 20vh;
+
+        .photo-card {
+            object-fit: cover;
+            height: 100%;
+        }
+    }
+
+}

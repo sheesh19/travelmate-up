@@ -86,7 +86,12 @@
     grid-template-columns: 7fr 3fr;
     flex-grow: 1;
     grid-gap: 16px;
-    width: 90vw;
+    width: 72vw;
+}
+
+.container__flex {
+    display: flex;
+    width: 72vw;
 }
 
 .container__event {
@@ -155,6 +160,7 @@
 .container-sticky-side {
     height: 100vh;
     position: sticky;
+    position: -webkit-sticky;
     top: 1rem;
 }
 
