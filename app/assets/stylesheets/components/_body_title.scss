@@ -3,6 +3,8 @@
     padding-bottom: 40px;
     margin: 16px 0 16px 0;
     color: $darkish-gray;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
 }
 
 .main-title-width-reduced {
@@ -20,6 +22,7 @@
         color: $dark-teal;
         font-size: 14px;
         font-weight: 600;
+        letter-spacing: 0.1rem;
     }
 }
 
@@ -32,6 +35,7 @@
         font-weight: 600;
         padding: 0;
         margin: 0;
+        letter-spacing: 0.1rem
     }
     a {
         color: $teal;
@@ -48,6 +52,7 @@
         font-weight: 600;
         padding: 0;
         margin: 0;
+        letter-spacing: 0.1rem
     }
     a {
         color: $teal;
@@ -60,7 +65,9 @@
     background: transparent;
     padding-left: 0;
     color: $gray;
-
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
     a {
         text-decoration: none;
         color: $gray;

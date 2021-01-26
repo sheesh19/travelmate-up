@@ -2,7 +2,7 @@
 
 <% events.group_by_month { |e| e[:start_date] }.each do |eventgroup| %>
   <% if eventgroup[0] >= Date.today %>
-    <h6><%= eventgroup[0].strftime("%b %Y") %></h6>
+    <h2 class="featured-time"><%= eventgroup[0].strftime("%b %Y") %></h2>
     <div class="<%= 'grid-two' if class_type == 'reminder-card-text-image-stack'%>">
       <% eventgroup[1].each do |event| %>
           <%= render partial: 'shared/cards/event_card', 

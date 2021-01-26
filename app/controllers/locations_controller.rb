@@ -1,4 +1,5 @@
 class LocationsController < ApplicationController
+    skip_before_action :authenticate_user!, only: [ :index, :show ]
     before_action :set_location, only: [ :show ]
 
     def index

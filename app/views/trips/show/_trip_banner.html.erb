@@ -14,7 +14,7 @@
                         <%= link_to "Edit travel plan", edit_trip_path(trip), class: "btn btn-outlined" %>
                     <% end %>
                 </div>
-                <h1><%= trip.title %></h1>
+                <h1 class="event-title"><%= trip.title.upcase %></h1>
                 <div class="d-flex">
                     <div class="js-heart-trip heart-fit">
                         <%= render 'shared/components/heart', element: trip %>
