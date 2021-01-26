@@ -139,10 +139,11 @@
         font-weight: 600;
     }
     p {
-        font-size: 14px;
+        font-size: 0.7rem;
         margin-bottom: 0;
         font-weight: 600;
         color: $light-gray;
+        letter-spacing: 0.1rem;
     }
 }
 
@@ -203,8 +204,10 @@
     // Colour
     color: $almost-white;
     // Font
-    font-size: 24px;
-    font-weight: bold;
+    font-size: 1.4rem;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    text-align: center;
     // Border
     text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
     // border-radius: 0.5em;
