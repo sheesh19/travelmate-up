@@ -9,7 +9,7 @@ class Activity < ApplicationRecord
     has_one_attached :photo
 
     def self.most_popular_activities
-        left_joins(:activity_lists).group(:id).order('COUNT(activity_lists.id) DESC')
+        joins(:activity_lists).group(:id).order('COUNT(activities.id) DESC') 
     end
 
     def self.top_twelve_activities
