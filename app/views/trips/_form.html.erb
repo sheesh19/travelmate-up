@@ -10,7 +10,20 @@
                 label_html: { class: "form-title" },
                 input_html: { class: "form-border" }
                 %>
-            <div class="form-date-range">
+
+            <p class="form-title my-4">Will you be travelling alone?</p>
+
+            <%= f.collection_radio_buttons :trip_type,                
+                [[0, 'SOLO'], [1, 'MATES']],
+                :first, :last, {}, required: true do |b|
+                    # b.label: "Will you be travelling alone?",
+                    # b.label_html: { class: "form-title" },
+                    b.radio_button + b.label(class: "collection_radio_buttons")
+                end
+                # label: "Will you be travelling alone?"
+            %>
+
+            <div class="form-date-range mt-4">
                 <%= f.input :start_date,
                 as: :date,
                 html5: true,
@@ -37,20 +50,19 @@
                 rows: 3
                 }
                 %>
-            <%= f.input :trip_type,
-                as: :radio_buttons,
-                collection: [['0', 'No'], ['1', 'Yes']],
-                label_method: :second, value_method: :first,
-                label: "Will you be travelling alone?",
-                label_html: { class: "form-title" }
-                %>
-            <%= f.input :visibility,
-                as: :radio_buttons,
-                collection: [['0', 'No'], ['1', 'Yes']],
-                label_method: :second, value_method: :first,
-                label: "Do you wish to allow other users to view this travel plan?",
-                label_html: { class: "form-title" }
-                %>
+
+            <p class="form-title my-4">Do you wish to allow other users to view this travel plan?</p>
+
+            <%= f.collection_radio_buttons :visibility,                
+                [[0, 'NO'], [1, 'YES']],
+                :first, :last, {}, required: true do |b|
+                    # b.label: "Will you be travelling alone?",
+                    # b.label_html: { class: "form-title" },
+                    b.radio_button + b.label(class: "collection_radio_buttons")
+                end
+                # label: "Will you be travelling alone?"
+            %>
+
 
             <h4 class="mt-5">Trip Events</h4>
             <div id="events" class="mb-4">
