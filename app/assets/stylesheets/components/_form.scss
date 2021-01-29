@@ -35,10 +35,10 @@
   margin: 0 25% 0 25%;
 }
 
-.form-title {
+.form-title, .col-form-label, .form-check-label.collection_radio_buttons {
   font-size: 16px;
   font-weight: 500;
-  color: $medium-gray;
+  color: $medium-gray !important;
 }
 
 .form-border {
@@ -62,6 +62,51 @@
 .form-flex-1 {
   flex: 1;
 }
+
+.form-control {
+  border: none;
+  border-bottom: 1.2px solid $form-border-gray;
+}
+
+.date, .datetime {
+  background-color: $white !important;
+}
+
+.form-check-label {
+  color: $almost-black !important;
+}
+
+//////////////////////////////////////////////////
+// INPUT CHECKBOX
+//////////////////////////////////////////////////
+
+input[type="radio"] {
+  position: absolute;
+  left: -20rem;
+  z-index: -10;
+}
+
+.collection_radio_buttons{
+  border: 1px solid $form-border-gray;
+  background-color: $white;
+  font-size: 1rem;
+  padding: 0.4rem 2rem;
+  border-radius: 4rem;
+  text-transform: uppercase;
+  margin: 0;
+  margin-right: 1rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+input[type="radio"]:checked + label {
+  border: 1px solid $teal;
+  background-color:$teal;
+  color: $almost-white !important;
+}
+
 
 //////////////////////////////////////////////////
 // ORGANISMS
