@@ -37,13 +37,15 @@ class Location < ApplicationRecord
             r = Geocoder.search(location_name)
             return if r.empty?
 
-            Location.create(
+            location = Location.create(
                 city: location_name,
                 country: r[0].data["address"]["country"],
                 state: r[0].data["address"]["state"],
                 latitude: r[0].data["lat"],
                 longitude: r[0].data["lon"]
             )
+            PlacesImages.call(location)
+            location
         end
     end
 end

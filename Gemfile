@@ -61,6 +61,9 @@ gem "simple_calendar", "~> 2.0"
 # PG SEARCH
 gem 'pg_search'
 
+# GOOGLE PHOTOS
+gem 'google_places'
+
 
 
 group :development, :test do  gem 'pry-byebug'
