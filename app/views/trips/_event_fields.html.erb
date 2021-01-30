@@ -104,6 +104,15 @@
                 class: "form-border",
                 rows: 3
                 } %>
+
+            <%= f.association :activities,
+              collection: Activity.all,
+              error: 'Please select activities',
+              label_html: { class: "form-title" },
+              input_html: {
+                class: "js-select2",
+                } %>
+              
           </div>
         </li>
         <!-- FORM SECTION 3: PHOTOS -->

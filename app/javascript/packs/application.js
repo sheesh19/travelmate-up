@@ -42,6 +42,8 @@ import { initGoogleAutocomplete } from '../components/init_google_autocomplete';
 import { initMapbox } from '../plugins/init_mapbox';
 import { initStepperForm } from '../components/init_stepper_form';
 import { initSidebar } from '../components/init_sidebar';
+import { initSelect2 } from '../components/init_select2';
+
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -52,4 +54,5 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initStepperForm();
   initSidebar();
+  initSelect2();
 });
