@@ -17,6 +17,7 @@ class Event < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+  # after_create :update_images
 
 
   include PgSearch::Model
@@ -62,7 +63,12 @@ class Event < ApplicationRecord
         location = Location.event_geocoder(event_param[1][:location])
         event.trip = trip
         event.location = location
+        event.address = event_param[1][:location]
         event.save!
     end
+  end
+
+  def update_images
+    GooglePlacesApi.event_call(self)
   end
 end
