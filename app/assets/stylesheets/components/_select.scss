@@ -1,3 +1,13 @@
 .select2-selection__rendered .select2-selection__choice {
     background-color: $teal;
 }
+
+.select2-container--default .select2-selection--multiple, .select2-container--default.select2-container--focus .select2-selection--multiple, .select2-dropdown {
+    border: 1.2px solid $form-border-gray;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+    background-color: $darkest-teal;
+    color: white;
+    border: 1.2px solid $form-border-gray;
+}
