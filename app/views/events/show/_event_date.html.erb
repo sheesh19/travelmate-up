@@ -18,7 +18,7 @@
             </div>
             <div id="event-location">
                 <i class="fas fa-map-marker-alt event-location-icon"></i>
-                <%= event.location.city %>, <%= event.location.country %>
+                <%= link_to "#{event.location.city}, #{event.location.country}", location_path(event.location), class: 'text-grey' %>
             </div>
         </div>
 
