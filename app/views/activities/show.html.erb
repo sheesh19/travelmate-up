@@ -2,6 +2,7 @@
 
 <%= render partial: 'activities/show/event_activities',
     locals: {
+        title: 'UPCOMING HIKING EVENTS',
         activity: @activity,
         events: @activity.upcoming_events
     }
@@ -11,5 +12,15 @@
     locals: {
         activity: @activity,
         location: @activity.activity_locations
+    }
+%>
+
+<div class="mb-5"></div>
+
+<%= render partial: 'activities/show/event_activities',
+    locals: {
+        title: 'ALL HIKING EVENTS',
+        activity: @activity,
+        events: @activity.events
     }
 %>
