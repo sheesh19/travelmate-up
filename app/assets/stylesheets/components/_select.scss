@@ -4,10 +4,21 @@
 
 .select2-container--default .select2-selection--multiple, .select2-container--default.select2-container--focus .select2-selection--multiple, .select2-dropdown {
     border: 1.2px solid $form-border-gray;
+    letter-spacing: 0.04rem;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    color: $medium-gray;
 }
 
 .select2-container--default .select2-selection--multiple .select2-selection__choice {
-    background-color: $darkest-teal;
+    background-color: $teal;
     color: white;
     border: 1.2px solid $form-border-gray;
+    font-size: 0.8rem;
+    letter-spacing: 0.04rem;
+    text-transform: uppercase;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove > span {
+    color: white;
 }

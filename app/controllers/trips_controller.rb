@@ -76,7 +76,7 @@ class TripsController < ApplicationController
                 :address,
                 photos: [],
                 tag_list: [],
-                activity_list: []
+                activity_ids: []
             ]
         )[:events_attributes]
     end

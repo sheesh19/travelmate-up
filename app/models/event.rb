@@ -10,7 +10,7 @@ class Event < ApplicationRecord
   has_many :activity_lists, dependent: :destroy
   has_many :activities, through: :activity_lists
 
-  acts_as_taggable_on :tags, :activities
+  acts_as_taggable_on :tags
   has_many_attached :photos
 
   acts_as_favoritable
@@ -65,6 +65,8 @@ class Event < ApplicationRecord
         event.location = location
         event.address = event_param[1][:location]
         event.save!
+        event.activities = Activity.build_activities(event_param[1][:activity_ids])
+        event
     end
   end
 

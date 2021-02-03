@@ -125,12 +125,12 @@
 
 @media (max-width: 1000px) {
     .sidebar {
-        display: block;
+        visibility: hidden;
         opacity: 0;
         width: 0;
         position: fixed;
         top: 0;
-        transition: width 500ms ease-in-out, opacity 500ms ease-in-out, z-index 500ms ease-in-out;
+        transition: width 500ms ease-in-out, opacity 500ms ease-in-out, z-index 500ms ease-in-out, visibility 500ms ease-in-out;
         border-right: none;
     }
 
@@ -150,12 +150,14 @@
     }
 
     .sidebar.active {
+        visibility: visible;
+        display: block;
         width: 88%;
         opacity: 0.98;
         z-index: 4;
         background-color: $dark-teal;
         height: 100vh;
-
+        transition: width 500ms ease-in-out, opacity 500ms ease-in-out, z-index 500ms ease-in-out, visibility 500ms ease-in-out;
         a {
             color: white;
         }

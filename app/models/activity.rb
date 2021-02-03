@@ -8,6 +8,11 @@ class Activity < ApplicationRecord
 
     has_one_attached :photo
 
+    def self.build_activities(activity_ids)
+        acts = activity_ids.reject(&:empty?).map(&:to_i)
+        activities = Activity.where(id: acts)
+    end
+
     def self.most_popular_activities
         joins(:activity_lists).group(:id).order('COUNT(activities.id) DESC') 
     end
