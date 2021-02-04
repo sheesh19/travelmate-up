@@ -9,4 +9,85 @@
     </div>
 </div>
 
-<%= render 'form', trip: @trip %>
+<div class="form-container">
+    <div>
+
+        <h4>Trip details</h4>
+        <%= simple_form_for @trip do |f|  %>
+            <%= f.input :title,
+                label: 'Name',
+                error: 'Enter a trip name',
+                placeholder: 'Give a name to your amazing trip',
+                label_html: { class: "form-title" },
+                input_html: { class: "form-border" }
+                %>
+
+            <p class="form-title my-4">Will you be travelling alone?</p>
+
+            <%= f.collection_radio_buttons :trip_type,                
+                [[0, 'SOLO'], [1, 'MATES']],
+                :first, :last, {}, required: true do |b|
+                    # b.label: "Will you be travelling alone?",
+                    # b.label_html: { class: "form-title" },
+                    b.radio_button + b.label(class: "collection_radio_buttons")
+                end
+                # label: "Will you be travelling alone?"
+            %>
+
+            <div class="form-date-range mt-4">
+                <%= f.input :start_date,
+                as: :date,
+                html5: true,
+                required: true,
+                error: 'Start date can not be in the past',
+                input_html: { class: "form-border" },
+                wrapper_html: { class: "form-title form-date-range-item" }
+                %>
+                <%= f.input :end_date,
+                as: :date,
+                html5: true,
+                required: true,
+                error: 'End date can not be before start date',
+                input_html: { class: "form-border" },
+                wrapper_html: { class: "form-title form-date-range-item" }
+                %>
+            </div>
+            <%= f.input :description,
+                error: 'Enter trip description',
+                placeholder: 'Describe what you are planning to do',
+                label_html: { class: "form-title"},
+                input_html: {
+                class: "form-border",
+                rows: 3
+                }
+                %>
+
+            <p class="form-title my-4">Do you wish to allow other users to view this travel plan?</p>
+
+            <%= f.collection_radio_buttons :visibility,                
+                [[0, 'NO'], [1, 'YES']],
+                :first, :last, {}, required: true do |b|
+                    # b.label: "Will you be travelling alone?",
+                    # b.label_html: { class: "form-title" },
+                    b.radio_button + b.label(class: "collection_radio_buttons")
+                end
+                # label: "Will you be travelling alone?"
+            %>
+
+            <div class="d-flex flex-row-reverse">
+                <%= f.submit "Save your trip!", class: 'btn btn-filled' %>
+            </div>
+        <% end %>
+
+        <% if @trip.events.count > 0 %>
+            <h4 class="mt-5">Want to edit an event?</h4>
+            <div id="events" class="mb-4">
+                <% @trip.events.each do |event| %>
+                    <%= link_to event.title, edit_event_path(event), class: 'btn btn-outlined'  %>
+                <% end %>
+            </div>
+        <% end %>
+    </div>
+</div>
+
+<div class="page-bottom-spacer"></div>

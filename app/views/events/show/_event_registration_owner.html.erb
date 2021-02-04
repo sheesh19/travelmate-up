@@ -15,6 +15,6 @@
 
     </div>
     <% if current_user == event&.trip&.user %>
-        <%= link_to "Edit event", edit_trip_path(event.trip), class: "btn btn-outlined" %>
+        <%= link_to "Edit event", edit_event_path(event), class: "btn btn-outlined" %>
     <% end %>
 </div>

@@ -7,11 +7,11 @@ Rails.application.routes.draw do
 
   # TRIP 
   resources :trips do
-    resources :events, except: [ :index, :destroy ]
+    resources :events, only: [ :show, :new ]
   end
 
   # EVENTS
-  resources :events, only: [ :index, :destroy ] do 
+  resources :events, only: [ :index, :destroy, :update, :edit,  ] do 
     resources :event_registrations, only: [ :create ]
   end
 

@@ -17,10 +17,14 @@
 
 <div class="mb-5"></div>
 
-<%= render partial: 'activities/show/event_activities',
-    locals: {
-        title: 'ALL HIKING EVENTS',
-        activity: @activity,
-        events: @activity.events
-    }
-%>
+<div class="container__featured py-4">
+    <div class="featured-title-home">
+        <h2>ALL <%= @activity.title.upcase %> EVENTS</h2>
+    </div>
+    <%= render partial: 'shared/events/grouped_events_all', 
+        locals: { 
+            events: @activity.events,
+            class_type: "reminder-card-text-image-stack"
+        }
+    %>
+</div>

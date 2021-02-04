@@ -22,3 +22,7 @@
 .select2-container--default .select2-selection--multiple .select2-selection__choice__remove > span {
     color: white;
 }
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove:hover, .select2-container--default .select2-selection--multiple .select2-selection__choice__remove:hover {
+    background-color: $darkest-teal;
+}
