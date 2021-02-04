@@ -30,7 +30,8 @@
 
       <!-- FORMS -->
       <%= simple_form_for @event do |f| %>
-        <div class="d-flex flex-column js-event-btn">
+      
+        <div class="d-flex flex-column">
           <div>
             <ul class="stepper">
               <!-- FORM SECTION 1: BASIC EVENT DETAILS -->
@@ -71,13 +72,15 @@
                 </div>
               </li>
               <!-- FORM SECTION 2: EXTRA INFO -->
-              <li class="step mt-5">
+              <li class="step mt-5  js-event-btn">
+
                 <div class="step-title">
                   <h5>Add some colour to your event</h5>
                   <div class="step-number">
                     2
                   </div>
                 </div>
+
                 <div class="">
                   <div class="d-inline-flex w-100">
                     <!-- LOCATION -->
@@ -118,27 +121,40 @@
 
                 </div>
               </li>
+              
               <!-- FORM SECTION 3: PHOTOS -->
-                <li class="step mt-5">
-                  <div class="step-title">
-                    <h5>Upload a photo (optional)</h5>
-                    <div class="step-number">
-                      3
+              <li class="step mt-5">
+                <div class="step-title">
+                  <h5>Upload a photo (optional)</h5>
+                  <div class="step-number">
+                    3
+                  </div>
+                </div>
+
+                <div class="">
+                
+                  <%= f.input :photos,
+                    as: :file,
+                    input_html: { multiple: true },
+                    label: "Select an image file to upload",
+                    label_html: { class: "form-title empty-state-container" }
+                    %>
+
+                  <% if @event.photos.attached? %>
+                    <p class="form-title">Current Photos</p>
+                    <div class="d-flex justify-content-around empty-state-container p-2">
+                      <% @event.photos.each do |photo| %>
+                        <%= cl_image_tag photo.key, width: 150, height: 100, crop: :fill %>
+                      <% end %>
+                    <% end %>
                     </div>
-                  </div>
-                  <div class="">
-                    <%= f.input :photos,
-                      as: :file,
-                      input_html: { multiple: true },
-                      label: "Select an image file to upload",
-                      label_html: { class: "form-title empty-state-container" }
-                      %>
-                    <%= f.input :photos_attachments, as: :hidden %>
-                    <!-- Display Event Photo: <%#= cl_image_tag @event.photo, height: 300, width: 400, crop: :fill %> -->
-                  </div>
-                </li>
+
+                  <%= f.input :photos_attachments, as: :hidden %>
+
+                </div>
+              </li>
    
-              </ul>
+            </ul>
           </div>
  
         </div>
