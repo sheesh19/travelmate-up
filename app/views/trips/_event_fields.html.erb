@@ -70,7 +70,7 @@
               <!-- LOCATION -->
                 <!-- Adding location geocoder -->
                 <%= f.input :location,
-                  input_html: { value: @event&.location&.city, class: 'js-trip-location' },
+                  input_html: { value: @event.address, class: 'js-trip-location' },
                   label_html: { class: "form-title" },
                   wrapper_html: { class: "form-flex-1 form-media-left" }
                   %>

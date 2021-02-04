@@ -70,6 +70,18 @@ class Event < ApplicationRecord
     end
   end
 
+  def update_event(event_params)
+      update(event_params.except(:location))
+      unless location == event_params[:location]
+        new_location = Location.event_geocoder(event_params[:location])
+        location = new_location
+        address = event_params[:location]
+      end
+      self.save!
+      self.activities = Activity.build_activities(event_params[:activity_ids])
+      self
+  end
+
   def update_images
     GooglePlacesApi.event_call(self)
   end

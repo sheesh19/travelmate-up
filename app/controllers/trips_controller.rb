@@ -44,9 +44,10 @@ class TripsController < ApplicationController
     
     def update
         @trip.update(trip_params)
-    
-        if @itinerary.save
-            redirect_to itinerary_path(@itinerary)
+        @trip.events.update(events_params)
+        
+        if @trip.save
+            redirect_to trip_path(@trip)
         else
             render :edit
         end

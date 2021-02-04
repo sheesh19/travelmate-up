@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
     skip_before_action :authenticate_user!, only: [ :index ]
+    before_action :set_event, only: [ :show, :edit, :update ]
 
     def index
         @events = policy_scope(Event)
@@ -15,9 +16,45 @@ class EventsController < ApplicationController
     end
 
     def show
+        @markers = @event.single_marker
+    end
+
+    def new
+        @trip = Trip.find(params[:trip_id])
+    end
+    
+    def edit; end
+
+    def update
+        @event.update_event(event_params)
+            
+        if @event.save
+            redirect_to trip_event_path(@event.trip, @event)
+        else
+            render :edit
+        end
+    end
+    
+    private
+
+    def set_event
         @event = Event.find(params[:id])
         authorize @event
+    end
 
-        @markers = @event.single_marker
+    def event_params
+        params.require(:event).permit(
+            :id, 
+            :location, 
+            :start_date, 
+            :end_date, 
+            :max_spots, 
+            :description, 
+            :title,
+            :address,
+            photos: [],
+            tag_list: [],
+            activity_ids: []
+        )
     end
 end
