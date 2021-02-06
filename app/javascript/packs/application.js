@@ -44,6 +44,9 @@ import { initStepperForm } from '../components/init_stepper_form';
 import { initSidebar } from '../components/init_sidebar';
 import { initSelect2 } from '../components/init_select2';
 
+window.addEventListener('load', () => {
+
+});
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -55,4 +58,27 @@ document.addEventListener('turbolinks:load', () => {
   initStepperForm();
   initSidebar();
   initSelect2();
+
+  navigator.serviceWorker.register('/service_worker.js').then(registration => {
+    console.log('ServiceWorker registered: ', registration);
+
+    var serviceWorker;
+    if (registration.installing) {
+      serviceWorker = registration.installing;
+      console.log('Service worker installing.');
+    } else if (registration.waiting) {
+      serviceWorker = registration.waiting;
+      console.log('Service worker installed & waiting.');
+    } else if (registration.active) {
+      serviceWorker = registration.active;
+      console.log('Service worker active.');
+    }
+    window.Notification.requestPermission().then(permission => {
+      if (permission !== 'granted') {
+        throw new Error('Permission not granted for Notification');
+      }
+    });
+  }).catch(registrationError => {
+    console.log('Service worker registration failed: ', registrationError);
+  });
 });
