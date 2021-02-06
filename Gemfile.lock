@@ -56,8 +56,8 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
       zeitwerk (~> 2.2, >= 2.2.2)
-    acts-as-taggable-on (6.5.0)
-      activerecord (>= 5.0, < 6.1)
+    acts-as-taggable-on (7.0.0)
+      activerecord (>= 5.0, < 6.2)
     acts_as_favoritor (5.0.1)
       activerecord (>= 5.0)
     addressable (2.7.0)
@@ -240,6 +240,7 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
+    rexml (3.2.4)
     rspec-core (3.10.0)
       rspec-support (~> 3.10.0)
     rspec-expectations (3.10.0)
@@ -343,7 +344,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  acts-as-taggable-on (~> 6.0)
+  acts-as-taggable-on (~> 7.0)
   acts_as_favoritor
   autoprefixer-rails
   bootsnap (>= 1.4.2)
@@ -373,6 +374,7 @@ DEPENDENCIES
   rails (~> 6.0.3, >= 6.0.3.4)
   redis (~> 4.0)
   reek
+  rexml
   rspec-rails
   sass-rails (>= 6)
   selenium-webdriver
@@ -392,7 +394,7 @@ DEPENDENCIES
   webpacker-pwa
 
 RUBY VERSION
-   ruby 2.6.5p114
+   ruby 3.0.0p0
 
 BUNDLED WITH
-   2.1.4
+   2.2.3

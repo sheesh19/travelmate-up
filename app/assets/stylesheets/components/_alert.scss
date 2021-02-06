@@ -3,4 +3,23 @@
   bottom: 16px;
   right: 16px;
   z-index: 1000;
+  border-radius: 5rem;
+}
+
+.alert-warning {
+  background-color: $teal;
+  border-color: $teal;
+  color: white;
+  .close:hover {
+    color: white;
+  }
+}
+
+.alert-danger {
+  background-color: $darkest-teal;
+  border-color: $darkest-teal;
+  color: white;
+  .close:hover {
+    color: white;
+  }
 }

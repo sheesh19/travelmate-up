@@ -689,8 +689,8 @@ puts "Created #{Trip.count} trip(s)"
 puts "Creating events"
 event_list = [
 {
-  location_id: Location.find_by(city: "Melbourne").id,
-  trip_id: Trip.find_by(title: "Welcome to Oz").id,
+  location: Location.find_by(city: "Melbourne"),
+  trip: Trip.find_by(title: "Welcome to Oz"),
 #   activity_id: Activity.find_by(title: "Tech").id,
   title: "Wilson's Prom National Park",
   start_date: "2021-06-14 10:00:00",

@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.5'
+ruby '3.0.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
@@ -34,12 +34,14 @@ gem 'simple_form'
 gem 'devise'
 gem 'pundit'
 gem 'turbolinks_render'
+gem 'rexml'
+
 
 # NESTED OBJECTS
 gem 'cocoon'
 
 # TAGS
-gem 'acts-as-taggable-on', '~> 6.0'
+gem 'acts-as-taggable-on', '~> 7.0'
 
 # FAVORITES
 gem 'acts_as_favoritor'
