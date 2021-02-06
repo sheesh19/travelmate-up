@@ -1,5 +1,5 @@
 meta_product_name: "TravelMates"
 meta_title: "TravelMates - the best mate for solo travelling"
 meta_description: "TravelMates enables you to find inspiration to plan your solo travelling experience and meet up with your potential mates for events and trips."
-meta_image: "california.jpg" # should exist in `app/assets/images/`
+meta_image: "main-og.jpg" # should exist in `app/assets/images/`
 # twitter_account: "@product_twitter_account"   # required for Twitter Cards
