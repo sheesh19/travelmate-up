@@ -1,6 +1,6 @@
 <div class="photo-card photo-card-location">
-    <% if element.photo.present? %>
-        <%= image_tag element.photo, class: "photo-card" %>
+    <% if element.photo.attached? %>
+        <%= cl_image_tag element.photo.key, class: "photo-card" %>
     <% else %>
         <%= image_tag ("https://images.unsplash.com/photo-1502920514313-52581002a659?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1647&q=80"), class: "photo-card" %>
     <% end %>

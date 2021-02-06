@@ -384,6 +384,7 @@ Location.all.each do |location|
   counter += 1
 end
 
+
 # ACTIVITIES
 puts "Creating activities"
 
