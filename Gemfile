@@ -64,6 +64,9 @@ gem 'pg_search'
 # GOOGLE PHOTOS
 gem 'google_places'
 
+# PWA
+gem 'webpacker-pwa'
+
 
 
 group :development, :test do  gem 'pry-byebug'
