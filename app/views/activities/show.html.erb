@@ -2,7 +2,7 @@
 
 <%= render partial: 'activities/show/event_activities',
     locals: {
-        title: 'UPCOMING HIKING EVENTS',
+        title: "UPCOMING #{@activity.title.upcase} EVENTS",
         activity: @activity,
         events: @activity.upcoming_events
     }
