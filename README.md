@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="50%" src="/app/assets/images/meta-og.jpg">
+  <img width="50%" src="/app/assets/images/main-og.jpg">
 </p>
 
 <h1 align="center">
