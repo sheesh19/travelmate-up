@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="50%" src="/app/assets/images/california.jpg">
+  <img width="50%" src="/app/assets/images/meta-og.jpg">
 </p>
 
 <h1 align="center">
@@ -103,4 +103,3 @@ rails db:seed
 ## External Services
 * [Google Developer Console](https://console.developers.google.com/) for Google Places autocomplete
 * [Mapbox](https://www.mapbox.com/) for visual maps
-* [PostMark](https://postmarkapp.com/) to send transactional emails
