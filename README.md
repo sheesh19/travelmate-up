@@ -12,6 +12,8 @@ Travelmates is located at:
 
 * www.travel-mates.co/
 
+Travelmates is a PWA- you can add the app to your home screen.
+
 
 ## Table of Contents
 
