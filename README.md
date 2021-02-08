@@ -114,10 +114,10 @@ rails db:seed
 
 * autocomplete for locations and images via Google Places
 * maps are from Mapbox
-# asset management is Cloudinary
+* asset management is Cloudinary
 
 
 ## External Services
 * [Google Developer Console](https://console.developers.google.com/) for Google Places autocomplete
 * [Mapbox](https://www.mapbox.com/) for visual maps
-# [Cloudinary](https://www.cloudinary.com/) for asset management
+* [Cloudinary](https://www.cloudinary.com/) for asset management
