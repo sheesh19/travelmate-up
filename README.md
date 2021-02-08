@@ -94,8 +94,8 @@ rails db:seed
 
 
 <p align="center">
-  <img width="40%" src="/app/assets/images/main-site.png">
-  <img width="40%" src="/app/assets/images/main-app.png">
+  <img height="200" src="/app/assets/images/main-site.png">
+  <img height="200" src="/app/assets/images/main-app.png">
 </p>
 
 
