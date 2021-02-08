@@ -10,9 +10,24 @@ Travelmates is an app to enable solo travelers; from finding mates and events to
 
 Travelmates is located at:
 
-* www.travel-mates.co/
+* www.travel-mates.co
 
 Travelmates is a PWA- you can add the app to your home screen.
+
+If you have an iPhone: 
+
+```
+1. Open the PWA on Safari.
+2. Tap the 'Share' button and scroll down to 'Add to Home Screen'.
+```
+
+If you have an Android:
+
+```
+1. Open the PWA on Chrome.
+2. Open the menu with the three dots at the top of Chrome.
+3. Scroll down to 'Add to Home Screen'.
+```
 
 
 ## Table of Contents
@@ -75,7 +90,7 @@ rails db:seed
 
 ## Travelmates Features
 
-[Access the website here](www.travel-mates.co/)
+[Access the site here](www.travel-mates.co/)
 
 
 <p align="center">
@@ -97,11 +112,12 @@ rails db:seed
 
 #### Other features include: 
 
-* emails are sent via ActionMailer and Postmark
-* autocomplete for locations via Google Places
+* autocomplete for locations and images via Google Places
 * maps are from Mapbox
+# asset management is Cloudinary
 
 
 ## External Services
 * [Google Developer Console](https://console.developers.google.com/) for Google Places autocomplete
 * [Mapbox](https://www.mapbox.com/) for visual maps
+# [Cloudinary](https://www.cloudinary.com/) for asset management
