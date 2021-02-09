@@ -17,7 +17,7 @@ const initFileInput = () => {
 
                         if (this.files && this.files.length > 1) {
                             fileName = (this.getAttribute('data-multiple-caption') || '').replace('{count}', this.files.length);
-                            debugger
+                            
                         } else {
                             fileName = e.target.value.split('\\').pop();
                         }
