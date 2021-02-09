@@ -62,9 +62,9 @@
                 }
                 %>
 
-            <p class="form-title my-4">Do you wish to allow other users to view this travel plan?</p>
+            <%# <p class="form-title my-4">Do you wish to allow other users to view this travel plan?</p> %>
 
-            <%= f.collection_radio_buttons :visibility,                
+            <%#= f.collection_radio_buttons :visibility,                
                 [[0, 'NO'], [1, 'YES']],
                 :first, :last, {}, required: true do |b|
                     # b.label: "Will you be travelling alone?",
