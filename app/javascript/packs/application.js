@@ -43,6 +43,7 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { initStepperForm } from '../components/init_stepper_form';
 import { initSidebar } from '../components/init_sidebar';
 import { initSelect2 } from '../components/init_select2';
+import { initCarousel } from "../components/init_carousel"
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -54,6 +55,7 @@ document.addEventListener('turbolinks:load', () => {
   initStepperForm();
   initSidebar();
   initSelect2();
+  initCarousel();
 
   // navigator.serviceWorker.register('/service_worker.js').then(registration => {
   //   console.log('ServiceWorker registered: ', registration);

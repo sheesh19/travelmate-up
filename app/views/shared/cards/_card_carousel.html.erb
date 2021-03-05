@@ -1,0 +1,7 @@
+<div class="js-carousel carousel-cards">
+    <% element.photos.each do |photo| %>
+
+        <%= cl_image_tag photo.key, class: 'carousel-img' %>
+
+    <% end %>
+</div>

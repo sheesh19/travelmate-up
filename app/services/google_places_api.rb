@@ -9,10 +9,15 @@ class GooglePlacesApi
         google_client.spot(spot_id)
     end
 
+    def self.location_images(location)
+        place = set_location(location)
+        photo_urls = place.photos[0..6].map { |photo| photo.fetch_url(1000) }
+        location.attach_photos(photo_urls)
+    end
+
     def self.call(location)
-        event_place = GooglePlacesApi.find_place(location)
-        place = find_place("#{event_place.city || event_place.region}, #{event_place.country}")
-        photo_url = place.photos[0].fetch_url(1000)
+        place = set_location(location)
+        photo_urls = place.photos[0..6].map { |photo| photo.fetch_url(1000) }
 
         location = Location.create(
             city: place.city || place.region,
@@ -21,10 +26,7 @@ class GooglePlacesApi
             latitude: place.lat,
             longitude: place.lng
         )
-
-        file = URI.open(photo_url)
-        location.photo.attach(io: file, filename: "#{location.city}.png", content_type: 'image/png')
-        location.save
+        location.attach_photos(photo_urls)
         location
     end
 
@@ -41,5 +43,13 @@ class GooglePlacesApi
         end
         event.save
         event
+    end
+
+    private
+
+    def self.set_location(location)
+        location = "#{location.city}, #{location.state}, #{location.country}" if location.class == Location
+        event_place = GooglePlacesApi.find_place(location)
+        place = find_place("#{event_place.city || event_place.region}, #{event_place.country}")
     end
 end

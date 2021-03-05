@@ -1,0 +1,22 @@
+.tns-liveregion {
+    visibility: hidden;
+}
+
+#tns1 > .tns-item {
+    padding-right: 0;
+    border-radius: 4px !important;
+    margin-right: 1rem;
+    height: 12rem;
+    object-fit: cover;
+}
+
+.carousel-cards {
+    height: 24vh !important;
+}
+
+.carousel-img {
+    height: 24vh !important;
+    object-fit: cover;
+    border-radius: 4px !important;
+    margin-right: 1rem;
+}

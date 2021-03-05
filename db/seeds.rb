@@ -379,7 +379,8 @@ counter = 0
 
 Location.all.each do |location|
   file = URI.open(location_photos[counter])
-  location.photo.attach(io: file, filename: "#{location.city}.png", content_type: 'image/png')
+  location.photos.attach(io: file, filename: "#{location.city}.png", content_type: 'image/png')
+  GooglePlacesApi.location_images(location)
   location.save
   counter += 1
 end

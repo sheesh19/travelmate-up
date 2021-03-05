@@ -1,4 +1,4 @@
-<% if element.photo.nil? %>
+<% if element.photos.empty? %>
     <div class="banner__image"
     style="background-image: linear-gradient(rgba(0,0,0,0.5),
       rgba(0,0,0,0.5)),
@@ -7,7 +7,7 @@
     <div class="banner__image"
     style="background-image: linear-gradient(rgba(0,0,0,0.5),
       rgba(0,0,0,0.5)),
-      url('<%= cl_image_path element.photo.key %>')">
+      url('<%= cl_image_path element.photos.first.key %>')">
 <% end %>
 
         <div class="banner-container d-flex align-items-center">
