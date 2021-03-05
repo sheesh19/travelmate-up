@@ -70,7 +70,6 @@ gem 'google_places'
 gem 'webpacker-pwa'
 
 
-
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'

@@ -1,7 +1,7 @@
 class Location < ApplicationRecord
     include Imageable
     
-    has_one_attached :photo
+    has_many_attached :photos
     has_many :events
 
     geocoded_by :address
@@ -37,6 +37,14 @@ class Location < ApplicationRecord
             location = GooglePlacesApi.call(location_name)
             return if location.nil?
             location
+        end
+    end
+
+    def attach_photos(photo_urls)
+        photo_urls.each do |photo_url|
+            file = URI.open(photo_url)
+            self.photos.attach(io: file, filename: "#{city}.png", content_type: 'image/png')
+            self.save
         end
     end
 end
