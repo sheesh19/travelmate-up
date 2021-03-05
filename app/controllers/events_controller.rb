@@ -21,9 +21,13 @@ class EventsController < ApplicationController
 
     def new
         @trip = Trip.find(params[:trip_id])
+        @event = Event.new
+        authorize @event
     end
     
-    def edit; end
+    def edit 
+        @trip = Trip.find(params[:trip_id])
+    end
 
     def update
         @event.update_event(event_params)

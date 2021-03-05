@@ -13,6 +13,10 @@ class EventPolicy < ApplicationPolicy
     true
   end
 
+  def new?
+    create?
+  end
+
   def edit?
     record.trip.user == user
   end

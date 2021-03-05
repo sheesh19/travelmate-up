@@ -11,5 +11,12 @@
 }
 
 .carousel-cards {
-    height: 24vh;
+    height: 24vh !important;
+}
+
+.carousel-img {
+    height: 24vh !important;
+    object-fit: cover;
+    border-radius: 4px !important;
+    margin-right: 1rem;
 }

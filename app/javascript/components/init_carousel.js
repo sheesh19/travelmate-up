@@ -11,6 +11,7 @@ const initCarousel = () => {
             slideBy: 'page',
             swipeAngle: false,
             speed: 400,
+            autoHeight: false,
             navPosition: 'bottom',
             nav: false,
             navContainer: false,
