@@ -57,6 +57,17 @@ class Event < ApplicationRecord
     end
   end
 
+  def self.build_event(trip, event_params)
+    event = Event.new(event_params.except(:location))
+    location = Location.event_geocoder(event_params[:location])
+    event.trip = trip
+    event.location = location
+    event.address = event_params[:location]
+    event.save!
+    event.activities = Activity.build_activities(event_params[:activity_ids])
+    event
+  end
+
   def self.build_events(trip, events_params)
     events_params.each do |event_param|
         event = Event.new(event_param[1].except(:location))

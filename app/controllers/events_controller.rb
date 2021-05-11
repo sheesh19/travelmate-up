@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
     skip_before_action :authenticate_user!, only: [ :index ]
     before_action :set_event, only: [ :show, :edit, :update ]
+    before_action :set_trip, only: :create
 
     def index
         @events = policy_scope(Event)
@@ -29,6 +30,16 @@ class EventsController < ApplicationController
         @trip = Trip.find(params[:trip_id])
     end
 
+    def create
+        @event = Event.build_event(@trip, event_params)
+
+        if @event.save
+            redirect_to trip_event_path(@event.trip, @event)
+        else
+            render :edit
+        end
+    end
+
     def update
         @event.update_event(event_params)
             
@@ -44,6 +55,11 @@ class EventsController < ApplicationController
     def set_event
         @event = Event.find(params[:id])
         authorize @event
+    end
+
+    def set_trip
+        @trip = Trip.find(params[:trip_id])
+        authorize @trip
     end
 
     def event_params
