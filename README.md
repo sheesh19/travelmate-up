@@ -6,7 +6,7 @@
   Travelmates Documentation
 </h1>
 
-Travelmates is an app to enable solo travelers; from finding mates and events to join to getting inspiration for solo trips, Travelmates is the best mate to have when planning a solo trip. 
+Travelmates is an app to enable solo travelers- from finding mates and events to join to getting inspiration for solo trips, Travelmates is the best mate to have when planning a solo trip. 
 
 Travelmates is located at:
 
