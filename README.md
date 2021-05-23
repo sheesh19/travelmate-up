@@ -113,8 +113,8 @@ rails db:seed
 #### Other features include: 
 
 * autocomplete for locations and images via Google Places
-* maps are from Mapbox
-* asset management is Cloudinary
+* maps generated from Mapbox
+* asset management via Cloudinary
 
 
 ## External Services
