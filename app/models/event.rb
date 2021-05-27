@@ -31,7 +31,7 @@ class Event < ApplicationRecord
     }
 
   def self.upcoming
-    Event.where("events.start_date > ?", Date.today)
+    Event.where("events.start_date > ?", Date.today).order(:start_date)
   end
 
   # SIMPLE CALENDAR
