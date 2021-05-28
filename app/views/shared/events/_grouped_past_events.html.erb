@@ -1,0 +1,17 @@
+<!-- Upcoming events grouped by dates -->
+
+<% events.group_by_year { |e| e[:start_date] }.each do |eventgroup| %>
+
+    <h2 class="featured-time"><%= eventgroup[0].strftime("%Y") %></h2>
+    <div class="<%= 'grid-two-mobile' if class_type == 'reminder-card-text-image-stack'%>">
+      <% eventgroup[1].each do |event| %>
+          <%= render partial: 'shared/cards/event_card', 
+              locals: { 
+                element: event,
+                class_type: class_type
+              }
+            %>
+      <% end %>
+    </div>
+
+<% end %>

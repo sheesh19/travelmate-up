@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   # TRIP 
   resources :trips do
-    resources :events, only: [ :show, :new, :create ]
+    resources :events, only: [ :show, :new, :create, :update ]
   end
 
   # EVENTS

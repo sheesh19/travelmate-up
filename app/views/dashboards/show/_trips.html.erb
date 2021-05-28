@@ -1,0 +1,27 @@
+<div class="itinerary">
+
+    <% if @trips == 0 %>
+        <div class="empty-state pt-5 pb-5 mt-5 mb-5">
+            <p><strong>You have 0 trips.</strong></p>
+        </div>
+    <% else %>
+        <div class="container__dashboard">
+            <div class="display__itinerary">
+                <%= render partial: 'shared/events/grouped_events_all', 
+                    locals: { 
+                        events: @past_events,
+                        user: @user,
+                        class_type: "reminder-card-text-image"
+                    }
+                %>
+            </div>
+
+            <div class="mt-4">
+                <div id="js-calendar" class="dash__calendar mb-5">
+                    <%= render 'locations/by_location/calendar_locations', location_events: @past_events %>
+                </div>
+            </div>
+        </div>
+    <% end %>
+
+</div>

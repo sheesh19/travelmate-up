@@ -5,6 +5,8 @@ class DashboardsController < ApplicationController
         @events = @user.events
         @markers = @events.all_markers
         @past_events = @user.past_events
+        @trips = @user.trips
+        @all_events = @user.events
         
         @fav_trips = @user.favorited_by_type('Trip')
         @fav_events = @user.favorited_by_type('Event')

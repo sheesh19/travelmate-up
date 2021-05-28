@@ -66,3 +66,18 @@ a:hover {
 .text-grey {
     color: $medium-gray;
 }
+
+.grid-two-mobile {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;   
+}
+
+// Smallest device
+@media (max-width: 1000px) {
+    .grid-two-mobile {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 1rem;
+    } 
+}

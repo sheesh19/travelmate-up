@@ -6,6 +6,11 @@
         </a>
       </li>
       <li class="nav-item">
+        <a class="dash-inner-nav" id="pills-trips-tab" data-toggle="pill" href="#pills-open" role="tab" aria-controls="pills-trips" aria-selected="false">
+          Trips (<%= @user.trips.count %>)
+        </a>
+      </li>
+      <li class="nav-item">
         <a class="dash-inner-nav" id="pills-open-tab" data-toggle="pill" href="#pills-open" role="tab" aria-controls="pills-open" aria-selected="false">
           Open listings (<%= @user.num_listings %>)
         </a>
@@ -37,6 +42,9 @@
     <div class="tab-content" id="pills-tabContent">
       <div class="tab-pane fade show active" id="pills-events" role="tabpanel" aria-labelledby="pills-events-tab">
         <%= render 'dashboards/show/upcoming_events' %>
+      </div>
+      <div class="tab-pane fade" id="pills-trips" role="tabpanel" aria-labelledby="pills-trips-tab">
+        <%= render 'dashboards/show/trips' %>
       </div>
       <div class="tab-pane fade" id="pills-open" role="tabpanel" aria-labelledby="pills-open-tab">
         <%= render 'dashboards/show/open_listings' %>
