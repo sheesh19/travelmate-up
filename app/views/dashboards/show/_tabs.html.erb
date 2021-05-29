@@ -6,6 +6,11 @@
         </a>
       </li>
       <li class="nav-item">
+        <a class="dash-inner-nav" id="pills-past-events-tab" data-toggle="pill" href="#pills-past-events" role="tab" aria-controls="pills-past-events" aria-selected="false">
+          All events (<%= @user.past_events.count %>)
+        </a>
+      </li>
+      <li class="nav-item">
         <a class="dash-inner-nav" id="pills-trips-tab" data-toggle="pill" href="#pills-trips" role="tab" aria-controls="pills-trips" aria-selected="false">
           Trips (<%= @user.trips.count %>)
         </a>
@@ -25,11 +30,7 @@
           Favourites (<%= @user.num_favs %>)
         </a>
       </li>
-    <li class="nav-item">
-      <a class="dash-inner-nav" id="pills-past-events-tab" data-toggle="pill" href="#pills-past-events" role="tab" aria-controls="pills-past-events" aria-selected="false">
-        Past events (<%= @user.past_events.count %>)
-      </a>
-    </li>
+
 <!--
       <li class="nav-item">
         <a class="dash-inner-nav" id="pills-followers-tab" data-toggle="pill" href="#pills-followers" role="tab" aria-controls="pills-follower" aria-selected="false">
