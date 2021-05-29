@@ -11,12 +11,14 @@
             <ul class="stepper">
               <!-- FORM SECTION 1: BASIC EVENT DETAILS -->
               <li class="step">
+
                 <div class="step-title">
                   <h5>Basic details</h5>
                   <div class="step-number">
                     1
                   </div>
                 </div>
+
                 <div class="">
                   <!-- NAME -->
                   <%= f.input :title,
@@ -45,6 +47,7 @@
                   </div>
 
                 </div>
+
               </li>
               <!-- FORM SECTION 2: EXTRA INFO -->
               <li class="step mt-5  js-event-btn">
@@ -99,6 +102,7 @@
               
               <!-- FORM SECTION 3: PHOTOS -->
               <li class="step mt-5">
+
                 <div class="step-title">
                   <h5>Upload a photo (optional)</h5>
                   <div class="step-number">
@@ -121,8 +125,8 @@
                       <% @event.photos.each do |photo| %>
                         <%= cl_image_tag photo.key, width: 150, height: 100, crop: :fill %>
                       <% end %>
-                    <% end %>
                     </div>
+                  <% end %>
 
                   <%= f.input :photos_attachments, as: :hidden %>
 
@@ -133,10 +137,12 @@
           </div>
  
         </div>
+
         <div class="d-flex justify-content-between">
             <%= link_to_remove_association "Delete Event", f, class: 'btn btn-outlined mr-0' %>
             <%= f.submit "Update your event", class: 'btn btn-filled' %>
         </div>
+
       <% end %>
   </div>
 </div>

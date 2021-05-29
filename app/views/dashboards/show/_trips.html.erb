@@ -1,0 +1,17 @@
+<div class="itinerary">
+
+    <% if @trips == 0 %>
+        <div class="empty-state pt-5 pb-5 mt-5 mb-5">
+            <p><strong>You have 0 trips.</strong></p>
+        </div>
+    <% else %>
+
+            <div class="card__grid">
+              <% @trips.each do |trip| %>
+                <%= render 'shared/cards/trip_card', element: trip %>   
+              <% end %>
+            </div>
+
+    <% end %>
+
+</div>

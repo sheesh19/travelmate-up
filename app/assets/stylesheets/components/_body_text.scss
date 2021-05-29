@@ -24,6 +24,13 @@ p {
 
 // Icons
 
+.fab {
+    color: $teal;
+    font-size: 2rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
 .far {
     color: $form-border-gray;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
