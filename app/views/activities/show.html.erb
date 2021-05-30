@@ -15,16 +15,9 @@
     }
 %>
 
-<div class="mb-5"></div>
-
-<div class="container__featured py-4">
-    <div class="featured-title-home">
-        <h2>ALL <%= @activity.title.upcase %> EVENTS</h2>
-    </div>
-    <%= render partial: 'shared/events/grouped_events_all', 
-        locals: { 
-            events: @activity.events,
-            class_type: "reminder-card-text-image-stack"
-        }
-    %>
-</div>
+<%= render partial: 'shared/events/all_events_bottom', 
+    locals: {
+        events: @activity.events,
+        title: "ALL #{@activity.title.upcase} EVENTS"
+    }
+%>
