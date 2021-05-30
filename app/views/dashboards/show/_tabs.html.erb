@@ -16,13 +16,13 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="dash-inner-nav" id="pills-open-tab" data-toggle="pill" href="#pills-open" role="tab" aria-controls="pills-open" aria-selected="false">
-          Open listings (<%= @user.num_listings %>)
+        <a class="dash-inner-nav" id="pills-mates-tab" data-toggle="pill" href="#pills-mates" role="tab" aria-controls="pills-mates" aria-selected="false">
+          Mate up requests (<%= @user.num_registered_events + @user.num_listings %>)
         </a>
       </li>
       <li class="nav-item">
-        <a class="dash-inner-nav" id="pills-mates-tab" data-toggle="pill" href="#pills-mates" role="tab" aria-controls="pills-mates" aria-selected="false">
-          Mate up requests (<%= @user.num_registered_events %>)
+        <a class="dash-inner-nav" id="pills-chats-tab" data-toggle="pill" href="#pills-chats" role="tab" aria-controls="pills-chats" aria-selected="false">
+          Chats
         </a>
       </li>
       <li class="nav-item">
@@ -44,20 +44,20 @@
       <div class="tab-pane fade show active" id="pills-events" role="tabpanel" aria-labelledby="pills-events-tab">
         <%= render 'dashboards/show/upcoming_events' %>
       </div>
+      <div class="tab-pane fade" id="pills-past-events" role="tabpanel" aria-labelledby="pills-past-events-tab">
+        <%= render 'dashboards/show/past_events' %>
+      </div>
       <div class="tab-pane fade" id="pills-trips" role="tabpanel" aria-labelledby="pills-trips-tab">
         <%= render 'dashboards/show/trips' %>
       </div>
-      <div class="tab-pane fade" id="pills-open" role="tabpanel" aria-labelledby="pills-open-tab">
-        <%= render 'dashboards/show/open_listings' %>
+      <div class="tab-pane fade" id="pills-chats" role="tabpanel" aria-labelledby="pills-chats-tab">
+        <%= render 'dashboards/show/chats' %>
       </div>
       <div class="tab-pane fade" id="pills-mates" role="tabpanel" aria-labelledby="pills-mates-tab">
         <%= render 'dashboards/show/mateup_listings' %>
       </div>
       <div class="tab-pane fade" id="pills-favourites" role="tabpanel" aria-labelledby="pills-favourites-tab">
         <%= render 'dashboards/show/favorites' %>
-      </div>
-      <div class="tab-pane fade" id="pills-past-events" role="tabpanel" aria-labelledby="pills-past-events-tab">
-        <%= render 'dashboards/show/past_events' %>
       </div>
       <div class="tab-pane fade" id="pills-followers" role="tabpanel" aria-labelledby="pills-followers-tab">
         <%#= render 'followers' %>

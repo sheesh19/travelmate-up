@@ -1,3 +1,5 @@
+<h2 class="featured-time  pt-3">MY REQUESTS</h2>
+
 <div class="pb-5">
     <%= render 'shared/components/mateup_header' %>
 
@@ -10,6 +12,26 @@
         <% else %>
             <div class="empty-state pt-5 pb-5 mt-5 mb-5">
                 <p><strong>You have signed up for no events!</strong></p>
+            </div>
+        <% end %>
+
+    <% end %>
+</div>
+
+<h2 class="featured-time  pt-3">MATE UP REQUESTS</h2>
+
+<div class="pb-5">
+    <%= render 'shared/components/event_registration_header' %>
+
+    <% @user.registered_mates.each do |registration| %>
+        <% if registration.status.present? %>
+            <div class="js-registration" data-registration-id="<%= registration.id %>">
+                <%= render 'shared/components/event_registration_row', element: registration %>
+            </div>
+        <!-- SHOW EMPTY STATE IF NO EVENTS -->
+        <% else %>
+            <div class="empty-state pt-5 pb-5 mt-5 mb-5">
+                <p><strong>You have no open events!</strong></p>
             </div>
         <% end %>
 

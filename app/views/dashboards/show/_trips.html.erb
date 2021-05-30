@@ -6,12 +6,16 @@
         </div>
     <% else %>
 
-            <div class="card__grid">
-              <% @trips.each do |trip| %>
-                <%= render 'shared/cards/trip_card', element: trip %>   
-              <% end %>
-            </div>
+      <h2 class="featured-time  pt-3">ALL TRIPS</h2>
+
+      <div class="card__grid">
+        <% @trips.each do |trip| %>
+          <%= render 'shared/cards/trip_card', element: trip %>   
+        <% end %>
+      </div>
 
     <% end %>
 
 </div>
+
+<div class="page-bottom-spacer"></div>
