@@ -2,6 +2,10 @@ class EventRegistrationsController < ApplicationController
     before_action :set_event_registration, only: [ :update, :destroy ]
     before_action :set_event, only: :create
 
+    def index
+        @chats = policy_scope(EventRegistration)
+    end
+
     def create
         @event_registration = EventRegistration.new
         @event_registration.user = current_user

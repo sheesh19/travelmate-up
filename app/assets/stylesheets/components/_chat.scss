@@ -1,0 +1,39 @@
+.chat-nav-link.active {
+    background-color: $teal !important;
+    .chat-nav-info > h6, p {
+        color: white;
+    }
+}
+
+.chat-nav-pill {
+    align-items: center;
+}
+
+.chat-nav-info {
+    margin-left: 1rem;
+    text-align: left;
+    h6 {
+        margin: 0;
+        color: $darkest-teal;
+    }
+    p {
+        color: $darkest-teal;
+        margin: 0;
+        margin-top: 0.4rem;
+        font-size: 0.6rem;
+        letter-spacing: 0.08rem;
+        text-transform: uppercase;
+    }
+}
+
+.chat-user {
+    align-items: center;
+    padding-bottom: 1rem;
+    border-bottom: solid 1px $teal;
+    h6 {
+        margin: 0;
+        margin-left: 1rem;
+        letter-spacing: 0.08rem;
+        text-transform: uppercase;
+    }
+}

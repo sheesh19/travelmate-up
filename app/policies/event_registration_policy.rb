@@ -1,7 +1,7 @@
 class EventRegistrationPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      scope.where(user: user) + scope.includes(event: :trip).where(trips: { user_id: user })
     end
   end
   

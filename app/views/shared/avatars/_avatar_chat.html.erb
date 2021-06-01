@@ -1,0 +1,13 @@
+<% if element.avatar.attached? %>
+    <div class="d-flex chat-user">
+        <%= cl_image_tag element.avatar.key, height: 100, width: 100, crop: :fill, class: "avatar" %>
+        <h6><%= element.first_name %></h6>
+    </div>
+<% else %>
+    <div class="d-flex chat-user">
+        <div class="no-image-avatar-small d-flex align-items-center justify-content-center">
+            <p id="no-image-avatar-small-p"><%= element.first_name[0].upcase %></p>
+        </div>
+        <h6><%= element.first_name %></h6>
+    </div>
+<% end %>
