@@ -2,7 +2,6 @@ FactoryBot.define do
 
     factory(:activity) do
         title { 'Snorkeling' }
-        id { 1 }
     end
 
     factory(:trip) do

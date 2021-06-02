@@ -1,6 +1,7 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
 require 'capybara/rspec'
+# require "webmock/rspec"
 # require 'capybara-screenshot/rspec'
 
 ENV['RAILS_ENV'] ||= 'test'
