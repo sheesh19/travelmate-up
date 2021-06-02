@@ -4,6 +4,7 @@ class EventRegistrationsController < ApplicationController
 
     def index
         @chats = policy_scope(EventRegistration)
+        @message = Message.new
     end
 
     def create

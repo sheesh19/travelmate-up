@@ -16,7 +16,9 @@ Rails.application.routes.draw do
   end
 
   # EVENT REGISTRATIONS
-  resources :event_registrations, only: [ :index, :update, :destroy ]
+  resources :event_registrations, only: [ :index, :update, :destroy ] do 
+    resources :messages, only: :create
+  end
   
   # LOCATIONS
   resources :locations, only: [ :index, :show ]

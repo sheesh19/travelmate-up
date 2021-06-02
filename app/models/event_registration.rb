@@ -2,7 +2,7 @@ class EventRegistration < ApplicationRecord
   belongs_to :event
   belongs_to :user
 
-  has_many :messages
+  has_many :messages, dependent: :destroy
 
   validates :user, uniqueness: { scope: :event, message: "You've already signed up!" }
   #                 0      1        2

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_30_221041) do
+ActiveRecord::Schema.define(version: 2021_06_01_230134) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -119,7 +119,9 @@ ActiveRecord::Schema.define(version: 2021_05_30_221041) do
     t.bigint "event_registration_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
     t.index ["event_registration_id"], name: "index_messages_on_event_registration_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "taggings", id: :serial, force: :cascade do |t|
@@ -190,6 +192,7 @@ ActiveRecord::Schema.define(version: 2021_05_30_221041) do
   add_foreign_key "events", "locations"
   add_foreign_key "events", "trips"
   add_foreign_key "messages", "event_registrations"
+  add_foreign_key "messages", "users"
   add_foreign_key "taggings", "tags"
   add_foreign_key "trips", "users"
 end
