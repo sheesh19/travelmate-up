@@ -1,5 +1,9 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
+require 'capybara/rspec'
+# require "webmock/rspec"
+# require 'capybara-screenshot/rspec'
+
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../config/environment', __dir__)
 # Prevent database truncation if the environment is production
@@ -30,22 +34,25 @@ rescue ActiveRecord::PendingMigrationError => e
   puts e.to_s.strip
   exit 1
 end
+
 RSpec.configure do |config|# DatabaseCleaner with AR configuration
-config.before(:suite) do
-  DatabaseCleaner.strategy = :truncation
-  DatabaseCleaner.clean_with(:truncation)
-end
 
-config.before do
-  DatabaseCleaner.strategy = :transaction
-  DatabaseCleaner.start
-end
 
-config.append_after do
-  DatabaseCleaner.clean
-end
-# Factory Bot configuration
-config.include FactoryBot::Syntax::Methods
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :truncation
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.start
+  end
+
+  config.append_after do
+    DatabaseCleaner.clean
+  end
+  # Factory Bot configuration
+  config.include FactoryBot::Syntax::Methods
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
@@ -53,7 +60,7 @@ config.include FactoryBot::Syntax::Methods
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.
-  config.use_transactional_fixtures = true
+  config.use_transactional_fixtures = false
 
   # You can uncomment this line to turn off ActiveRecord support entirely.
   # config.use_active_record = false
@@ -77,6 +84,8 @@ config.include FactoryBot::Syntax::Methods
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+  # config.include Features, type: :feature
+
 end
 # Shoulda Matchers configuration
 Shoulda::Matchers.configure do |config|
@@ -85,3 +94,8 @@ Shoulda::Matchers.configure do |config|
     with.library :rails
   end
 end
+
+# Capybara::Screenshot.autosave_on_failure = true
+
+Capybara.default_driver = :selenium_chrome_headless
+Capybara.javascript_driver = :selenium_chrome_headless
