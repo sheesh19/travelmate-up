@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: sh19cloud
+  api_key: '228484942848417'
+  api_secret: xR885zw8dBFTWXvp9nrBq6eBC2s
+  enhance_image_tag: true
+  static_file_support: false
+production:
+  cloud_name: sh19cloud
+  api_key: '228484942848417'
+  api_secret: xR885zw8dBFTWXvp9nrBq6eBC2s
+  enhance_image_tag: true
+  static_file_support: true
+test:
+  cloud_name: sh19cloud
+  api_key: '228484942848417'
+  api_secret: xR885zw8dBFTWXvp9nrBq6eBC2s
+  enhance_image_tag: true
+  static_file_support: false
