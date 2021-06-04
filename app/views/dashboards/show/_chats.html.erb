@@ -2,4 +2,17 @@
 
 <div class="pb-5">
 
+    <% if @event_registrations.empty? %>
+
+        <div class="empty-state pt-5 pb-5 mt-5 mb-5">
+            <p><strong>You have no mates to chat with!</strong></p>
+        </div>
+
+    <% else %>
+        <% @event_registrations.each do |event_registration| %>
+            
+
+        <% end %>
+    <% end %>
+
 </div>

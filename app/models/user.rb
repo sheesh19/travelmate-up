@@ -16,6 +16,10 @@ class User < ApplicationRecord
 
   acts_as_favoritor
 
+  def chats
+    registered_events + event_registrations
+  end
+
   def num_listings
     registered_mates.count
   end

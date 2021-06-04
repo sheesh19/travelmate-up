@@ -1,0 +1,13 @@
+<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">                
+    <% chats.each_with_index do |chat, ind|  %>
+        <%= link_to chat_path(chat), class: "nav-link chat-nav-link #{'active' if params[:event_registration_id] == chat.id}" do %>
+            <div>
+                <% if chat.owner == current_user %>
+                    <%= render 'shared/avatars/avatar_pill_chat', element: chat.user, event: chat.event %>
+                <% else %>
+                    <%= render 'shared/avatars/avatar_pill_chat', element: chat.owner, event: chat.event %>
+                <% end %>
+            </div>
+        <% end %>
+    <% end %>
+</div>
