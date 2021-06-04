@@ -1,0 +1,51 @@
+<div class="page-container">
+    <div class="main-title">
+        <h1>CHATS</h1>
+    </div>
+
+        <div class="row">
+        <div class="col-4">
+            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">                
+                <% @chats.each_with_index do |chat, ind|  %>
+                    <%= link_to chat_path(chat), class: "nav-link chat-nav-link" do %>
+                        <div>
+                            <% if chat.owner == current_user %>
+                                <%= render 'shared/avatars/avatar_pill_chat', element: chat.user, event: chat.event %>
+                            <% else %>
+                                <%= render 'shared/avatars/avatar_pill_chat', element: chat.owner, event: chat.event %>
+                            <% end %>
+                        </div>
+                    <% end %>
+                <% end %>
+            </div>
+        </div>
+        
+
+        <div class="col-8">
+            <div class="tab-content" id="v-pills-tabContent">                
+                <% @chats.each_with_index do |chat, ind|  %>
+                    <div class="tab-pane fade <%= "show active" if params[:active_tab] == "#v-pills-chat-#{chat.id}" %>" id="v-pills-chat-<%= chat.id %>" role="tabpanel" aria-labelledby="v-pills-chat-tab-<%= chat.id %>">
+                        <div>
+                            <h5><%= chat.title %></h5>
+                            <% if chat.owner == current_user %>
+                                <%= render 'shared/avatars/avatar_chat', element: chat.user %>
+                            <% else %>
+                                <%= render 'shared/avatars/avatar_chat', element: chat.owner %>
+                            <% end %>
+                        </div>
+
+                        <div id="messages" data-chatroom-id="<%= chat.id %>">
+                          <% chat.messages.each do |message| %>
+                            <%= render 'shared/chats/message', message: message %>
+                          <% end %>
+                        </div>
+
+                        <%= render 'shared/chats/chatroom', chat: chat %>
+
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+
+</div>

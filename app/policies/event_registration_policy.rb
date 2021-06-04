@@ -4,6 +4,10 @@ class EventRegistrationPolicy < ApplicationPolicy
       scope.where(user: user) + scope.includes(event: :trip).where(trips: { user_id: user })
     end
   end
+
+  def show?
+    true
+  end
   
   def create?
     true

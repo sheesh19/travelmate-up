@@ -11,9 +11,9 @@ class MessagesController < ApplicationController
               @event_registration,
               render_to_string(partial: "shared/chats/message", locals: { message: @message })
             )
-            redirect_to event_registrations_path(active_tab: "#v-pills-chat-#{@event_registration.id}", anchor: "message-#{@message.id}")
+            redirect_to chat_path(@event_registration, active_tab: "#v-pills-chat-#{@event_registration.id}", anchor: "message-#{@message.id}")
         else
-            render "event_registrations/index"
+            render "chats/#{@event_registration.id}"
         end
         authorize @message
     end
