@@ -1,19 +1,13 @@
-<div class="row">
-    <div class="col-4">
-        
-        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">                
-            <% @chats.each_with_index do |chat, ind|  %>
-                <a class="nav-link chat-nav-link <%= "active" if ind == 0 || params[:active_tab]== "#v-pills-chat-#{chat.id}" %>" id="v-pills-chat-tab-<%= chat.id %>" data-toggle="pill" href="#v-pills-chat-<%= chat.id %>" role="tab" aria-controls="v-pills-chat-<%= chat.id %>" aria-selected="false">
-                    <div>
-                        <% if chat.owner == current_user %>
-                            <%= render 'shared/avatars/avatar_pill_chat', element: chat.user, event: chat.event %>
-                        <% else %>
-                            <%= render 'shared/avatars/avatar_pill_chat', element: chat.owner, event: chat.event %>
-                        <% end %>
-                    </div>
-                </a>
-            <% end %>
-        </div>
-
-    </div>
+<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">                
+    <% chats.each_with_index do |chat, ind|  %>
+        <%= link_to chat_path(chat), class: "nav-link chat-nav-link #{'active' if params[:event_registration_id] == chat.id}" do %>
+            <div>
+                <% if chat.owner == current_user %>
+                    <%= render 'shared/avatars/avatar_pill_chat', element: chat.user, event: chat.event %>
+                <% else %>
+                    <%= render 'shared/avatars/avatar_pill_chat', element: chat.owner, event: chat.event %>
+                <% end %>
+            </div>
+        <% end %>
+    <% end %>
 </div>

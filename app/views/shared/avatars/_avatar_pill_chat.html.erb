@@ -3,7 +3,7 @@
         <%= cl_image_tag element.avatar.key, height: 100, width: 100, crop: :fill, class: "avatar" %>
         <div class="chat-nav-info">
             <h6><%= element.first_name %></h6>
-            <p><%= event.title %></p>
+            <p><%= element.username %></p>
         </div>
     </div>
 <% else %>
@@ -13,7 +13,7 @@
         </div>
         <div class="chat-nav-info">
             <h6><%= element.first_name %></h6>
-            <p><%= event.title %></p>
+            <p><%= element.username %></p>
         </div>
     </div>
 <% end %>
