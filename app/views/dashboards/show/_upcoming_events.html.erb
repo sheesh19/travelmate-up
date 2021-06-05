@@ -1,6 +1,6 @@
 <div class="itinerary">
 
-    <% if @events.where('Events.start_date >= ?', DateTime.now).count == 0 %>
+    <% if @events.empty? %>
         <div class="empty-state pt-5 pb-5 mt-5 mb-5">
             <p><strong>You have 0 travel plans</strong></p>
         </div>

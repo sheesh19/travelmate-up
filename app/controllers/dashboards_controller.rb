@@ -2,7 +2,7 @@ class DashboardsController < ApplicationController
 
     def show
         @user = current_user
-        @events = @user.events
+        @events = @user.upcoming_events
         @markers = @events.all_markers
         @past_events = @user.past_events
         @trips = @user.trips
