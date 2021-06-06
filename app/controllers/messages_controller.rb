@@ -5,7 +5,7 @@ class MessagesController < ApplicationController
         @message = Message.new(message_params)
         @message.event_registration = @event_registration
         @message.user = current_user
-        
+
         if @message.save
             EventRegistrationChannel.broadcast_to(
               @event_registration,

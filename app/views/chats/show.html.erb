@@ -7,7 +7,7 @@
         <%= render 'shared/chats/sidebar_chat', chats: @chats %>
 
         <div>
-            <div class="chat-window">                
+            <div class="chat-window">
                 <div>
                     <h5><%= @chat.title %></h5>
                     <% if @chat.owner == current_user %>
@@ -17,12 +17,12 @@
                     <% end %>
                 </div>
 
-                <div id="messages" class="chat-window-messages" data-chatroom-id="<%= @chat.id %>">
+                <div id="messages" class="chat-window-messages " data-chatroom-id="<%= @chat.id %>" data-currentuser="<%= current_user.id %>">
                     <% @chat.messages.each do |message| %>
-                        <%= render 'shared/chats/message', message: message %>
+                          <%= render 'shared/chats/message', message: message %>
                     <% end %>
                 </div>
-                
+
                 <%= render 'shared/chats/chatroom', chat: @chat %>
 
             </div>
