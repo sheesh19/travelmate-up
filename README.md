@@ -107,6 +107,7 @@ rails db:seed
 * track, post, or share their own solo trips
 * add events for people to join
 * manage mate up requests: approve, cancel, decline
+* message their new mates
 * sign up for other solo travellers' events
 * search through activities, locations, or events for inspiration
 
