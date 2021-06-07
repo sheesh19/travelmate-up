@@ -116,6 +116,7 @@ rails db:seed
 * autocomplete for locations and images via Google Places
 * maps generated from Mapbox
 * asset management via Cloudinary
+* messaging via ActionCable
 
 
 ## External Services
