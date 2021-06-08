@@ -28,8 +28,6 @@
 
 .chat-user {
     align-items: center;
-    padding-bottom: 1rem;
-    border-bottom: solid 1px $teal;
     h6 {
         margin: 0;
         margin-left: 1rem;
@@ -50,7 +48,24 @@
 .chat-window-messages {
     height: 100%;
     overflow-y: scroll;
+    padding: 1rem;
 }
+
+.chat-breadcrumb {
+    margin-bottom: 0;
+}
+
+.chat-top-info {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: solid 1px $teal;
+    padding-bottom: 1rem;
+    align-items: center;
+    h5 {
+        margin-bottom: 0;
+    }
+}
+
 
 // .chat-window {
 //   display:flex;
@@ -67,3 +82,17 @@
 
 // .chat-input { border-top: 1px solid #999; padding: 20px 5px }
 // .chat-input-text { width: 60%; min-height: 40px; max-width: 60%; }
+
+@media(max-width: 1000px) {
+    .chat-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .chat-sidebar-mobile {
+        display: none;
+    }
+
+    .chat-window {
+        height: 26vh;
+    }
+}

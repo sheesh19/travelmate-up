@@ -1,28 +1,36 @@
 <div class="page-container">
     <div class="main-title">
         <h1>CHATS</h1>
+        <div class="breadcrumb chat-breadcrumb">
+          <%= link_to chats_path do %>
+              <i class="fas fa-angle-left"></i>
+              Back to All Chats
+          <% end %>
+        </div>
     </div>
 
     <div class="chat-grid">
-        <%= render 'shared/chats/sidebar_chat', chats: @chats %>
+        <div class="chat-sidebar-mobile">
+            <%= render 'shared/chats/sidebar_chat', chats: @chats %>
+        </div>
 
         <div>
-            <div class="chat-window">                
-                <div>
-                    <h5><%= @chat.title %></h5>
+            <div class="chat-window">
+                <div class="chat-top-info pb-2">
                     <% if @chat.owner == current_user %>
                         <%= render 'shared/avatars/avatar_chat', element: @chat.user %>
                     <% else %>
                         <%= render 'shared/avatars/avatar_chat', element: @chat.owner %>
                     <% end %>
+                    <h5><%= @chat.title %></h5>
                 </div>
 
-                <div id="messages" class="chat-window-messages" data-chatroom-id="<%= @chat.id %>">
+                <div id="messages" class="chat-window-messages " data-chatroom-id="<%= @chat.id %>" data-currentuser="<%= current_user.id %>">
                     <% @chat.messages.each do |message| %>
-                        <%= render 'shared/chats/message', message: message %>
+                          <%= render 'shared/chats/message', message: message %>
                     <% end %>
                 </div>
-                
+
                 <%= render 'shared/chats/chatroom', chat: @chat %>
 
             </div>

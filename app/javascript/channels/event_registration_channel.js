@@ -7,7 +7,12 @@ const initEventRegistrationCable = () => {
 
         consumer.subscriptions.create({ channel: "EventRegistrationChannel", id: id }, {
             received(data) {
-                messagesContainer.insertAdjacentHTML('beforeend', data);
+              const currentUserId = messagesContainer.dataset.currentuser;
+              const senderId = data.match(/sender-\d+/)[0].replace(/sender-/, '');
+              if (currentUserId != senderId) {
+                data = data.replace('message-owner', 'message-mate')
+              }
+              messagesContainer.insertAdjacentHTML('beforeend', data);
             },
         });
     }
