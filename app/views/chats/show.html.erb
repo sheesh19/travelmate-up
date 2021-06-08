@@ -16,13 +16,13 @@
 
         <div>
             <div class="chat-window">
-                <div>
-                    <h5><%= @chat.title %></h5>
+                <div class="chat-top-info pb-2">
                     <% if @chat.owner == current_user %>
                         <%= render 'shared/avatars/avatar_chat', element: @chat.user %>
                     <% else %>
                         <%= render 'shared/avatars/avatar_chat', element: @chat.owner %>
                     <% end %>
+                    <h5><%= @chat.title %></h5>
                 </div>
 
                 <div id="messages" class="chat-window-messages " data-chatroom-id="<%= @chat.id %>" data-currentuser="<%= current_user.id %>">
