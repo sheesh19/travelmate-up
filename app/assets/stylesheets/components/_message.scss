@@ -1,7 +1,18 @@
 .message-owner {
   background-color: $teal;
+  margin-inline-start: auto;
 }
 
 .message-mate {
   background-color: $darkest-teal;
+  margin-right: 2rem;
+}
+
+.chat-messages {
+  width: fit-content;
+  border-radius: 1rem;
+  p {
+    color: $almost-white;
+    padding: 0.8rem 1rem;
+  }
 }

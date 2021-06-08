@@ -1,10 +1,18 @@
 <div class="page-container">
     <div class="main-title">
         <h1>CHATS</h1>
+        <div class="breadcrumb chat-breadcrumb">
+          <%= link_to chats_path do %>
+              <i class="fas fa-angle-left"></i>
+              Back to All Chats
+          <% end %>
+        </div>
     </div>
 
     <div class="chat-grid">
-        <%= render 'shared/chats/sidebar_chat', chats: @chats %>
+        <div class="chat-sidebar-mobile">
+            <%= render 'shared/chats/sidebar_chat', chats: @chats %>
+        </div>
 
         <div>
             <div class="chat-window">
