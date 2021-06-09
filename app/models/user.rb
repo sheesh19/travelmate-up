@@ -11,13 +11,27 @@ class User < ApplicationRecord
   
   has_many :event_registrations
   has_many :registered_events, through: :event_registrations, source: :event
-  
+  has_many :registered_trips, through: :registered_events, source: :trip
+  has_many :registered_events_owners, through: :registered_trips, source: :user
+
+
   has_one_attached :avatar
 
   acts_as_favoritor
 
   def chats
     registered_events + event_registrations
+  end
+
+  def chat_mates
+    mate_ids = (mates + registered_events_owners).uniq
+    mate_ids.map do |mate_id|
+      if registered_mates.joins( :user ).find_by('users.id = ?', mate_id) 
+        registered_mates.joins( :user ).find_by('users.id = ?', mate_id) 
+      else 
+        event_registrations.joins(event: { trip: :user }).find_by('users.id = ?', mate_id)
+      end
+    end
   end
 
   def num_listings
