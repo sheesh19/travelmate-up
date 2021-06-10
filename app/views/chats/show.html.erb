@@ -22,7 +22,6 @@
                     <% else %>
                         <%= render 'shared/avatars/avatar_chat', element: @chat.owner %>
                     <% end %>
-                    <h5><%= @chat.title %></h5>
                 </div>
 
                 <div id="messages" class="chat-window-messages " data-chatroom-id="<%= @chat.id %>" data-currentuser="<%= current_user.id %>">
