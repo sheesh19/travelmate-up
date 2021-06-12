@@ -80,37 +80,22 @@ class User < ApplicationRecord
     age
   end
 
-  # def self.from_omniauth(access_token)
-  #   data = access_token.info
-  #   user = User.where(email: data["email"]).first
-
-  #   unless user
-  #     user = User.create(
-  #           name: data["name"],
-  #           email: data["email"],
-  #           encrypted_password: Devise.friendly_token[0,20]
-  #     )
-  #   end
-  #   user
-  # end
-
   def self.new_with_session(params, session)
     super.tap do |user|
-      if data = session["devise.google_data"] && session["devise.google_data"]["extra"]["raw_info"]
-        user.email = data["email"] if user.email.blank?
+      if data = session["devise.google_data"]
+        user.email = data["info"]["email"] if user.email.blank?
       end
     end
   end
 
-  def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      user.email = auth.info.email
+  def self.from_omniauth(access_token)
+      data = access_token.info
+      user = find_or_initialize_by(provider: access_token['provider'], uid: access_token['uid'])
+      user.email = data['email']
       user.password = Devise.friendly_token[0, 20]
-      # user.name = auth.info.name   # assuming the user model has a name
-      # user.image = auth.info.image # assuming the user model has an image
-      # If you are using confirmable and the provider(s) you use validate emails, 
-      # uncomment the line below to skip the confirmation emails.
-      # user.skip_confirmation!
-    end
+      # user.avatar = auth.info.image # assuming the user model has an image
+
+      user.save
+      user
   end
 end
