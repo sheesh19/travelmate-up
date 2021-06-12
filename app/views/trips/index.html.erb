@@ -9,6 +9,8 @@
     }
 %>
 
-<%= render 'trips/index/featured_trips', trips: @trips %>
+<div class="js-fade">
+    <%= render 'trips/index/featured_trips', trips: @trips %>
 
-<%= render 'trips/index/latest_trips', trips: @trips %>
+    <%= render 'trips/index/latest_trips', trips: @trips %>
+</div>

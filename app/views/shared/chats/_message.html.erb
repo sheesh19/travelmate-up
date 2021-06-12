@@ -1,4 +1,4 @@
-<div class="sender-<%= message.user.id %> message-container chat-messages <%= message.user == current_user ? 'message-owner' : 'message-mate' %>"
+<div class="sender-<%= message.user.id %> message-container js-slideup chat-messages <%= message.user == current_user ? 'message-owner' : 'message-mate' %>"
   id="message-<%= message.id %>">
 
   <p><%= message.content %></p>

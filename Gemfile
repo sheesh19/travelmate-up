@@ -69,6 +69,8 @@ gem 'google_places'
 # PWA
 gem 'webpacker-pwa'
 
+gem 'animate.css-rails'
+
 
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
