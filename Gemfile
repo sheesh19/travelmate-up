@@ -69,7 +69,18 @@ gem 'google_places'
 # PWA
 gem 'webpacker-pwa'
 
+# ANIMATE.CSS
 gem 'animate.css-rails'
+
+# OMNIAUTH
+gem 'omniauth-google-oauth2'
+gem 'omniauth-rails_csrf_protection'
+
+
+
+# gem 'google-api-client', require: 'google/apis/calendar_v3'
+
+
 
 
 group :development, :test do  gem 'pry-byebug'

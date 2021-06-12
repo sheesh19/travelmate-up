@@ -32,7 +32,8 @@ class EventsController < ApplicationController
 
     def create
         @event = Event.build_event(@trip, event_params)
-
+        GoogleCalendar.create(@event)
+        
         if @event.save
             redirect_to trip_event_path(@event.trip, @event)
         else
