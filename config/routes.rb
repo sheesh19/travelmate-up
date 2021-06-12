@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'users/registrations' } do
+    delete 'sign_out', to: 'devise/sessions#destroy', as: :destroy_user_session
+  end
   
   # MAIN
   root to: 'pages#home'
@@ -36,7 +38,8 @@ Rails.application.routes.draw do
   resources :activities, only: [ :index, :show ]
 
   # PROFILE
-  resources :users, only: :show
+  resource :profile, only: :show
+  # resources :users, only: :show
 
   if Rails.env.development?
     get '/kitchensink', to: 'pages#kitchensink' if Rails.env.development?

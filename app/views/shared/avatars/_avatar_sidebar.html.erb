@@ -4,7 +4,7 @@
       <%= cl_image_tag current_user.avatar.key, height: 200, width: 200, crop: :fill, class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
         <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
          <div class="nav-item">
-          <%= link_to "PROFILE", user_path(current_user), class: "nav-link" %>
+          <%= link_to "PROFILE", profile_path, class: "nav-link" %>
          </div>
          <div class="nav-item">
           <%= link_to "LOG OUT", destroy_user_session_path, method: :delete, class: "nav-link" %>
