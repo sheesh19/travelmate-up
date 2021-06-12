@@ -24,7 +24,7 @@ import "controllers"
 
 // External imports
 import "bootstrap";
-
+import "animate.css/source/animate.css";
 
 // Cocoon
 require("jquery")
@@ -45,6 +45,8 @@ import { initSidebar } from '../components/init_sidebar';
 import { initSelect2 } from '../components/init_select2';
 import { initCarousel } from "../components/init_carousel"
 import { initEventRegistrationCable } from "../channels/event_registration_channel.js"
+import { initAnimate } from "../plugins/init_animate"
+
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -58,6 +60,7 @@ document.addEventListener('turbolinks:load', () => {
   initSelect2();
   initCarousel();
   initEventRegistrationCable();
+  initAnimate();
 
   // navigator.serviceWorker.register('/service_worker.js').then(registration => {
   //   console.log('ServiceWorker registered: ', registration);

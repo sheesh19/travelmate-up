@@ -11,28 +11,30 @@
 
 <br>
 <br>
+<div class="js-fade">
 
-<div class="featured-title container__body">
-    <h2>CHECK OUT UPCOMING EVENTS</h2>
-</div>
-
-<div class="container__body d-flex justify-content-between">
-    <div>
-        <%= render partial: 'shared/events/grouped_events_all', 
-            locals: { 
-                events: @events,
-                class_type: "reminder-card-text-image-stack"
-            }
-        %>
+    <div class="featured-title container__body">
+        <h2>CHECK OUT UPCOMING EVENTS</h2>
     </div>
-    <div class="">
-        <%#= render 'shared/calendar_month', events: @events %>
+
+    <div class="container__body d-flex justify-content-between">
+        <div>
+            <%= render partial: 'shared/events/grouped_events_all', 
+                locals: { 
+                    events: @events,
+                    class_type: "reminder-card-text-image-stack"
+                }
+            %>
+        </div>
+        <div class="">
+            <%#= render 'shared/calendar_month', events: @events %>
+        </div>
     </div>
+
+    <div class="page-bottom-spacer"></div>
+
+    <div class="map">
+    <%#= render 'shared/map', events: @events %>
+    </div>
+
 </div>
-
-<div class="page-bottom-spacer"></div>
-
-<div class="map">
-  <%#= render 'shared/map', events: @events %>
-</div>
-
