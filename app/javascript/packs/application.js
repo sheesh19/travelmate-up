@@ -43,9 +43,10 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { initStepperForm } from '../components/init_stepper_form';
 import { initSidebar } from '../components/init_sidebar';
 import { initSelect2 } from '../components/init_select2';
-import { initCarousel } from "../components/init_carousel"
-import { initEventRegistrationCable } from "../channels/event_registration_channel.js"
-import { initAnimate } from "../plugins/init_animate"
+import { initCarousel } from "../components/init_carousel";
+import { initEventRegistrationCable } from "../channels/event_registration_channel.js";
+import { initAnimate } from "../plugins/init_animate";
+import { initIso } from "../plugins/init_isotope";
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -61,6 +62,7 @@ document.addEventListener('turbolinks:load', () => {
   initCarousel();
   initEventRegistrationCable();
   initAnimate();
+  // initIso();
 
   // navigator.serviceWorker.register('/service_worker.js').then(registration => {
   //   console.log('ServiceWorker registered: ', registration);
