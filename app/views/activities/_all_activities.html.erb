@@ -1,13 +1,18 @@
 <div class="container__body">
-  <div class="">
+  <div class="" data-controller="infinite-scroll" data-action="scroll@window->infinite-scroll#scroll">
+    
     <div class="featured-title">
       <h2>CHECK OUT OTHER ACTIVITIES</h2>
     </div>
-    <div class="card__grid">
-      <% activities.each do |activity| %>
-        <%= render 'shared/cards/activity_card', activity: activity %>
-      <% end %>
+
+    <div class="card__grid" data-infinite-scroll-target="entries">
+      <%= render "activities" %>
     </div>
+
+    <div class="mt-5 paginate" data-infinite-scroll-target="pagination">
+      <%== pagy_nav(@pagy) %>
+    </div>
+    
   </div>
 </div>
 
