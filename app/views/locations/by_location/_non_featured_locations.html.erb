@@ -10,13 +10,17 @@
     <div class="featured-title-home d-flex justify-content-between align-items-center">
       <h2>DESTINATION DISCOVERY</h2>
     </div>
-    <div class="">
+    <div  data-controller="infinite-scroll" data-action="scroll@window->infinite-scroll#scroll">
       <!-- Card Carousel -->
-      <div class="card__grid js-grid">
-        <% @all_locations.each do |location| %>
-          <%= render 'shared/cards/location_card', element: location %>
-        <% end %>
+
+      <div class="card__grid js-grid" data-infinite-scroll-target="entries">
+        <%= render 'locations' %>
       </div>
+
+      <div class="mt-5" data-infinite-scroll-target="pagination">
+        <%== pagy_nav(@pagy) %>
+      </div>
+
     </div>
   </div>
 </div>
