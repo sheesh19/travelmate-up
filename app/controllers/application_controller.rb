@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   add_flash_types :info, :success
 
   include Pundit
+  include Pagy::Backend
 
   # Pundit: white-list approach.
   after_action :verify_authorized, except: :index, unless: :skip_pundit?

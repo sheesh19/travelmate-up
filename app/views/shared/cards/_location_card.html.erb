@@ -1,4 +1,4 @@
-<div class="photo-card photo-card-location">
+<div class="photo-card photo-card-location" id="<%= element.id %>">
     <% if element.photos.attached? %>
         <%= cl_image_tag element.photos.sample.key, class: "photo-card" %>
     <% else %>
