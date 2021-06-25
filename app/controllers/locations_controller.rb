@@ -3,8 +3,9 @@ class LocationsController < ApplicationController
     before_action :set_location, only: [ :show ]
 
     def index
-        @pagy, @all_locations = pagy(policy_scope(Location), items: 9)
+        @pagy, @all_locations = pagy(policy_scope(Location), max_items: 12)
         # @locations_sorted = @all_locations.sort_by_events
+        
         # required for search
         unless params[:query].nil?
             @query = true
