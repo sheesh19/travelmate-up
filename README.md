@@ -117,10 +117,11 @@ rails db:seed
 * maps generated from Mapbox
 * asset management via Cloudinary
 * messaging via ActionCable
-* infinite scrolling via pagy && Stimulus
+* video chatting via Vonage / OpenTok
 
 
 ## External Services
 * [Google Developer Console](https://console.developers.google.com/) for Google Places autocomplete
 * [Mapbox](https://www.mapbox.com/) for visual maps
 * [Cloudinary](https://www.cloudinary.com/) for asset management
+* [Vonage](https://www.vonage.com/communications-apis/video/) for video calling
