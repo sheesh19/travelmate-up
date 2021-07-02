@@ -117,6 +117,7 @@ rails db:seed
 * maps generated from Mapbox
 * asset management via Cloudinary
 * messaging via ActionCable
+* infinite scrolling via pagy && Stimulus
 
 
 ## External Services
