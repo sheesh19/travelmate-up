@@ -1,0 +1,26 @@
+#videos {
+    position: relative;
+    margin-left: 1rem;
+    border-radius: 1rem;
+    margin-top: 3rem;
+}
+
+.OT_widget-container {
+    border-radius: 1rem;
+}
+
+.OT_root {
+    height: 240px !important;
+}
+
+.OT_subscriber {
+    position: relative;
+}
+
+.OT_publisher {
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+    right: 0;
+    height: 40% !important;
+}

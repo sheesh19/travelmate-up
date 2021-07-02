@@ -79,6 +79,9 @@ gem 'omniauth-rails_csrf_protection'
 # PAGY
 gem 'pagy'
 
+# VONAGE
+gem 'opentok'
+
 
 
 # gem 'google-api-client', require: 'google/apis/calendar_v3'

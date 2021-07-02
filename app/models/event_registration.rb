@@ -8,6 +8,8 @@ class EventRegistration < ApplicationRecord
   #                 0      1        2
   enum status: %i[pending approved cancelled]
 
+  before_create :create_vonage_session
+
   def approve
     update(status: :approved)
   end
@@ -30,6 +32,12 @@ class EventRegistration < ApplicationRecord
 
   def title
     event.title
+  end
+
+  def create_vonage_session
+    opentok = OpenTok::OpenTok.new ENV['VONAGE_API_KEY'], ENV['VONAGE_API_SECRET']
+    session = opentok.create_session
+    self.vonage_session_id = session.session_id
   end
 
   private
