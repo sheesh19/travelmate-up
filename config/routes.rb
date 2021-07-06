@@ -23,13 +23,15 @@ Rails.application.routes.draw do
   end
 
   # CHATS
-  resources :chats, only: [ :index, :show ]
+  resources :chats, only: [ :index, :show ] do
+    resource :videos, only: :show
+  end
   
   # LOCATIONS
   resources :locations, only: [ :index, :show ]
 
   # DASHBOARD
-  resource :dashboards, only: :show
+  resource :dashboard, only: :show
 
   # FAVOURITES
   resource :favorites, only: :update

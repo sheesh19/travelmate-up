@@ -1,0 +1,43 @@
+<div class="page-container">
+    <div class="main-title">
+        <h1>CHATS</h1>
+        <div class="breadcrumb chat-breadcrumb">
+          <%= link_to chats_path do %>
+              <i class="fas fa-angle-left"></i>
+              Back to All Chats
+          <% end %>
+        </div>
+    </div>
+
+    <div class="chat-grid">
+        <div class="chat-sidebar-mobile">
+            <%= render 'shared/chats/sidebar_chat', chats: @chats %>
+        </div>
+
+        <div>
+            <div class="chat-window">
+                <div class="chat-top-info pb-2">
+                    <% if @video.owner == current_user %>
+                        <%= render 'shared/avatars/avatar_chat', element: @video.user %>
+                    <% else %>
+                        <%= render 'shared/avatars/avatar_chat', element: @video.owner %>
+                    <% end %>
+
+                    <%= link_to 'CHAT', chat_path(@video), class: 'btn btn-outlined' %>
+                </div>
+
+                <div id="videos"
+                    data-controller="vonage"
+                    data-vonage-session-id="<%= @video.vonage_session_id %>"
+                    data-vonage-token="<%= @token %>"
+                    data-vonage-api-key="<%= ENV['VONAGE_API_KEY'] %>"
+                    data-vonage-name="<%= @video.title %>">
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+</div>

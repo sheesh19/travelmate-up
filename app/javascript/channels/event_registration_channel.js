@@ -9,10 +9,15 @@ const initEventRegistrationCable = () => {
             received(data) {
               const currentUserId = messagesContainer.dataset.currentuser;
               const senderId = data.match(/sender-\d+/)[0].replace(/sender-/, '');
+              const textInput = document.querySelector('.new_message');
+
               if (currentUserId != senderId) {
                 data = data.replace('message-owner', 'message-mate')
               }
+              
+              textInput.reset();
               messagesContainer.insertAdjacentHTML('beforeend', data);
+              messagesContainer.scrollTop = messagesContainer.scrollHeight;
             },
         });
     }

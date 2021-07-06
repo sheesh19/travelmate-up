@@ -14,7 +14,7 @@
             <%= render 'shared/chats/sidebar_chat', chats: @chats %>
         </div>
 
-        <div class="grid-two-mobile">
+        <div>
             <div class="chat-window">
                 <div class="chat-top-info pb-2">
                     <% if @chat.owner == current_user %>
@@ -22,6 +22,8 @@
                     <% else %>
                         <%= render 'shared/avatars/avatar_chat', element: @chat.owner %>
                     <% end %>
+
+                    <%= link_to 'VIDEO CALL', chat_videos_path(@chat), class: 'btn btn-outlined' %>
                 </div>
 
                 <div id="messages" class="chat-window-messages " data-chatroom-id="<%= @chat.id %>" data-currentuser="<%= current_user.id %>">
@@ -32,14 +34,6 @@
 
                 <%= render 'shared/chats/chatroom', chat: @chat %>
 
-            </div>
-
-            <div id="videos"
-                data-controller="vonage"
-                data-vonage-session-id="<%= @chat.vonage_session_id %>"
-                data-vonage-token="<%= @token %>"
-                data-vonage-api-key="<%= ENV['VONAGE_API_KEY'] %>"
-                data-vonage-name="<%= @chat.title %>">
             </div>
         </div>
 

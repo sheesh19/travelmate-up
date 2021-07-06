@@ -11,7 +11,7 @@ class MessagesController < ApplicationController
               @event_registration,
               render_to_string(partial: "shared/chats/message", locals: { message: @message })
             )
-            redirect_to chat_path(@event_registration, anchor: "message-#{@message.id}")
+            # redirect_to chat_path(@event_registration, anchor: "")
         else
             render "chats/#{@event_registration.id}"
         end
