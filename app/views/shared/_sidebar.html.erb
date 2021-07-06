@@ -48,7 +48,7 @@
 
         <% if user_signed_in? %>
           <%= render partial: 'shared/components/sidebar_links',
-            locals: { link_text: 'DASHBOARD', path: dashboards_path }
+            locals: { link_text: 'DASHBOARD', path: dashboard_path }
           %>
           <%= render partial: 'shared/components/sidebar_links',
             locals: { link_text: 'CHATS', path: chats_path }

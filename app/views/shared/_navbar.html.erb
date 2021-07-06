@@ -53,12 +53,12 @@
 
   <% if user_signed_in? %>
     <!-- DASHBOARD -->
-    <% if current_page? dashboards_path %>
+    <% if current_page? dashboard_path %>
       <li class='nav-item active-bar d-flex align-items-center'>
     <% else %>
       <li class='nav-item nav-item-highlighht' id='manage-your-trips-with-count'>
     <% end %>
-      <%= link_to "MANAGE TRIPS", dashboards_path, class: "nav-link" %>
+      <%= link_to "MANAGE TRIPS", dashboard_path, class: "nav-link" %>
       <% if current_user %>
         <div class="badge-upcomings-count d-flex align-items-center justify-content-center">
           <%= current_user.notifications %>
