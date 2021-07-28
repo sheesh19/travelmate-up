@@ -411,6 +411,7 @@ DEPENDENCIES
   groupdate
   jbuilder (~> 2.7)
   listen (~> 3.2)
+  omniauth
   omniauth-google-oauth2
   omniauth-rails_csrf_protection
   opentok
