@@ -10,6 +10,9 @@ class Event < ApplicationRecord
   has_many :activity_lists, dependent: :destroy
   has_many :activities, through: :activity_lists
 
+  validates :start_date, :end_date, presence: true, availability: true
+  validate :end_date_after_start_date
+
   acts_as_taggable_on :tags
   has_many_attached :photos
 
@@ -18,7 +21,6 @@ class Event < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
   # after_create :update_images
-
 
   include PgSearch::Model
   pg_search_scope :global_search,
@@ -52,7 +54,7 @@ class Event < ApplicationRecord
   def solo?
     max_spots == 0 || max_spots.nil?
   end
-  
+
   def spots_left
     unless max_spots.nil?
       approved = event_registrations.where(status: 1).count
@@ -100,5 +102,15 @@ class Event < ApplicationRecord
 
   def update_images
     GooglePlacesApi.event_call(self)
+  end
+
+  private
+
+  def end_date_after_start_date
+     return if end_date.blank? || start_date.blank?
+
+     if end_date < start_date
+       errors.add(:end_date, "must be after the start date")
+     end
   end
 end

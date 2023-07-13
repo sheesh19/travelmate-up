@@ -1,2 +1,252 @@
-<h1>Pages#kitchensink</h1>
-<p>Find me in app/views/pages/kitchensink.html.erb</p>
+<div class="main-title">
+  <h1>Kitchen Sink</h1>
+  <div>
+    <%= link_to "Back", root_path %>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- BUTTON SECTION -->
+  <h1>Buttons</h1><br>
+  <p>Filled</p>
+  <%= render "shared/components/button", variant: "filled", label: "Add button text", path: "/" %>
+  <br><br>
+  <p>Outlined</p>
+  <%= render "shared/components/button", variant: "outlined", label: "Add button text", path: "/" %>
+  <br><br><br>
+
+  <!-- TAG SECTION -->
+  <h1>Tags</h1><br>
+  <span class="tag-outline">Scuba diving</span>
+  <span class="tag-outline">Shark</span>
+  <span class="tag-outline">Amazing</span>
+  <span class="tag-filled">Scuba diving</span>
+  <span class="tag-filled">Shark</span>
+  <span class="tag-filled">Amazing</span>
+  <br><br><br>
+
+  <!-- PILL SECTION -->
+  <h1>Pills</h1><br>
+
+  <!-- Event pill -->
+  <p><strong>Event pill</strong></p>
+  <div class="event-pill">
+    <%= image_tag "sheila-avatar.jpg", class: "avatar-small" %>
+    <div class="event-pill-text">
+      <p>Captain Cat</p>
+    </div>
+  </div>
+  <br><br><br>
+
+  <!-- CARD SECTION -->
+  <h1>Cards</h1><br>
+
+  <!-- Photo card -->
+  <p><strong>Photo card</strong></p>
+  <div
+    class="photo-card"
+    style="background-image: linear-gradient(rgba(0,0,0,0.3),
+      rgba(0,0,0,0.3)),
+      url(https://www.dive.is/thumbs/diving-snorkeling-tours/diving-day-tours/silfra-diving-day-tour/colorful-clear-water-silfra-1800x1199.jpg)">
+    Snorkling
+    <a href="#who" class="make-card-clickable"></a>
+  </div>
+  <br><br>
+
+  <!-- Event card -->
+  <p><strong>Event card</strong> used for activity</p>
+  <div class="card map-card p-2" style="width: 18rem;">
+    <div class="card-body">
+      <p class="card-text">
+        Tue, 3 Jun 19, 6pm
+      </p>
+      <h4 class="card-title">
+        Going to Queen Victoria night market
+      </h4>
+      <p class="card-title">
+        <i class="fas fa-map-marker-alt pr-1"></i>
+        Melbourne, Australia
+      </p>
+      <div class="d-flex flex-row-reverse bd-highlight">
+        <a href="#" class="btn btn-outlined mt-3">Tag along</a>
+      </div>
+    </div>
+  </div>
+  <br><br>
+
+  <!-- Reminder card -->
+  <p><strong>Reminder card</strong> used for upcoming events</p>
+  <div class="card reminder-card-with-location d-flex">
+    <div class="reminder-text d-flex">
+      <div class="reminder-time pt-4 pl-4 pb-4">
+        7:00PM
+      </div>
+      <div class="reminder-details p-4">
+        <h5>Going to Queen Victoria Night market</h5>
+        <div class="reminder-travel-plan"><p>Amazing trip down under!</p></div>
+      </div>
+    </div>
+    <div class="event-pill-expandable reminder-organiser-avatar">
+      <div class="event-pill-inner">
+        <%= image_tag "sheila-avatar.jpg", class: "avatar-small" %>
+        <div class="event-pill-text">
+          <p>Captain Cat</p>
+        </div>
+      </div>
+    </div>
+    <a href="#who" class="make-card-clickable"></a>
+  </div>
+  <br><br>
+
+  <!-- Reminder card with location -->
+  <p><strong>Reminder card with location</strong> used for upcoming events</p>
+  <div class="card reminder-card-with-location d-flex">
+    <div class="reminder-text d-flex">
+      <div class="reminder-time pt-4 pl-4 pb-4">
+        7:00PM
+      </div>
+      <div class="reminder-details p-4">
+        <h5>Going to Queen Victoria Night market</h5>
+        <div class="reminder-travel-plan"><p>Amazing trip down under!</p></div>
+        <div class="reminder-location d-flex">
+          <i class="fas fa-map-marker-alt pr-2 pt-1"></i>
+          <div class="reminder-address">
+            <p>Queen Victoria Market</p>
+            <p>Queen St, Melbourne VIC 3000</p>
+          </div>
+        </div>
+      </div>
+      <div class="reminder-map">
+        <%#= render "shared/mapstatic" %>
+      </div>
+    </div>
+    <div class="event-pill-expandable reminder-organiser-avatar">
+      <%= image_tag "sheila-avatar.jpg", class: "avatar-small" %>
+      <div class="event-pill-text">
+        <p>Captain Cat</p>
+      </div>
+    </div>
+    <a href="#who" class="make-card-clickable"></a>
+  </div>
+  <br><br>
+
+  <!-- Map card -->
+  <p> <strong>Map card</strong> used for location</p>
+  <div class="card map-card" style="width: 24rem;">
+    <%#= render "shared/mapstatic" %>
+    <div class="card-body px-4 pb-4 pt-0">
+      <h4 class="card-title">
+        <i class="fas fa-map-marker-alt pr-1"></i>
+        Melbourne, Australia
+      </h4>
+      <div id="map-card-info">
+        <i class="fas fa-info-circle"></i>
+          88 travel mates going here
+      </div>
+    </div>
+    <a href="#who" class="make-card-clickable"></a>
+  </div>
+  <br><br>
+
+  <!-- Travel plan card -->
+  <p> Travel plan card</p>
+  <div class="card map-card" style="width: 24rem;">
+    <div>
+      <%#= render "shared/mapstatic" %>
+    </div>
+    <div class="card-body px-4 pb-4 pt-0">
+      <div id="travel-plan-card-title" class="card-title d-flex justify-content-between">
+        <div>30 day plan</div>
+        <div>
+          400
+          <i class="fas fa-heart"></i>
+        </div>
+      </div>
+      <h4 class="card-title">
+        Amazing trip down under in 2019
+      </h4>
+      <span class="tag-outline">Scuba diving</span>
+      <span class="tag-outline">Shark</span>
+      <span class="tag-outline">Amazing</span>
+      <span class="tag-outline">Scuba diving</span>
+      <span class="tag-outline">Shark</span>
+      <span class="tag-outline">Amazing</span>
+    </div>
+    <a href="#who" class="make-card-clickable"></a>
+  </div>
+  <br><br>
+
+  <!-- DATA TABLE SECTION -->
+  <h1>Data table</h1><br>
+
+  <!-- Travel plan table -->
+  <strong>Travel plan table</strong><br><br>
+
+  <div class="data-table">
+    <div class="data-header">
+      <div class="data-header-cell-growable">Name</div>
+      <div class="data-header-cell">Travel dates</div>
+      <div class="data-content-cell-small">Status</div>
+    </div>
+    <div class="data-rows">
+      <div class="data-content-cell-growable">Most amazing trip downunder 2019</div>
+      <div class="data-content-cell">20 Jan 2019 - 31 Jul 2019</div>
+      <div class="data-content-cell-small">Confirmed</div>
+      <a href="#who" class="make-card-clickable"></a>
+    </div>
+    <div class="data-rows">
+      <div class="data-content-cell-growable">Let's go to South America</div>
+      <div class="data-content-cell">20 Jan 2019 - 31 Jul 2019</div>
+      <div class="data-content-cell-small">Draft</div>
+      <a href="#who" class="make-card-clickable"></a>
+    </div>
+    <div class="data-rows">
+      <div class="data-content-cell-growable">South East Asia vacationer here we come</div>
+      <div class="data-content-cell">20 Jan 2019 - 31 Jul 2019</div>
+      <div class="data-content-cell-small">Draft</div>
+      <a href="#who" class="make-card-clickable"></a>
+    </div>
+  </div>
+  <br><br>
+
+  <!-- Event list table -->
+  <strong>Event list table</strong><br><br>
+  <div class="data-table-grouped">
+    <div class="data-table-date-header">
+      <h5>Tuesday, 3 June 2019</h5>
+    </div>
+    <div class="data-table">
+      <div class="data-rows">
+        <div class="data-content-cell-growable">Going to Queen Victoria Night market</div>
+        <div class="data-content-cell-small">9am</div>
+        <div class="data-content-cell-small">Melbourne</div>
+        <div class="data-content-cell-small badge badge-pill badge-dark d-flex align-items-center justify-content-center">Going alone</div>
+        <a href="#who" class="make-card-clickable"></a>
+      </div>
+      <div class="data-rows">
+        <div class="data-content-cell-growable">Tennis at Rod Laver Arena with Patrick Rafter</div>
+        <div class="data-content-cell-small">3pm</div>
+        <div class="data-content-cell-small">Melbourne</div>
+        <div class="data-content-cell-small badge badge-pill badge-awaiting-mates d-flex align-items-center justify-content-center">Awaiting mates</div>
+        <a href="#who" class="make-card-clickable"></a>
+      </div>
+      <div class="data-rows">
+        <div class="data-content-cell-growable">Climbing the Sydney Harbour Bridge</div>
+        <div class="data-content-cell-small">6am</div>
+        <div class="data-content-cell-small">Sydney</div>
+        <div class="data-content-cell-small badge badge-pill badge-mates-joining d-flex align-items-center justify-content-center">Mates joining</div>
+        <a href="#who" class="make-card-clickable"></a>
+      </div>
+      <div class="data-rows">
+        <div class="data-content-cell-growable">Star casino here we come</div>
+        <div class="data-content-cell-small">9pm</div>
+        <div class="data-content-cell-small">Sydney</div>
+        <div class="data-content-cell-small badge badge-pill badge-mates-joining d-flex align-items-center justify-content-center">Mates joining</div>
+        <a href="#who" class="make-card-clickable"></a>
+      </div>
+    </div>
+  </div>
+  <br><br>
+
+</div>

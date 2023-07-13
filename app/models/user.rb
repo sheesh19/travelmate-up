@@ -4,12 +4,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:google_oauth2]
 
-  
+
   has_many :trips
   has_many :events, through: :trips
   has_many :registered_mates, through: :events, source: :event_registrations
   has_many :mates, through: :registered_mates, source: :user
-  
+
   has_many :event_registrations
   has_many :registered_events, through: :event_registrations, source: :event
   has_many :registered_trips, through: :registered_events, source: :trip
@@ -27,9 +27,9 @@ class User < ApplicationRecord
   def chat_mates
     mate_ids = (mates + registered_events_owners).uniq
     mate_ids.map do |mate_id|
-      if registered_mates.joins( :user ).find_by('users.id = ?', mate_id) 
-        registered_mates.joins( :user ).find_by('users.id = ?', mate_id) 
-      else 
+      if registered_mates.joins( :user ).find_by('users.id = ?', mate_id)
+        registered_mates.joins( :user ).find_by('users.id = ?', mate_id)
+      else
         event_registrations.joins(event: { trip: :user }).find_by('users.id = ?', mate_id)
       end
     end
@@ -40,7 +40,7 @@ class User < ApplicationRecord
   end
 
   def notifications
-    upcoming_events.count + num_registered_events + registered_mates.count 
+    upcoming_events.count + num_registered_events + registered_mates.count
   end
 
   def upcoming_events
@@ -97,5 +97,11 @@ class User < ApplicationRecord
 
       user.save
       user
+  end
+
+  def unavailable_dates
+    events.pluck(:start_date, :end_date).map do |range|
+      { from: range[0], to: range[1] }
+    end
   end
 end
