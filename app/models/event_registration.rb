@@ -8,7 +8,7 @@ class EventRegistration < ApplicationRecord
   #                 0      1        2
   enum status: %i[pending approved cancelled]
 
-  before_create :create_vonage_session
+  # before_create :create_vonage_session
 
   def approve
     update(status: :approved)

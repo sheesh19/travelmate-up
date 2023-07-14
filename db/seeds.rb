@@ -5,12 +5,12 @@ puts "Clean database..."
 EventRegistration.destroy_all
 ActivityList.destroy_all
 Event.destroy_all
-Location.destroy_all
+# Location.destroy_all
 
-Activity.destroy_all
+# Activity.destroy_all
 
-Trip.destroy_all
-User.destroy_all
+# Trip.destroy_all
+# User.destroy_all
 
 # users
 puts "Creating users"
@@ -379,7 +379,7 @@ counter = 0
 
 Location.all.each do |location|
   file = URI.open(location_photos[counter])
-  location.photos.attach(io: file, filename: "#{location.city}.png", content_type: 'image/png')
+  location.photos.attach(io: file, filename: "#{location.city}.png", content_type: 'image/png') if file
   GooglePlacesApi.location_images(location)
   location.save
   counter += 1
@@ -556,8 +556,8 @@ trip_list = [
 {
   user_id: User.find_by(username: "sheilz").id,
   title: "Welcome to Oz",
-  start_date: "2022-04-15",
-  end_date: "2022-06-23",
+  start_date: "2024-04-15",
+  end_date: "2024-06-23",
   description: "The fantastic Aussie adventure around Melbourne.",
   status: 1,
   visibility: 1,
@@ -566,8 +566,8 @@ trip_list = [
 {
   user_id: User.find_by(username: "gabby").id,
   title: "Asian Food Tour",
-  start_date: "2022-06-20",
-  end_date: "2022-06-25",
+  start_date: "2024-06-20",
+  end_date: "2024-06-25",
   description: "A culinary tour of asia",
   status: 0,
   visibility: 1,
@@ -576,8 +576,8 @@ trip_list = [
 {
   user_id: User.find_by(username: "gabby").id,
   title: "Thai Scuba Adventure",
-  start_date: "2022-06-26",
-  end_date: "2022-06-30",
+  start_date: "2024-06-26",
+  end_date: "2024-06-30",
   description: "Best scuba diving spots in Thailand",
   status: 1,
   visibility: 0,
@@ -586,8 +586,8 @@ trip_list = [
 {
   user_id: User.find_by(username: "sophisophi").id,
   title: "Best of Hong Kong",
-  start_date: "2022-07-01",
-  end_date: "2022-07-05",
+  start_date: "2024-07-01",
+  end_date: "2024-07-05",
   description: "Tasty Dim Sum and shopping fun!",
   status: 1,
   visibility: 1,
@@ -596,8 +596,8 @@ trip_list = [
 {
   user_id: User.find_by(username: "shyradish").id,
   title: "Cherry Blossoms in Japan",
-  start_date: "2022-07-08",
-  end_date: "2022-07-12",
+  start_date: "2024-07-08",
+  end_date: "2024-07-12",
   description: "Beautiful view of many cherry blossoms and interesting historical shrines and temples.",
   status: 1,
   visibility: 0,
@@ -606,8 +606,8 @@ trip_list = [
 {
   user_id: User.find_by(username: "shyradish").id,
   title: "California Dreaming",
-  start_date: "2022-07-15",
-  end_date: "2022-07-19",
+  start_date: "2024-07-15",
+  end_date: "2024-07-19",
   description: "Golden Gate Bridge, networking in Silicon Valley, and National Parks",
   status: 0,
   visibility: 0,
@@ -616,8 +616,8 @@ trip_list = [
 {
   user_id: User.find_by(username: "sophisophi").id,
   title: "New York New York",
-  start_date: "2022-07-22",
-  end_date: "2022-07-26",
+  start_date: "2024-07-22",
+  end_date: "2024-07-26",
   description: "Relaxing in the sun in Central Park",
   status: 1,
   visibility: 1,
@@ -626,8 +626,8 @@ trip_list = [
 {
   user_id: User.find_by(username: "gabby").id,
   title: "My Fair London",
-  start_date: "2022-07-29",
-  end_date: "2022-08-02",
+  start_date: "2024-07-29",
+  end_date: "2024-08-02",
   description: "Explore the London markets and tea in Mayfair",
   status: 0,
   visibility: 1,
@@ -636,8 +636,8 @@ trip_list = [
 {
   user_id: User.find_by(username: "shyradish").id,
   title: "Euro Trip",
-  start_date: "2022-08-05",
-  end_date: "2022-08-09",
+  start_date: "2024-08-05",
+  end_date: "2024-08-09",
   description: "Food, Museums and Shopping",
   status: 0,
   visibility: 0,
@@ -646,8 +646,8 @@ trip_list = [
 {
   user_id: User.find_by(username: "sheilz").id,
   title: "NZ Visa Run",
-  start_date: "2022-06-17",
-  end_date: "2022-06-24",
+  start_date: "2024-06-17",
+  end_date: "2024-06-24",
   description: "A journey to get the precious visa.",
   status: 0,
   visibility: 1,
@@ -656,8 +656,8 @@ trip_list = [
 {
   user_id: User.find_by(username: "sheilz").id,
   title: "ABC Islands & Colombia Extravaganza",
-  start_date: "2022-03-20",
-  end_date: "2022-04-09",
+  start_date: "2024-03-20",
+  end_date: "2024-04-09",
   description: "Snorkeling, Hiking, and Exploring: the ABC's of Travel",
   status: 1,
   visibility: 1,
@@ -666,8 +666,8 @@ trip_list = [
 {
   user_id: User.find_by(username: "sophisophi").id,
   title: "New Zealand Exploration",
-  start_date: "2022-06-19",
-  end_date: "2022-06-24",
+  start_date: "2024-06-19",
+  end_date: "2024-06-24",
   description: "Explore the best NZ has to offer! #kiwilife",
   status: 1,
   visibility: 1,
@@ -676,15 +676,15 @@ trip_list = [
 {
   user_id: User.find_by(username: "gabby").id,
   title: "Kiwi Living",
-  start_date: "2022-07-20",
-  end_date: "2022-07-28",
+  start_date: "2024-07-20",
+  end_date: "2024-07-28",
   description: "Experience the life of a Kiwi and explore more.",
   status: 1,
   visibility: 1,
   trip_type: 1
 }
 ]
-Trip.create!(trip_list)
+Trip.create!(trip_list)s
 puts "Created #{Trip.count} trip(s)"
 
 # events
@@ -695,8 +695,8 @@ event_list = [
   trip: Trip.find_by(title: "Welcome to Oz"),
 #   activity_id: Activity.find_by(title: "Tech").id,
   title: "Wilson's Prom National Park",
-  start_date: "2022-06-14 10:00:00",
-  end_date: "2022-06-15 20:00:00",
+  start_date: "2024-06-14 10:00:00",
+  end_date: "2024-06-15 20:00:00",
   description: "Head to Wilson's Prom for hiking, snorkeling, and hanging at the beach.",
   max_spots: 4,
   address: 'Wilsons Promontory VIC 3960, Australia'
@@ -706,8 +706,8 @@ event_list = [
   trip_id: Trip.find_by(title: "Welcome to Oz").id,
 #   activity_id: Activity.find_by(title: "Festival").id,
   title: "Lemon Lime Bitters & Tequila Party",
-  start_date: "2022-06-18 14:00:00",
-  end_date: "2022-06-18 17:00:00",
+  start_date: "2024-06-18 14:00:00",
+  end_date: "2024-06-18 17:00:00",
   description: "Enjoy lemon lime bitters & tequila, matched with delicious sweet and savoury treats. Head to the famous Corner Bar in Richmond.",
   max_spots: 4,
   address: '57 Swan St, Richmond VIC 3121, Australia'
@@ -717,8 +717,8 @@ event_list = [
   trip_id: Trip.find_by(title: "Welcome to Oz").id,
   # activity_id: Activity.find_by(title: "Food Markets").id,
   title: "QVM Winter Night Market",
-  start_date: "2022-06-19 17:00:00",
-  end_date: "2022-06-19 22:00:00",
+  start_date: "2024-06-19 17:00:00",
+  end_date: "2024-06-19 22:00:00",
   description: "A foodie feast",
   max_spots: 3,
   address: 'Queen St, Melbourne VIC 3000, Australia'
@@ -728,8 +728,8 @@ event_list = [
   trip_id: Trip.find_by(title: "Welcome to Oz").id,
 #   activity_id: Activity.find_by(title: "Cultural Events").id,
   title: "Sydney Opera House",
-  start_date: "2022-06-21 17:00:00",
-  end_date: "2022-06-21 22:00:00",
+  start_date: "2024-06-21 17:00:00",
+  end_date: "2024-06-21 22:00:00",
   description: "A night at the Opera",
   max_spots: 2,
   address: 'Bennelong Point, Sydney NSW 2000, Australia'
@@ -739,8 +739,8 @@ event_list = [
   trip_id: Trip.find_by(title: "Welcome to Oz").id,
 #   activity_id: Activity.find_by(title: "Snorkeling").id,
   title: "Snorkeling off the Perth coast",
-  start_date: "2022-06-23 09:00:00",
-  end_date: "2022-06-23 18:00:00",
+  start_date: "2024-06-23 09:00:00",
+  end_date: "2024-06-23 18:00:00",
   description: "Snorkeling around Rottnest Island",
   max_spots: 2,
   address: '44 Socrates Parade, North Coogee WA 6163, Australia'
@@ -750,8 +750,8 @@ event_list = [
   trip_id: Trip.find_by(title: "Euro Trip").id,
 #   activity_id: Activity.find_by(title: "Nature Tours").id,
   title: "Florence Winery",
-  start_date: "2022-08-05 09:00:00",
-  end_date: "2022-08-05 17:00:00",
+  start_date: "2024-08-05 09:00:00",
+  end_date: "2024-08-05 17:00:00",
   description: "Visit the most incredible wineries in Florence on a massive winery tour.",
   max_spots: 3,
   address: 'Via Ontignano, 64, 50014 Fiesole FI, Italy'
@@ -761,8 +761,8 @@ event_list = [
   trip_id: Trip.find_by(title: "Euro Trip").id,
 #   activity_id: Activity.find_by(title: "Tech").id,
   title: "Magical Harry Potter Tour",
-  start_date: "2022-08-07 15:30:00",
-  end_date: "2022-08-07 17:00:00",
+  start_date: "2024-08-07 15:30:00",
+  end_date: "2024-08-07 17:00:00",
   description: "Most magical experience of all. Please become a maurader with me.",
   max_spots: 3,
   address: 'Studio Tour Dr, Leavesden, Watford WD25 7LR, United Kingdom'
@@ -772,8 +772,8 @@ event_list = [
   trip_id: Trip.find_by(title: "Asian Food Tour").id,
 #   activity_id: Activity.find_by(title: "Food Markets").id,
   title: "Chinatown Complex Food Centre",
-  start_date: "2022-06-20 17:00:00",
-  end_date: "2022-06-20 22:00:00",
+  start_date: "2024-06-20 17:00:00",
+  end_date: "2024-06-20 22:00:00",
   description: "Largest hawker centre in Singapore with over 260 food stalls.",
   max_spots: 4,
   address: '335 Smith St, Singapore 050335'
@@ -783,8 +783,8 @@ event_list = [
   trip_id: Trip.find_by(title: "Asian Food Tour").id,
 #   activity_id: Activity.find_by(title: "Night Markets").id,
   title: "Temple Street Night Market",
-  start_date: "2022-06-22 20:30:00",
-  end_date: "2022-06-22 22:00:00",
+  start_date: "2024-06-22 20:30:00",
+  end_date: "2024-06-22 22:00:00",
   description: "Temple Street is the largest and most popular night market in Hong Kong",
   max_spots: 3,
   address: 'Temple St, Yau Ma Tei, Hong Kong'
@@ -794,8 +794,8 @@ event_list = [
   trip_id: Trip.find_by(title: "Thai Scuba Adventure").id,
 #   activity_id: Activity.find_by(title: "Scuba Diving").id,
   title: "Diving with Big Blue",
-  start_date: "2022-06-26 08:30:00",
-  end_date: "2022-06-30 22:00:00",
+  start_date: "2024-06-26 08:30:00",
+  end_date: "2024-06-30 22:00:00",
   description: "Best diving round the island",
   max_spots: 3,
   address: 'Mae Haad, Koh Tao, Surat Thani 84360, Thailand'
@@ -805,8 +805,8 @@ event_list = [
   trip_id: Trip.find_by(title: "Best of Hong Kong").id,
 #   activity_id: Activity.find_by(title: "Shopping").id,
   title: "Elements Shopping Mall",
-  start_date: "2022-07-01 09:30:00",
-  end_date: "2022-07-05 23:00:00",
+  start_date: "2024-07-01 09:30:00",
+  end_date: "2024-07-05 23:00:00",
   description: "Elements Hong Kong brings together a host of high-end brands with 123 stores selling accessories from the likes of Mulberry, shoes from Jimmy Choo, fashion from Max Mara, and watches from ROLEX.",
   max_spots: 3,
   address: '1 Austin Rd W, Tsim Sha Tsui, Hong Kong'
@@ -816,8 +816,8 @@ event_list = [
   trip_id: Trip.find_by(title: "Cherry Blossoms in Japan").id,
 #   activity_id: Activity.find_by(title: "Nature Tours").id,
   title: "Cherry Blossoms in Matsuno",
-  start_date: "2022-07-08 09:30:00",
-  end_date: "2022-07-12 23:00:00",
+  start_date: "2024-07-08 09:30:00",
+  end_date: "2024-07-12 23:00:00",
   description: "Cherry Blossoms bloom over Meguro River",
   max_spots: 2,
   address: 'Maruyamacho, Higashiyama Ward, Kyoto 605-0071, Japan'
@@ -827,8 +827,8 @@ event_list = [
   trip_id: Trip.find_by(title: "California Dreaming").id,
 #   activity_id: Activity.find_by(title: "Sightseeing").id,
   title: "Checking out the Golden Gate Bridge",
-  start_date: "2022-07-15 09:30:00",
-  end_date: "2022-07-19 23:00:00",
+  start_date: "2024-07-15 09:30:00",
+  end_date: "2024-07-19 23:00:00",
   description: "Fantastic views of the GG Bridge",
   max_spots: 2,
   address: 'Golden Gate Bridge, San Francisco, CA'
@@ -838,8 +838,8 @@ event_list = [
   trip_id: Trip.find_by(title: "New York New York").id,
 #   activity_id: Activity.find_by(title: "Clubbing").id,
   title: "K-Pop Karaoke in Korea Town",
-  start_date: "2022-07-22 20:30:00",
-  end_date: "2022-07-22 23:00:00",
+  start_date: "2024-07-22 20:30:00",
+  end_date: "2024-07-22 23:00:00",
   description: "Getting it on, Gangnam Style!",
   max_spots: 2,
   address: 'Koreatown, New York, NY 10001'
@@ -849,8 +849,8 @@ event_list = [
   trip_id: Trip.find_by(title: "My Fair London").id,
 #   activity_id: Activity.find_by(title: "Sightseeing").id,
   title: "Traditional Afternoon Tea at The Ritz, Mayfair",
-  start_date: "2022-07-29 15:30:00",
-  end_date: "2022-08-05 17:00:00",
+  start_date: "2024-07-29 15:30:00",
+  end_date: "2024-08-05 17:00:00",
   description: "This most charming traditional Afternoon Tea in Mayfair, is served in the spectacular Palm Court, with glittering chandeliers and elegant mirrors, which add a light and stylish flourish to the room.
   The Ritz London is the only hotel in the UK to have a certified Tea Sommelier, Giandomenico Scanu, who travels around the world to various tea plantations to source our wonderful teas.",
   max_spots: 3,
@@ -861,8 +861,8 @@ event_list = [
   trip_id: Trip.find_by(title: "NZ Visa Run").id,
 #   activity_id: Activity.find_by(title: "Hiking").id,
   title: "Hiking the Lonely Mountain",
-  start_date: "2022-06-20 16:30:00",
-  end_date: "2022-06-20 20:00:00",
+  start_date: "2024-06-20 16:30:00",
+  end_date: "2024-06-20 20:00:00",
   description: "Hike a mountain and potentially find a dragon.",
   max_spots: 0,
   address: 'Manawatu-Wanganui 4691, New Zealand'
@@ -872,8 +872,8 @@ event_list = [
   trip_id: Trip.find_by(title: "ABC Islands & Colombia Extravaganza").id,
 #   activity_id: Activity.find_by(title: "Snorkeling").id,
   title: "Bonaire National Park - Snorkeling",
-  start_date: "2022-03-23 08:30:00",
-  end_date: "2022-03-23 17:00:00",
+  start_date: "2024-03-23 08:30:00",
+  end_date: "2024-03-23 17:00:00",
   description: "Have the most incredible experience snorkeling in the Bonaire National Park. See turtles, squid, tons of coral and fish!",
   max_spots: 7,
   address: 'Washington-Slagbaai National Park, Caribbean Netherlands'
@@ -883,8 +883,8 @@ event_list = [
   trip_id: Trip.find_by(title: "ABC Islands & Colombia Extravaganza").id,
 #   activity_id: Activity.find_by(title: "Night Life").id,
   title: "Blue Curacao Experience",
-  start_date: "2022-03-25 14:30:00",
-  end_date: "2022-03-25 17:00:00",
+  start_date: "2024-03-25 14:30:00",
+  end_date: "2024-03-25 17:00:00",
   description: "Groupon for two to have a blue Curacao experience.",
   max_spots: 2,
   address: 'Curaçao Liqueur Distillery, 129 Schottegatweg Oost, Willemstad, Curaçao'
@@ -894,8 +894,8 @@ event_list = [
   trip_id: Trip.find_by(title: "ABC Islands & Colombia Extravaganza").id,
 #   activity_id: Activity.find_by(title: "Hiking").id,
   title: "Hike in the Colombian Cloud Rainforest",
-  start_date: "2022-03-30 07:30:00",
-  end_date: "2022-03-30 20:00:00",
+  start_date: "2024-03-30 07:30:00",
+  end_date: "2024-03-30 20:00:00",
   description: "Hike in a cloud rainforest, round trip 14km. Waterfalls, alpacas, and clouds.",
   max_spots: 0,
   address: 'Vía Soacha, Km. 8, Soacha, Mosquera, Cundinamarca, Colombia'
@@ -905,8 +905,8 @@ event_list = [
   trip_id: Trip.find_by(title: "New Zealand Exploration").id,
 #   activity_id: Activity.find_by(title: "Nature Tours").id,
   title: "Glowing Cave Exploration",
-  start_date: "2022-06-21 08:30:00",
-  end_date: "2022-06-21 14:00:00",
+  start_date: "2024-06-21 08:30:00",
+  end_date: "2024-06-21 14:00:00",
   description: "Go into the glow worm cave and find something precious.",
   max_spots: 12,
   address: '39 Waitomo Village Road, Waitomo 3977, New Zealand'
@@ -916,8 +916,8 @@ event_list = [
   trip_id: Trip.find_by(title: "Kiwi Living").id,
 #   activity_id: Activity.find_by(title: "Kayaking").id,
   title: "Kayaking NZ Adventures",
-  start_date: "2022-07-21 08:30:00",
-  end_date: "2022-07-21 14:00:00",
+  start_date: "2024-07-21 08:30:00",
+  end_date: "2024-07-21 14:00:00",
   description: "Kayak in the stunning waters in NZ.",
   max_spots: 4,
   address: 'Lake Taupo, Waikato, New Zealand'
