@@ -5,12 +5,12 @@ puts "Clean database..."
 EventRegistration.destroy_all
 ActivityList.destroy_all
 Event.destroy_all
-# Location.destroy_all
+Location.destroy_all
 
-# Activity.destroy_all
+Activity.destroy_all
 
-# Trip.destroy_all
-# User.destroy_all
+Trip.destroy_all
+User.destroy_all
 
 # users
 puts "Creating users"
