@@ -21,7 +21,8 @@
     "tiny-slider": "^2.9.3",
     "turbolinks": "^5.2.0",
     "turbolinks-animate": "^3.2.1",
-    "webpacker-pwa": "^0.1.2"
+    "webpacker-pwa": "^0.1.2",
+    "yarn-audit-fix": "^9.3.12"
   },
   "version": "0.1.0",
   "devDependencies": {
