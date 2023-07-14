@@ -684,7 +684,7 @@ trip_list = [
   trip_type: 1
 }
 ]
-Trip.create!(trip_list)s
+Trip.create!(trip_list)
 puts "Created #{Trip.count} trip(s)"
 
 # events
