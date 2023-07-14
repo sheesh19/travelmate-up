@@ -5,6 +5,8 @@ import "flatpickr/dist/themes/material_green.css";
 
 const initFlatPickr = () => {
     const eventBtn = document.querySelector('.js-event-btn')
+    const unvailableDates = JSON.parse(document.querySelector('.js-dates').dataset.unavailable)
+
 
     const flatpickrInputs = () => {
         flatpickr("input[type='date']", {
@@ -14,9 +16,11 @@ const initFlatPickr = () => {
             defaultHour: 12,
             dateFormat: 'Z',
             altInput: true,
-            altFormat: "j M Y, h:i K"
+            altFormat: "j M Y, h:i K",
+            disable: unvailableDates
+
         });
-    
+
         flatpickr("input[type='datetime-local']", {
             enableTime: true,
             defaultMinute: 0,
@@ -25,7 +29,8 @@ const initFlatPickr = () => {
             dateFormat: 'Z',
             altInput: true,
             altFormat: "j M Y, h:i K",
-            disableMobile: true
+            disableMobile: true,
+            disable: unvailableDates
         });
     };
 

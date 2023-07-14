@@ -57,10 +57,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: travelmate_up_test
-  host: 127.0.0.1
-  username: postgres
-  password: postgres            
+  database: travelmate_up_test        
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -86,3 +83,9 @@ production:
   database: travelmate_up_production
   username: travelmate_up
   password: <%= ENV['TRAVELMATE_UP_DATABASE_PASSWORD'] %>
+
+staging:
+  <<: *default
+  database: travelmate_up_staging
+  username: travelmate_up
+  password: <%= ENV["TRAVELMATE_UP_DATABASE_PASSWORD"] %>

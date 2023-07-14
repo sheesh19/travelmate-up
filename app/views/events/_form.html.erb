@@ -5,7 +5,7 @@
 
       <!-- FORMS -->
       <%= simple_form_for [@trip, @event] do |f| %>
-      
+
         <div class="d-flex flex-column">
           <div>
             <ul class="stepper">
@@ -19,7 +19,7 @@
                   </div>
                 </div>
 
-                <div class="">
+                <div class="js-dates" data-unavailable="<%= current_user.unavailable_dates.to_json %>">
                   <!-- NAME -->
                   <%= f.input :title,
                     label: "Event name",
@@ -99,7 +99,7 @@
 
                 </div>
               </li>
-              
+
               <!-- FORM SECTION 3: PHOTOS -->
               <li class="step mt-5">
 
@@ -111,7 +111,7 @@
                 </div>
 
                 <div class="">
-                
+
                   <%= f.input :photos,
                     as: :file,
                     input_html: { multiple: true },
@@ -132,10 +132,10 @@
 
                 </div>
               </li>
-   
+
             </ul>
           </div>
- 
+
         </div>
 
         <div class="d-flex justify-content-between">

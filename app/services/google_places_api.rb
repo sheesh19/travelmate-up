@@ -5,14 +5,18 @@ class GooglePlacesApi
     def self.find_place(element)
         google_client = GooglePlaces::Client.new(ENV['GOOGLE_API_KEY'])
         spot = google_client.predictions_by_input(element)
-        spot_id = spot[0].place_id
-        google_client.spot(spot_id)
+        if spot[0]
+            spot_id = spot[0].place_id
+            google_client.spot(spot_id)
+        end
     end
 
     def self.location_images(location)
         place = set_location(location)
-        photo_urls = place.photos[0..6].map { |photo| photo.fetch_url(1000) }
-        location.attach_photos(photo_urls)
+        if place
+            photo_urls = place.photos[0..6].map { |photo| photo.fetch_url(1000) }
+            location.attach_photos(photo_urls)
+        end
     end
 
     def self.call(location)
