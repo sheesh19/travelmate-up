@@ -1089,11 +1089,6 @@
     "@jridgewell/resolve-uri" "3.1.0"
     "@jridgewell/sourcemap-codec" "1.4.14"
 
-"@kollegorna/cocoon-vanilla-js@^1.0.7":
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/@kollegorna/cocoon-vanilla-js/-/cocoon-vanilla-js-1.0.7.tgz#af897b69227f3ff1bd96a6618b86d4a983c94da4"
-  integrity sha512-ceu4Mtx7R6Lw7rUdDiODEcMBJCWxog+pO4OEEQKRRERrBqQeGM5zb6qSM5Z5/DJJooqmpY9ANyxt7XbfJMDVWQ==
-
 "@leichtgewicht/ip-codec@^2.0.1":
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/@leichtgewicht/ip-codec/-/ip-codec-2.0.4.tgz#b2ac626d6cb9c8718ab459166d4bb405b8ffa78b"
@@ -1188,6 +1183,11 @@
   integrity sha512-Uv6h1sT+0DrblvIrolFtbvM1FgWm+/sy4B3pvLp67Zys+thcukzS5ekn7HsZFGpWP4Q3fYJCljbWQE/XivMRLw==
   dependencies:
     mkdirp "^1.0.4"
+
+"@oddcamp/cocoon-vanilla-js@^1.1.3":
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/@oddcamp/cocoon-vanilla-js/-/cocoon-vanilla-js-1.1.3.tgz#3348242b3a4c61fa5c5bcf52ab05b686cadb37a2"
+  integrity sha512-zvi0GZznB0Wf/pC3M68sZVcnIxJwe785tqBoinBWHWgGHRwXZ96WJgyBrTBTDOkbgU2Tp40U/VZaDMVAofqLmw==
 
 "@rails/actioncable@^6.0.0":
   version "6.1.0"
