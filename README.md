@@ -40,7 +40,7 @@ If you have an Android:
 ## Environment Setup
 
 This application is using: 
-* Ruby 2.6.5
+* Ruby 3.1.2
 * rbenv 1.1.2
 * Rails 6.0.3.4
 
@@ -55,7 +55,7 @@ brew update
 Install rbenv to manage your ruby version:
 ```
 brew install rbenv
-rbenv install 2.6.6
+rbenv install 3.1.2
 ```
 
 Set the correct ruby version:

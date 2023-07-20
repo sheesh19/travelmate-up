@@ -7,7 +7,7 @@
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
-    "@rails/webpacker": "5.4.4",
+    "@rails/webpacker": "^5.4.4",
     "animate.css": "^4.1.1",
     "bootstrap": "^4.5.3",
     "flatpickr": "^4.6.9",
@@ -18,13 +18,13 @@
     "popper.js": "^1.16.1",
     "select2": "^4.1.0-rc.0",
     "stimulus": "^2.0.0",
-    "tiny-slider": "^2.9.3",
+    "tiny-slider": "^2.9.4",
     "turbolinks": "^5.2.0",
     "turbolinks-animate": "^3.2.1",
     "webpacker-pwa": "^0.1.2",
     "yarn-audit-fix": "^9.3.12"
   },
-  "version": "0.1.0",
+  "version": "0.2.0",
   "devDependencies": {
     "webpack-dev-server": "^4.15.1"
   },
