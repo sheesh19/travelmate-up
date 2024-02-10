@@ -8,9 +8,9 @@
 
 Travelmates is an app to enable solo travelers- from finding mates and events to join to getting inspiration for solo trips, Travelmates is the best mate to have when planning a solo trip. 
 
-// Travelmates is located at:
+(Travelmates is mainly a passion project to test new features.)
 
-// * www.travel-mates.co
+
 
 Travelmates is a PWA- you can add the app to your home screen.
 
@@ -89,9 +89,6 @@ rails db:seed
 ```
 
 ## Travelmates Features
-
-[Access the site here](www.travel-mates.co/)
-
 
 <p align="center">
   <img height="200" src="/app/assets/images/main-site.png">
